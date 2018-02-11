@@ -1,28 +1,29 @@
-Twig для верстальщиков
-======================
-Этот документ описывает синтаксис и семантику шаблонов. Будет наиболее полезен
-тем, кто создает Twig шаблоны
+Twig for Template Designers
+===========================
 
-Краткий обзор
--------------
+This document describes the syntax and semantics of the template engine and
+will be most useful as reference to those creating Twig templates.
 
-Шаблон — это просто текстовой файл. Вы можете генерировать любой текстовый
-формат (HTML, XML, CSV, LaTeX, и тп.). Шаблон может иметь любое расширение,
-обычно это ``.html`` или ``.xml``.
+Synopsis
+--------
 
-Шаблон содержит **переменные** или **выражения**, которые заменяются на их
-значения, во время генерации шаблона и **теги** которые контролируют логику
-шаблона.
+A template is simply a text file. It can generate any text-based format (HTML,
+XML, CSV, LaTeX, etc.). It doesn't have a specific extension, ``.html`` or
+``.xml`` are just fine.
 
-Рассмотрим небольшой пример шаблона, в котором показаны некоторые основы
-создания шаблонов:
+A template contains **variables** or **expressions**, which get replaced with
+values when the template is evaluated, and **tags**, which control the logic
+of the template.
+
+Below is a minimal template that illustrates a few basics. We will cover further
+details later on:
 
 .. code-block:: html+jinja
 
     <!DOCTYPE html>
     <html>
         <head>
-            <title>Мой сайт</title>
+            <title>My Webpage</title>
         </head>
         <body>
             <ul id="navigation">
@@ -31,103 +32,112 @@ Twig для верстальщиков
             {% endfor %}
             </ul>
 
-            <h1>Моя статья</h1>
-            {{ text }}
+            <h1>My Webpage</h1>
+            {{ a_variable }}
         </body>
     </html>
 
-Есть два вида разделителей ``{% ... %}`` и ``{{ ... }}``. Первый используется
-для выполнения выражений, например, циклов, второй — для вывода результата
-выражения в шаблоне.
+There are two kinds of delimiters: ``{% ... %}`` and ``{{ ... }}``. The first
+one is used to execute statements such as for-loops, the latter prints the
+result of an expression to the template.
 
-Интеграция с IDE
+IDEs Integration
 ----------------
 
-Многие IDE поддерживают подсветку синтаксиса и автодополнение для Twig:
+Many IDEs support syntax highlighting and auto-completion for Twig:
 
-* *Textmate* `Twig bundle`_
-* *Vim* `Jinja syntax plugin`_
-* *Netbeans* `Twig syntax plugin`_ (until 7.1, native as of 7.2)
+* *Textmate* via the `Twig bundle`_
+* *Vim* via the `Jinja syntax plugin`_ or the `vim-twig plugin`_
+* *Netbeans* via the `Twig syntax plugin`_ (until 7.1, native as of 7.2)
 * *PhpStorm* (native as of 2.1)
-* *Eclipse* `Twig plugin`_
-* *Sublime Text* `Twig bundle`_
-* *GtkSourceView* `Twig language definition`_ (used by gedit and other projects)
-* *Coda* and *SubEthaEdit* `Twig syntax mode`_
-* *Coda 2* `other Twig syntax mode`_
-* *Komodo* and *Komodo Edit* Twig highlight/syntax check mode
-* *Notepad++* `Notepad++ Twig Highlighter`_
-* *Emacs* `web-mode.el`_
+* *Eclipse* via the `Twig plugin`_
+* *Sublime Text* via the `Twig bundle`_
+* *GtkSourceView* via the `Twig language definition`_ (used by gedit and other projects)
+* *Coda* and *SubEthaEdit* via the `Twig syntax mode`_
+* *Coda 2* via the `other Twig syntax mode`_
+* *Komodo* and *Komodo Edit* via the Twig highlight/syntax check mode
+* *Notepad++* via the `Notepad++ Twig Highlighter`_
+* *Emacs* via `web-mode.el`_
+* *Atom* via the `PHP-twig for atom`_
+* *Visual Studio Code* via the `Twig pack`_
 
-Переменные
-----------
+Also, `TwigFiddle`_ is an online service that allows you to execute Twig templates
+from a browser; it supports all versions of Twig.
 
-Приложение передает переменные в шаблон, где вы можете их использовать.
-У переменных могут быть атрибуты, значения которых вы можете получить.
-Как выглядит переменная во многом зависит от того, как приложение предоставит ее.
+Variables
+---------
 
-Вы можете использовать точку (``.``) для доступа к атрибутам переменной
-(методы, свойства объекта, или массивы PHP),
-или так называемый "индекс" синтаксис (``[]``):
+The application passes variables to the templates for manipulation in the
+template. Variables may have attributes or elements you can access,
+too. The visual representation of a variable depends heavily on the application providing
+it.
+
+You can use a dot (``.``) to access attributes of a variable (methods or
+properties of a PHP object, or items of a PHP array), or the so-called
+"subscript" syntax (``[]``):
 
 .. code-block:: jinja
 
     {{ foo.bar }}
     {{ foo['bar'] }}
 
-Если атрибуты содержат специальные символы (например, ``-`` это воспримется,
-как оператор минус), в этом случае используйте функцию ``attribute``:
+When the attribute contains special characters (like ``-`` that would be
+interpreted as the minus operator), use the ``attribute`` function instead to
+access the variable attribute:
 
 .. code-block:: jinja
 
-    {# Подобное не будет работать foo.data-foo #}
+    {# equivalent to the non-working foo.data-foo #}
     {{ attribute(foo, 'data-foo') }}
 
 .. note::
 
-    Важно понимать, что фигурные скобки *не являются* часть переменной,
-    они используются для ее отображения. Если необходим доступ к переменной в
-    тэге — фигурные скобки не нужны.
+    It's important to know that the curly braces are *not* part of the
+    variable but the print statement. When accessing variables inside tags,
+    don't put the braces around them.
 
-Если переменная, или атрибут не найден, то в шаблоне это заменится на ``null``
-значение. Однако если опция ``strict_variables`` установлена как ``false``,
-Twig выдаст сообщение об ошибке (см. :ref:`environment options<environment_options>`).
+If a variable or attribute does not exist, you will receive a ``null`` value
+when the ``strict_variables`` option is set to ``false``; alternatively, if ``strict_variables``
+is set, Twig will throw an error (see :ref:`environment options<environment_options>`).
 
-.. sidebar:: Реализация
+.. sidebar:: Implementation
 
-    Рассмотрим что будет, когда Twig ищет ``foo.bar`` на уровне PHP:
+    For convenience's sake ``foo.bar`` does the following things on the PHP
+    layer:
 
-    * проверяет, что ``foo`` — массив, и bar — ключ в массиве;
-    * если нет, и ``foo`` — объект и ``bar`` соответствующие свойство;
-    * если нет, и ``foo`` — объект и ``bar`` соответствующий метод
-      (даже если ``bar`` конструктор — use ``__construct()``);
-    * если нет, и ``foo`` — объект, проверяет есть ли метод ``getBar``;
-    * если нет, и ``foo`` — объект, проверяет есть ли метод ``isBar``;
-    * если нет, вернется ``null``.
+    * check if ``foo`` is an array and ``bar`` a valid element;
+    * if not, and if ``foo`` is an object, check that ``bar`` is a valid property;
+    * if not, and if ``foo`` is an object, check that ``bar`` is a valid method
+      (even if ``bar`` is the constructor - use ``__construct()`` instead);
+    * if not, and if ``foo`` is an object, check that ``getBar`` is a valid method;
+    * if not, and if ``foo`` is an object, check that ``isBar`` is a valid method;
+    * if not, and if ``foo`` is an object, check that ``hasBar`` is a valid method;
+    * if not, return a ``null`` value.
 
-    ``foo['bar']`` это массив:
+    ``foo['bar']`` on the other hand only works with PHP arrays:
 
-    * проверяет, что ``foo`` — массив и bar — существующий в нем ключ;
-    * если нет, вернется ``null``.
+    * check if ``foo`` is an array and ``bar`` a valid element;
+    * if not, return a ``null`` value.
 
 .. note::
 
-    Если вы хотите получить динамический атрибут переменной, используйте
-    :doc:`attribute<functions/attribute>` функцию вместо этого.
+    If you want to access a dynamic attribute of a variable, use the
+    :doc:`attribute<functions/attribute>` function instead.
 
-Глобальные переменные
-~~~~~~~~~~~~~~~~~~~~~
+Global Variables
+~~~~~~~~~~~~~~~~
 
-Следующие переменные всегда доступны в шаблонах:
+The following variables are always available in templates:
 
-* ``_self``: ссылается на текущий шаблон;
-* ``_context``: ссылается на текущее окружение;
-* ``_charset``: ссылается на текущую кодировку.
+* ``_self``: references the current template name;
+* ``_context``: references the current context;
+* ``_charset``: references the current charset.
 
-Переменные
-~~~~~~~~~~~~~~~~~~~~
+Setting Variables
+~~~~~~~~~~~~~~~~~
 
-Вы можете устанавливать значения переменных в блоках кода для этого
-используйте тег :doc:`set<tags/set>`:
+You can assign values to variables inside code blocks. Assignments use the
+:doc:`set<tags/set>` tag:
 
 .. code-block:: jinja
 
@@ -135,46 +145,48 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
     {% set foo = [1, 2] %}
     {% set foo = {'foo': 'bar'} %}
 
-Фильтры
+Filters
 -------
 
-Переменные могут быть изменены с помощью фильтров. Фильтры отделяются от переменных
-прямой чертой (``|``) и могут содержать параметры в круглых скобках. Фильтры могут
-применяться по цепочке. Тогда результат одного фильтра передается к следующему.
+Variables can be modified by **filters**. Filters are separated from the
+variable by a pipe symbol (``|``) and may have optional arguments in
+parentheses. Multiple filters can be chained. The output of one filter is
+applied to the next.
 
-Следующий пример удаляет все HTML-тэги из ``name`` и преобразует в верхний
-регистр первый символ каждого слова:
+The following example removes all HTML tags from the ``name`` and title-cases
+it:
 
 .. code-block:: jinja
 
     {{ name|striptags|title }}
 
-У фильтров, которые принимают аргументы, есть круглые скобки вокруг аргументов.
-В этом примере, добавится после list запятая :
+Filters that accept arguments have parentheses around the arguments. This
+example will join a list by commas:
 
 .. code-block:: jinja
 
     {{ list|join(', ') }}
 
-Чтобы применить фильтр к блоку кода — оберните его тэгом :doc:`filter<tags/filter>`:
+To apply a filter on a section of code, wrap it in the
+:doc:`filter<tags/filter>` tag:
 
 .. code-block:: jinja
 
     {% filter upper %}
-        Этот текст будет в верхнем регистре
+        This text becomes uppercase
     {% endfilter %}
 
-Перейдите на страницу :doc:`filters<filters/index>`, чтобы узнать больше о
-встроенных фильтрах.
+Go to the :doc:`filters<filters/index>` page to learn more about built-in
+filters.
 
-Функции
+Functions
 ---------
 
-Функции можно вызвать для генерации контента. После названия функции идут
-фигурные скобки (``()``) в скобках могут быть аргументы.
+Functions can be called to generate content. Functions are called by their
+name followed by parentheses (``()``) and may have arguments.
 
-Например, функция ``range`` возвращает список, содержащий
-арифметическую прогрессию целых чисел:
+For instance, the ``range`` function returns a list containing an arithmetic
+progression of integers:
 
 .. code-block:: jinja
 
@@ -182,16 +194,11 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         {{ i }},
     {% endfor %}
 
-Перейдите на страницу :doc:`functions<functions/index>`, чтобы узнать больше о
-встроенных функциях.
+Go to the :doc:`functions<functions/index>` page to learn more about the
+built-in functions.
 
-Именованные аргументов
--------------------
-
-.. versionadded:: 1.122
-    Поддержка именованний аргументов была добавлена в Twig 1.12.
-
-Аргументы для фильтров и функций могут быть *дополнительно названы*:
+Named Arguments
+---------------
 
 .. code-block:: jinja
 
@@ -199,61 +206,61 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         {{ i }},
     {% endfor %}
 
-Использование именованных аргументов делает шаблоны более понятными:
+Using named arguments makes your templates more explicit about the meaning of
+the values you pass as arguments:
 
 .. code-block:: jinja
 
     {{ data|convert_encoding('UTF-8', 'iso-2022-jp') }}
 
-    {# В сравнении с  #}
+    {# versus #}
 
     {{ data|convert_encoding(from='iso-2022-jp', to='UTF-8') }}
 
-Также позволяют Вам пропускать некоторые аргументы,
-для которых Вы не хотите менять значение по умолчанию:
+Named arguments also allow you to skip some arguments for which you don't want
+to change the default value:
 
 .. code-block:: jinja
 
-    {# Первый аргумент — формат даты, который задан в приложении глобально #}
+    {# the first argument is the date format, which defaults to the global date format if null is passed #}
     {{ "now"|date(null, "Europe/Paris") }}
 
-    {# Или можно пропустить ``format``, но указать ``timezone`` #}
+    {# or skip the format value by using a named argument for the time zone #}
     {{ "now"|date(timezone="Europe/Paris") }}
 
-Вы также можете использовать за один вызов оба варианта вывода аргументов,
-однако это не рекомендуется, потому что это может привести к путанице:
+You can also use both positional and named arguments in one call, in which
+case positional arguments must always come before named arguments:
 
 .. code-block:: jinja
 
-    {# Оба варианта - рабочие #}
     {{ "now"|date('d/m/Y H:i', timezone="Europe/Paris") }}
-    {{ "now"|date(timezone="Europe/Paris", 'd/m/Y H:i') }}
 
 .. tip::
 
-    У каждой функции и фильтра есть страница документации,
-    где перечислено какие названия аргументов поддерживаются.
+    Each function and filter documentation page has a section where the names
+    of all arguments are listed when supported.
 
-Управляющие конструкции
----------------------
+Control Structure
+-----------------
 
-К управляющим конструкциям относится все условные операторы
-(такие как  ``if``/``elseif``/``else``), ``for``- циклы, а также блоки.
-Управляющие конструкции находятся внутри``{% ... %}`` блоков.
+A control structure refers to all those things that control the flow of a
+program - conditionals (i.e. ``if``/``elseif``/``else``), ``for``-loops, as
+well as things like blocks. Control structures appear inside ``{% ... %}``
+blocks.
 
-Например, чтобы отобразить список пользователей ``users``,
-используется тег :doc:`for<tags/for>`:
+For example, to display a list of users provided in a variable called
+``users``, use the :doc:`for<tags/for>` tag:
 
 .. code-block:: jinja
 
-    <h1>Пользователи</h1>
+    <h1>Members</h1>
     <ul>
         {% for user in users %}
             <li>{{ user.username|e }}</li>
         {% endfor %}
     </ul>
 
-Тег :doc:`if<tags/if>` может быть использован для проверки выражения:
+The :doc:`if<tags/if>` tag can be used to test an expression:
 
 .. code-block:: jinja
 
@@ -265,73 +272,68 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         </ul>
     {% endif %}
 
-Перейдите на страницу :doc:`tags<tags/index>`, чтобы узнать больше о встроенных тегов.
+Go to the :doc:`tags<tags/index>` page to learn more about the built-in tags.
 
-Комментарии
----------------
+Comments
+--------
 
-Чтобы закомментировать часть шаблона, используйте следующий синтаксис ``{# ... #}``.
-Это бывает полезно при отладке или добавлении полезной информации для других
-дизайнеров или себя:
+To comment-out part of a line in a template, use the comment syntax ``{# ...
+#}``. This is useful for debugging or to add information for other template
+designers or yourself:
 
 .. code-block:: jinja
 
-    {# примечание: это закомментированно, пока не используется
+    {# note: disabled template because we no longer use this
         {% for user in users %}
             ...
         {% endfor %}
     #}
 
-Подключение шаблонов
---------------------
+Including other Templates
+-------------------------
 
-Тэг :doc:`include<tags/include>` используется для подключения одного шаблона в другой.
+The :doc:`include<functions/include>` function is useful to include a template
+and return the rendered content of that template into the current one:
 
 .. code-block:: jinja
 
-    {% include 'sidebar.html' %}
+    {{ include('sidebar.html') }}
 
-По умолчанию содержимое подключаемых шаблонов выводится в месте их вызова
-
-Подключаемые шаблоны имеют доступ ко всем переменным шаблона к которому
-они подключаются.
+By default, included templates have access to the same context as the template
+which includes them. This means that any variable defined in the main template
+will be available in the included template too:
 
 .. code-block:: jinja
 
     {% for box in boxes %}
-        {% include "render_box.html" %}
+        {{ include('render_box.html') }}
     {% endfor %}
 
-Подключенный шаблон ``render_box.html`` имеет доступ к переменной ``box``.
+The included template ``render_box.html`` is able to access the ``box`` variable.
 
-Название файла с шаблоном определяется в загрузчике шаблона. Например,
-``Twig_Loader_Filesystem`` позволяет получить доступ к другим шаблонам по
-названию файла. Вы можете получить доступ к шаблонам в подкаталогах,
-используя слэш ``/``:
+The filename of the template depends on the template loader. For instance, the
+``Twig_Loader_Filesystem`` allows you to access other templates by giving the
+filename. You can access templates in subdirectories with a slash:
 
 .. code-block:: jinja
 
-    {% include "sections/articles/sidebar.html" %}
+    {{ include('sections/articles/sidebar.html') }}
 
-Такое поведение зависит от применения вложения Twig.
+This behavior depends on the application embedding Twig.
 
-Наследование шаблонов
----------------------
+Template Inheritance
+--------------------
 
-Самая мощная часть Twig — это наследование шаблонов. Наследование шаблонов
-позволяет вам создать основной "скелет" шаблона, который содержит все элементы
-вашего сайта и определить тэги **blocks**, которые будут перезаписаны в дочерних
-шаблонах.
+The most powerful part of Twig is template inheritance. Template inheritance
+allows you to build a base "skeleton" template that contains all the common
+elements of your site and defines **blocks** that child templates can
+override.
 
-Звучит сложно, на самом деле все просто. Проще всего разобраться с наследованием
-на примере.
+Sounds complicated but it is very basic. It's easier to understand it by
+starting with an example.
 
-Давайте определим базовый шаблон, ``base.html``, для простой страницы
-с двумя колонками:
-
-Давайте создадим основной шаблон, ``base.html``, который определит простой
-"скелет" HTML-документа, который можно использовать для простой страницы с
-двумя колонками:
+Let's define a base template, ``base.html``, which defines a simple HTML
+skeleton document that you might use for a simple two-column page:
 
 .. code-block:: html+jinja
 
@@ -340,34 +342,31 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         <head>
             {% block head %}
                 <link rel="stylesheet" href="style.css" />
-                <title>{% block title %}{% endblock %} - Мой сайт</title>
+                <title>{% block title %}{% endblock %} - My Webpage</title>
             {% endblock %}
         </head>
         <body>
             <div id="content">{% block content %}{% endblock %}</div>
             <div id="footer">
                 {% block footer %}
-                    &copy; Copyright 2013 <a href="http://example.com/">Вы</a>.
+                    &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
                 {% endblock %}
             </div>
         </body>
     </html>
 
-В этом примере тегом the :doc:`block<tags/block>` определяется 4 блока,
-которые мы и заменим. Все теги ``block`` сообщат шаблонизатору,
-что в последствии их можно будет переопределить
+In this example, the :doc:`block<tags/block>` tags define four blocks that
+child templates can fill in. All the ``block`` tag does is to tell the
+template engine that a child template may override those portions of the
+template.
 
-В этом примере, тэг :doc:`block<tags/block>` определяет четыре блока, которые
-будут заполнены в дочернем шаблоне. Все теги ``block`` говорят шаблонизатору,
-что они могут быть переопределены в дочернем шаблоне.
-
-Дочерний шаблон может выглядеть следующим образом:
+A child template might look like this:
 
 .. code-block:: jinja
 
     {% extends "base.html" %}
 
-    {% block title %}Главная{% endblock %}
+    {% block title %}Index{% endblock %}
     {% block head %}
         {{ parent() }}
         <style type="text/css">
@@ -375,72 +374,73 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         </style>
     {% endblock %}
     {% block content %}
-        <h1>Главная</h1>
+        <h1>Index</h1>
         <p class="important">
-            Приветсвую на своем потрясном сайте!
+            Welcome to my awesome homepage.
         </p>
     {% endblock %}
 
-Тэг :doc:`extends<tags/extends>` ключевой здесь. Он сообщает шаблонизатору,
-что этот шаблон "расширяет" другой шаблон. Когда шаблонизатор обрабатывает шаблон,
-он первым делом смотрит на родительский шаблон. *Тег ``extends`` должен
-быть первым в шаблоне*.
+The :doc:`extends<tags/extends>` tag is the key here. It tells the template
+engine that this template "extends" another template. When the template system
+evaluates this template, first it locates the parent. The extends tag should
+be the first tag in the template.
 
-Обратите внимание, что так как в дочернем шаблоне не определен блок ``footer``,
-то он берется из родительского.
+Note that since the child template doesn't define the ``footer`` block, the
+value from the parent template is used instead.
 
-Используя функцию :doc:`parent<functions/parent>`, можно отобразить содержание
-родительского блока. Она возвращает первоначальное содержание родительского блока:
+It's possible to render the contents of the parent block by using the
+:doc:`parent<functions/parent>` function. This gives back the results of the
+parent block:
 
 .. code-block:: jinja
 
     {% block sidebar %}
-        <h3>Оглавление</h3>
+        <h3>Table Of Contents</h3>
+        ...
         {{ parent() }}
     {% endblock %}
 
 .. tip::
 
-    Страница документации :doc:`extends<tags/extends>` описывает более
-    продвинутые функции, такие как вложенности блоков, область применения,
-    динамическое и условное наследование.
+    The documentation page for the :doc:`extends<tags/extends>` tag describes
+    more advanced features like block nesting, scope, dynamic inheritance, and
+    conditional inheritance.
 
 .. note::
 
-    Twig также поддерживает множественное наследование с использованием
-    тега :doc:`use<tags/use>` tag. Эта дополнительная функция вряд ли
-    понадобится в шаблонах.
+    Twig also supports multiple inheritance with the so called horizontal reuse
+    with the help of the :doc:`use<tags/use>` tag. This is an advanced feature
+    hardly ever needed in regular templates.
 
-Экранирование HTML
-------------------
+HTML Escaping
+-------------
 
-При генерации HTML в шаблоне всегда есть риск того, что переменные будут
-содержать специальные символы, которые влияют на полученный HTML. Есть два
-варианта решения: вручную отмечать переменные, которые нужно экранировать или
-автоматически экранировать все по умолчанию.
+When generating HTML from templates, there's always a risk that a variable
+will include characters that affect the resulting HTML. There are two
+approaches: manually escaping each variable or automatically escaping
+everything by default.
 
-По умолчанию в Twig автоматическое экранирование переменных включено.
+Twig supports both, automatic escaping is enabled by default.
 
-.. note::
+The automatic escaping strategy can be configured via the
+:ref:`autoescape<environment_options>` option and defaults to ``html``.
 
-    Автоматическое экранирование работает только, если включено *escaper*
-    расширение (значение по умолчанию).
+Working with Manual Escaping
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Работа с ручным экранированием
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If manual escaping is enabled, it is **your** responsibility to escape
+variables if needed. What to escape? Any variable you don't trust.
 
-Если ручное экранирование включено, ответственность за безопасность переменных
-лежит на *вас*. Что экранировать? Любую переменную, которой вы не доверяете.
-
-Экранирование осуществляется с помощью фильтра :doc:`escape<filters/escape>` или ``e``:
+Escaping works by piping the variable through the
+:doc:`escape<filters/escape>` or ``e`` filter:
 
 .. code-block:: jinja
 
     {{ user.username|e }}
 
-По умолчанию фильтр ``escape`` использует ``html`` режим экранирования,
-но в зависимости от ситуации вы можете использовать любые другие доступные
-способы экранирования:
+By default, the ``escape`` filter uses the ``html`` strategy, but depending on
+the escaping context, you might want to explicitly use any other available
+strategies:
 
 .. code-block:: jinja
 
@@ -449,54 +449,55 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
     {{ user.username|e('url') }}
     {{ user.username|e('html_attr') }}
 
-Работа с автоматическим экранированием
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Working with Automatic Escaping
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Вне зависимости от того включено экранирование или нет, вы можете добавить
-экранирование для блока кода с помощью тега :doc:`autoescape<tags/autoescape>`:
+Whether automatic escaping is enabled or not, you can mark a section of a
+template to be escaped or not by using the :doc:`autoescape<tags/autoescape>`
+tag:
 
 .. code-block:: jinja
 
     {% autoescape %}
-        В этом блоке все будет автоматически экранировано (с помощью HTML режима)
+        Everything will be automatically escaped in this block (using the HTML strategy)
     {% endautoescape %}
 
-По умолчанию автоматическое экранирование использует режим ``html``.
-Если есть переменые для экранирования в других режимах, необходимо добавить этот
-режим:
+By default, auto-escaping uses the ``html`` escaping strategy. If you output
+variables in other contexts, you need to explicitly escape them with the
+appropriate escaping strategy:
 
 .. code-block:: jinja
 
     {% autoescape 'js' %}
-        В этом блоке все будет автоматически экранировано (с помощью JavaScript режима)
+        Everything will be automatically escaped in this block (using the JS strategy)
     {% endautoescape %}
 
-Экранирование
-------------------
+Escaping
+--------
 
-Иногда необходимо Twig вывести данные без обработки. Например,
-вы хотите вывести (``{{``) в шаблоне:
+It is sometimes desirable or even necessary to have Twig ignore parts it would
+otherwise handle as variables or blocks. For example if the default syntax is
+used and you want to use ``{{`` as raw string in the template and not start a
+variable you have to use a trick.
 
-Самый простой способ для вывода (``{{``) это использовать следующее выражение:
+The easiest way is to output the variable delimiter (``{{``) by using a variable
+expression:
 
 .. code-block:: jinja
 
     {{ '{{' }}
 
-Для больших блоков нужно использовать тег :doc:`verbatim<tags/verbatim>`.
+For bigger sections it makes sense to mark a block
+:doc:`verbatim<tags/verbatim>`.
 
-Макросы
--------
+Macros
+------
 
-.. versionadded:: 1.12
-    Возможность устанавливать значения для аргументов по умолчанию
-    была добавлена в Twig 1.12.
+Macros are comparable with functions in regular programming languages. They
+are useful to reuse often used HTML fragments to not repeat yourself.
 
-Макросы сопоставимы с функциями в обычных языках программирования.
-Они полезны, когда нужно повторить многократно HTML-код, но не копировать его.
-
-Макрос определяется тегом :doc:`macro<tags/macro>`.
-Небольшой пример макроса для отображение элементов формы:
+A macro is defined via the :doc:`macro<tags/macro>` tag. Here is a small example
+(subsequently called ``forms.html``) of a macro that renders a form element:
 
 .. code-block:: jinja
 
@@ -504,8 +505,8 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
     {% endmacro %}
 
-Макросы могут быть определенны в любом шаблоне и должны быть импортированы
-с помощью тэга :doc:`import<tags/import>` перед использованием:
+Macros can be defined in any template, and need to be "imported" via the
+:doc:`import<tags/import>` tag before being used:
 
 .. code-block:: jinja
 
@@ -513,22 +514,22 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
     <p>{{ forms.input('username') }}</p>
 
-Кроме того, вы можете импортировать отдельные имена макросов из шаблона
-в текущем пространстве имен с помощью тега :doc:`from<tags/from>`
-и опционально задать им псевдоним:
+Alternatively, you can import individual macro names from a template into the
+current namespace via the :doc:`from<tags/from>` tag and optionally alias them:
 
 .. code-block:: jinja
 
     {% from 'forms.html' import input as input_field %}
 
     <dl>
-        <dt>Логин</dt>
+        <dt>Username</dt>
         <dd>{{ input_field('username') }}</dd>
-        <dt>Пароль</dt>
+        <dt>Password</dt>
         <dd>{{ input_field('password', '', 'password') }}</dd>
     </dl>
 
-Также могут быть определенны по умолчанию значения для аргументов при объявлении макроса:
+A default value can also be defined for macro arguments when not provided in a
+macro call:
 
 .. code-block:: jinja
 
@@ -536,64 +537,82 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
         <input type="{{ type }}" name="{{ name }}" value="{{ value|e }}" size="{{ size }}" />
     {% endmacro %}
 
-Операторы
----------
+If extra positional arguments are passed to a macro call, they end up in the
+special ``varargs`` variable as a list of values.
 
-Twig позволяет использовать операторы везде. Они работают подобно обычным
-операторам PHP, если вы не знаете PHP то у вас не будет с ними сложностей.
+.. _twig-expressions:
+
+Expressions
+-----------
+
+Twig allows expressions everywhere. These work very similar to regular PHP and
+even if you're not working with PHP you should feel comfortable with it.
 
 .. note::
 
-    Приоритет операторов, сначала идут операторы с наименьшим
-    приоритетом: ``b-and``, ``b-xor``, ``b-or``, ``or``, ``and``,
-    ``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``, ``in``, ``..``, ``+``,
-    ``-``, ``~``, ``*``, ``/``, ``//``, ``%``, ``is``, and ``**``.
+    The operator precedence is as follows, with the lowest-precedence
+    operators listed first: ``b-and``, ``b-xor``, ``b-or``, ``or``, ``and``,
+    ``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``, ``in``, ``matches``,
+    ``starts with``, ``ends with``, ``..``, ``+``, ``-``, ``~``, ``*``, ``/``,
+    ``//``, ``%``, ``is``, ``**``, ``|``, ``[]``, and ``.``:
 
-Литералы
+    .. code-block:: jinja
+
+        {% set greeting = 'Hello ' %}
+        {% set name = 'Fabien' %}
+
+        {{ greeting ~ name|lower }}   {# Hello fabien #}
+
+        {# use parenthesis to change precedence #}
+        {{ (greeting ~ name)|lower }} {# hello fabien #}
+
+Literals
 ~~~~~~~~
 
-.. versionadded:: 1.5
-    Поддержка хэш-ключей, имен и выражений была добавлена в Twig 1.5.
+The simplest form of expressions are literals. Literals are representations
+for PHP types such as strings, numbers, and arrays. The following literals
+exist:
 
-Самая простая форма выражений - литералы. Литералы соответствуют типам данных
-PHP: строки, числа и массивы. Существуют следующие литералы:
+* ``"Hello World"``: Everything between two double or single quotes is a
+  string. They are useful whenever you need a string in the template (for
+  example as arguments to function calls, filters or just to extend or include
+  a template). A string can contain a delimiter if it is preceded by a
+  backslash (``\``) -- like in ``'It\'s good'``. If the string contains a
+  backslash (e.g. ``'c:\Program Files'``) escape it by doubling it
+  (e.g. ``'c:\\Program Files'``).
 
-* ``"Привет мир"``: Все заключенное в одинарные или двойные кавычки
-  является строками. Это полезно, когда нужно использовать строки в шаблоне
-  (например, в качестве аргументов для вызова функций, фильтров или просто,
-  чтобы расширить или подключить шаблон). Строка может содержать разделитель,
-  который нужно экранировать обратным слешем (``\``) --
-  как в примере ``'It\'s good'``.
+* ``42`` / ``42.23``: Integers and floating point numbers are created by just
+  writing the number down. If a dot is present the number is a float,
+  otherwise an integer.
 
-* ``42`` / ``42.23``: Целые числа и числа с плавающей точкой записываются
-  так как есть. Если есть точка — это float, иначе — integer.
+* ``["foo", "bar"]``: Arrays are defined by a sequence of expressions
+  separated by a comma (``,``) and wrapped with squared brackets (``[]``).
 
-* ``["foo", "bar"]``: Массивы определяются как набор данных разделенных
-  запятыми (``,``) и заключенных в квадратные скобки (``[]``).
-
-* ``{"foo": "bar"}``: Хеши определяются списком ключей и значений
-  разделенными запятой (``,``) и заключены в фигурные скобки (``{}``).
+* ``{"foo": "bar"}``: Hashes are defined by a list of keys and values
+  separated by a comma (``,``) and wrapped with curly braces (``{}``):
 
   .. code-block:: jinja
 
-    {# ключи как строка #}
+    {# keys as string #}
     { 'foo': 'foo', 'bar': 'bar' }
 
-    {# ключи как названия (эквивалентно предыдущему варианту) -- доступно с Twig 1.5 #}
+    {# keys as names (equivalent to the previous hash) #}
     { foo: 'foo', bar: 'bar' }
 
-    {# ключи как число #}
+    {# keys as integer #}
     { 2: 'foo', 4: 'bar' }
 
-    {# ключи как выражения (выражения должны быть включены в скобки) -- доступно с Twig 1.5 #}
-    { (1 + 1): 'foo', (a ~ 'b'): 'bar' }
+    {# keys as expressions (the expression must be enclosed into parentheses) #}
+    {% set foo = 'foo' %}
+    { (foo): 'foo', (1 + 1): 'bar', (foo ~ 'b'): 'baz' }
 
-* ``true`` / ``false``: ``true`` — истина, ``false`` — ложь.
+* ``true`` / ``false``: ``true`` represents the true value, ``false``
+  represents the false value.
 
-* ``null``: ``null`` специальное значение. Это значение возвращается,
-  когда переменной не существует. ``none`` является псевдонимом для ``null``.
+* ``null``: ``null`` represents no specific value. This is the value returned
+  when a variable does not exist. ``none`` is an alias for ``null``.
 
-Массивы и хеши могут быть вложены друг в друга:
+Arrays and hashes can be nested:
 
 .. code-block:: jinja
 
@@ -601,64 +620,95 @@ PHP: строки, числа и массивы. Существуют следу
 
 .. tip::
 
-    Использование двойных или одинарных кавычек не влияет на производительность,
-    но интерполяция строк (подстановка переменных) поддерживается только
-    в двойных кавычках.
+    Using double-quoted or single-quoted strings has no impact on performance
+    but string interpolation is only supported in double-quoted strings.
 
-Математические операторы
-~~~~~~~~~~~~~~~~~~~~~~~~
+Math
+~~~~
 
-Twig позволяет производить математические операции над данными.
-Поддерживаются следующие операторы:
+Twig allows you to calculate with values. This is rarely useful in templates
+but exists for completeness' sake. The following operators are supported:
 
-* ``+``:Складывает два объекта вместе (операнды приводятся к числами).
-  ``{{ 1 + 1 }}`` выведет ``2``.
+* ``+``: Adds two objects together (the operands are casted to numbers). ``{{
+  1 + 1 }}`` is ``2``.
 
-* ``-``:Вычитает из первого аргумента второй. ``{{ 3 - 2 }}`` выведет ``1``.
+* ``-``: Subtracts the second number from the first one. ``{{ 3 - 2 }}`` is
+  ``1``.
 
-* ``/``:Деление чисел. Возвращает число с плавающей точкой. ``{{ 1 / 2 }}`` равнозначно ``{{ 0.5 }}``.
+* ``/``: Divides two numbers. The returned value will be a floating point
+  number. ``{{ 1 / 2 }}`` is ``{{ 0.5 }}``.
 
-* ``%``:Вычисляет целый остаток от деления. ``{{ 11 % 7 }}`` выведет ``4``.
+* ``%``: Calculates the remainder of an integer division. ``{{ 11 % 7 }}`` is
+  ``4``.
 
-* ``//``:Делит два числа и возвращает результат целое число. ``{{20 // 7 }}`` выведет ``2``.
+* ``//``: Divides two numbers and returns the floored integer result. ``{{ 20
+  // 7 }}`` is ``2``, ``{{ -20  // 7 }}`` is ``-3`` (this is just syntactic
+  sugar for the :doc:`round<filters/round>` filter).
 
-* ``*``:Умножение. ``{{ 2 * 2 }}`` вернет ``4``.
+* ``*``: Multiplies the left operand with the right one. ``{{ 2 * 2 }}`` would
+  return ``4``.
 
-* ``**``:Возводит левый аргумент в степень правого аргумента ``{{ 2 ** 3 }}`` вернет ``8``.
+* ``**``: Raises the left operand to the power of the right operand. ``{{ 2 **
+  3 }}`` would return ``8``.
 
-Логические операторы
-~~~~~~~~~~~~~~~~~~~~
+Logic
+~~~~~
 
-Вы можете сочетать выражения используя следующие операторы:
+You can combine multiple expressions with the following operators:
 
-* ``and``: Возвращает ``true``, если левое и правое значение являются ``true``.
+* ``and``: Returns true if the left and the right operands are both true.
 
-* ``or``: Возвращает ``true``, если левое или правое значение являются ``true``.
+* ``or``: Returns true if the left or the right operand is true.
 
-* ``not``: Противоположное значение.
+* ``not``: Negates a statement.
 
-* ``(expr)``: Группа выражений.
+* ``(expr)``: Groups an expression.
 
 .. note::
 
-    Twig также поддерживает битовые операторы: (``b-and``, ``b-xor``, and ``b-or``).
+    Twig also support bitwise operators (``b-and``, ``b-xor``, and ``b-or``).
 
-Операторы сравнения
-~~~~~~~~~~~~~~~~~~~
+.. note::
 
-Следующие операторы сравнения поддерживаются в любом выражении:
-``==``, ``!=``, ``<``, ``>``, ``>=``, and ``<=``.
+    Operators are case sensitive.
 
-Оператор содержания
-~~~~~~~~~~~~~~~~~~~~
+Comparisons
+~~~~~~~~~~~
 
-Оператор ``in`` осуществляет проверку на совпадение.
+The following comparison operators are supported in any expression: ``==``,
+``!=``, ``<``, ``>``, ``>=``, and ``<=``.
 
-Возвращает ``true``, если левое значение содержится в правом:
+You can also check if a string ``starts with`` or ``ends with`` another
+string:
 
 .. code-block:: jinja
 
-    {# вернет true #}
+    {% if 'Fabien' starts with 'F' %}
+    {% endif %}
+
+    {% if 'Fabien' ends with 'n' %}
+    {% endif %}
+
+.. note::
+
+    For complex string comparisons, the ``matches`` operator allows you to use
+    `regular expressions`_:
+
+    .. code-block:: jinja
+
+        {% if phone matches '/^[\\d\\.]+$/' %}
+        {% endif %}
+
+Containment Operator
+~~~~~~~~~~~~~~~~~~~~
+
+The ``in`` operator performs containment test.
+
+It returns ``true`` if the left operand is contained in the right:
+
+.. code-block:: jinja
+
+    {# returns true #}
 
     {{ 1 in [1, 2, 3] }}
 
@@ -666,150 +716,175 @@ Twig позволяет производить математические оп
 
 .. tip::
 
-    Вы можете использовать проверку на совпадение для строк, массивов
-    или объектов реализующих интерфейс ``Traversable``.
+    You can use this filter to perform a containment test on strings, arrays,
+    or objects implementing the ``Traversable`` interface.
 
-Для отрицания используйте оператор ``not in``:
+To perform a negative test, use the ``not in`` operator:
 
 .. code-block:: jinja
 
     {% if 1 not in [1, 2, 3] %}
 
-    {# эквивалентно #}
+    {# is equivalent to #}
     {% if not (1 in [1, 2, 3]) %}
 
-Оператор проверки
-~~~~~~~~~~~~~~~~~
+Test Operator
+~~~~~~~~~~~~~
 
-Оператор ``is`` проверяет данные на соответствие
+The ``is`` operator performs tests. Tests can be used to test a variable against
+a common expression. The right operand is name of the test:
 
 .. code-block:: jinja
 
-    {# проверит является ли переменная нечетной #}
+    {# find out if a variable is odd #}
 
     {{ name is odd }}
 
-Так же можно использовать аргументы:
+Tests can accept arguments too:
 
 .. code-block:: jinja
 
-    {% if loop.index is divisibleby(3) %}
+    {% if post.status is constant('Post::PUBLISHED') %}
 
-Для отрицания используйте оператор, используйте оператор ``is not``:
+Tests can be negated by using the ``is not`` operator:
 
 .. code-block:: jinja
 
-    {% if loop.index is not divisibleby(3) %}
+    {% if post.status is not constant('Post::PUBLISHED') %}
 
-    {# эквивалентно #}
-    {% if not (loop.index is divisibleby(3)) %}
+    {# is equivalent to #}
+    {% if not (post.status is constant('Post::PUBLISHED')) %}
 
-Результаты работы можно посмотреть в тестах :doc:`tests<tests/index>`.
+Go to the :doc:`tests<tests/index>` page to learn more about the built-in
+tests.
 
-Другие операторы
-~~~~~~~~~~~~~~~~
+Other Operators
+~~~~~~~~~~~~~~~
 
-.. versionadded:: 1.12.0
-    Поддержка тернарного оператора была добавлена в Twig 1.12.0.
+The following operators don't fit into any of the other categories:
 
-Следующие операторы очень полезны, но не попадают ни в одну из других категорий:
+* ``|``: Applies a filter.
 
-* ``..``: Создает последовательность от левого до правого значения,
-  (это просто дополнение синтаксиса для функции :doc:`range<functions/range>`)
-
-* ``|``: Применяет фильтр.
-
-* ``~``: Преобразует все значения в строки и соединяет их.
-  ``{{ "Привет " ~ name ~ "!" }}`` вернет
-  (предположим, что ``name`` это ``'Иван'``) ``Привет Иван!``.
-
-* ``.``, ``[]``: Получает атрибут объекта.
-
-* ``?:``: Тернарный оператор:
+* ``..``: Creates a sequence based on the operand before and after the operator
+  (this is just syntactic sugar for the :doc:`range<functions/range>` function):
 
   .. code-block:: jinja
 
-      {{ foo ? 'Да' : 'Нет' }}
+      {{ 1..5 }}
 
-      {# доступно с Twig 1.12.0 #}
-      {{ foo ?: 'Нет' }} == {{ foo ? foo : 'Нет' }}
-      {{ foo ? 'Да' }} == {{ foo ? 'Да' : '' }}
+      {# equivalent to #}
+      {{ range(1, 5) }}
 
-Подстановка переменных
-~~~~~~~~~~~~~~~~~~~~~~
+  Note that you must use parentheses when combining it with the filter operator
+  due to the :ref:`operator precedence rules <twig-expressions>`:
 
-.. versionadded:: 1.5
-    Поддержка интерполяции строк (подстановки переменных) была добавлена в Twig 1.5.
+  .. code-block:: jinja
 
-Подстановка переменных (``#{выражение}``) доступна для любого выражения
-находящегося в *строке с двойными скобками*:
+      (1..5)|join(', ')
+
+* ``~``: Converts all operands into strings and concatenates them. ``{{ "Hello
+  " ~ name ~ "!" }}`` would return (assuming ``name`` is ``'John'``) ``Hello
+  John!``.
+
+* ``.``, ``[]``: Gets an attribute of an object.
+
+* ``?:``: The ternary operator:
+
+  .. code-block:: jinja
+
+      {{ foo ? 'yes' : 'no' }}
+      {{ foo ?: 'no' }} is the same as {{ foo ? foo : 'no' }}
+      {{ foo ? 'yes' }} is the same as {{ foo ? 'yes' : '' }}
+
+* ``??``: The null-coalescing operator:
+
+  .. code-block:: jinja
+
+      {# returns the value of foo if it is defined and not null, 'no' otherwise #}
+      {{ foo ?? 'no' }}
+
+String Interpolation
+~~~~~~~~~~~~~~~~~~~~
+
+String interpolation (``#{expression}``) allows any valid expression to appear
+within a *double-quoted string*. The result of evaluating that expression is
+inserted into the string:
 
 .. code-block:: jinja
 
-    {{ "Привет #{name}! Как дела?" }}
-    {{ "Дважды два =  #{2*2}" }}
+    {{ "foo #{bar} baz" }}
+    {{ "foo #{1 + 2} baz" }}
 
-Управление пробелами
----------------------
+.. _templates-whitespace-control:
 
-.. versionadded:: 1.1
-    Управление пробелами было добавлено в Twig 1.1.
+Whitespace Control
+------------------
 
-Первая строка после тэга удаляется автоматически (как в PHP.)
-Пробелы не изменяются шаблонизатором, так же как и другие подобные
-символы (табуляция, символ новой строки и др.) и возвращается без изменений.
+The first newline after a template tag is removed automatically (like in PHP.)
+Whitespace is not further modified by the template engine, so each whitespace
+(spaces, tabs, newlines etc.) is returned unchanged.
 
-Используйте тег ``spaceless`` для удаления пробелов *между HTML тегами*:
+Use the ``spaceless`` tag to remove whitespace *between HTML tags*:
 
 .. code-block:: jinja
 
     {% spaceless %}
         <div>
-            <strong>foo</strong>
+            <strong>foo bar</strong>
         </div>
     {% endspaceless %}
 
-    {# на выходе будет <div><strong>foo</strong></div> #}
+    {# output will be <div><strong>foo bar</strong></div> #}
 
-Также можно удалять пробелы для блоков кода:
+In addition to the spaceless tag you can also control whitespace on a per tag
+level. By using the whitespace control modifier on your tags, you can trim
+leading and or trailing whitespace:
 
 .. code-block:: jinja
 
     {% set value = 'no spaces' %}
-    {#- нет начальных и конечных пробелов -#}
+    {#- No leading/trailing whitespace -#}
     {%- if true -%}
         {{- value -}}
     {%- endif -%}
 
-    {# выведет 'no spaces' #}
+    {# output 'no spaces' #}
 
-Можно удалять пробелы с одной или другой стороны:
+The above sample shows the default whitespace control modifier, and how you can
+use it to remove whitespace around tags. Trimming space will consume all whitespace
+for that side of the tag.  It is possible to use whitespace trimming on one side
+of a tag:
 
 .. code-block:: jinja
 
     {% set value = 'no spaces' %}
     <li>    {{- value }}    </li>
 
-    {# выведет '<li>no spaces    </li>' #}
+    {# outputs '<li>no spaces    </li>' #}
 
-Расширения
+Extensions
 ----------
 
-Twig может быть легко расширен.
+Twig can be easily extended.
 
-Если вы ищете новые теги, фильтры, или функции для Twig загляните
-в официальный `extension repository`_.
+If you are looking for new tags, filters, or functions, have a look at the Twig official
+`extension repository`_.
 
-Если вы хотите создать свое собственное расширение, читайте раздел
-:ref:`Создание Расширений <creating_extensions>`.
+If you want to create your own, read the :ref:`Creating an
+Extension<creating_extensions>` chapter.
 
 .. _`Twig bundle`:                https://github.com/Anomareh/PHP-Twig.tmbundle
-.. _`Jinja syntax plugin`:        http://jinja.pocoo.org/2/documentation/integration
+.. _`Jinja syntax plugin`:        http://jinja.pocoo.org/docs/integration/#vim
+.. _`vim-twig plugin`:            https://github.com/lumiliet/vim-twig
 .. _`Twig syntax plugin`:         http://plugins.netbeans.org/plugin/37069/php-twig
 .. _`Twig plugin`:                https://github.com/pulse00/Twig-Eclipse-Plugin
 .. _`Twig language definition`:   https://github.com/gabrielcorpse/gedit-twig-template-language
-.. _`extension repository`:       http://github.com/fabpot/Twig-extensions
+.. _`extension repository`:       http://github.com/twigphp/Twig-extensions
 .. _`Twig syntax mode`:           https://github.com/bobthecow/Twig-HTML.mode
 .. _`other Twig syntax mode`:     https://github.com/muxx/Twig-HTML.mode
 .. _`Notepad++ Twig Highlighter`: https://github.com/Banane9/notepadplusplus-twig
 .. _`web-mode.el`:                http://web-mode.org/
+.. _`regular expressions`:        http://php.net/manual/en/pcre.pattern.php
+.. _`PHP-twig for atom`:          https://github.com/reesef/php-twig
+.. _`TwigFiddle`:                 http://twigfiddle.com/
+.. _`Twig pack`:                  https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-twig-pack

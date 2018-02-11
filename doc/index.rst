@@ -5,6 +5,7 @@ Twig
     :maxdepth: 2
 
     intro
+    installation
     templates
     api
     advanced
@@ -15,4 +16,3 @@ Twig
     filters/index
     functions/index
     tests/index
-    deprecated

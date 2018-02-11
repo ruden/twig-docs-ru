@@ -20,17 +20,18 @@ Filters
     last
     length
     lower
+    merge
     nl2br
     number_format
-    merge
-    upper
     raw
     replace
     reverse
+    round
     slice
     sort
     split
     striptags
     title
     trim
+    upper
     url_encode
