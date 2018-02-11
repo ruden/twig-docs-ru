@@ -1,1 +1,210 @@
-Test
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - Гибкий, быстрый и безопасный шаблонизатор для PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>Twig - Гибкий, быстрый и безопасный шаблонизатор для PHP</title>
+
+  <link href="css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="css/pygments.css" rel="stylesheet" type="text/css"/>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+  </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a class="active" href="/">О TWIG</a></li>
+          <li><a href="#">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/development.html">DEVELOPMENT</a></li>
+          <li><a href="/contributors.html">CONTRIBUTORS</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="clearfix">
+      <div class="intro">
+        <h2>Twig это современный шаблонизатор для PHP</h2>
+        <ul>
+          <li><strong>Быстрый</strong>: Twig
+            <em>компилирует</em> шаблоны в оптимизированный PHP код. Использование памяти по сравнению с обычным PHP кодом сведено к минимуму.
+          </li>
+          <li><strong>Безопасный</strong>: Twig имеет режим
+            <em>"песочницы"</em> для оценки ненадежного кода в шаблонах. Это позволяет использовать Twig в приложениях, где пользователи могут менять содержимое шаблонов.
+          </li>
+          <li><strong>Гибкий</strong>: Twig использует гибко настраиваемые <em>лексический</em> и
+            <em>грамматический</em> анализаторы. Это позволяет разработчику определять свои теги и фильтры, создавать собственный DSL.
+          </li>
+        </ul>
+      </div>
+      <div class="links_intro">
+        <ul>
+          <li class="learn_more">
+            <a href="/doc/2.x/">Learn more<img class="png_fix" src="images/arrow.svg" alt="Learn more" height="20"/></a>
+          </li>
+          <li class="certification">
+            <a href="https://sensiolabs.com/en/twig/certification.html" onclick="return !window.open(this.href);">Certification<img class="png_fix" src="images/arrow.svg" alt="Certification" height="20"/></a>
+          </li>
+          <li class="install_now">
+            <a href="/doc/2.x/intro.html#installation">Install now<img class="rotate-90 png_fix" src="images/arrow.svg" alt="Install now" height="20"/></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="intro_more">
+        <h2>Зачем нужен еще один шаблонизатор?</h2>
+        <p>Twig использует гибко настраиваемые лексический и грамматический анализаторы. Это позволяет разработчику определять свои теги и фильтры, создавать собственный DSL.</p>
+        <ul>
+          <li>
+            <p>
+              <strong>Краткость</strong>: Язык PHP многословен и даже слишком многословен, когда надо экранировать вывод данных:
+            </p>
+            <div class="highlight-php">
+              <div class="highlight"><pre><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$var</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$var</span><span class="p">,</span> <span class="nx">ENT_QUOTES</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+              </div>
+            </div>
+            <p>Twig имеет более лаконичный синтаксис, который позволяет легко читать шаблоны:</p>
+            <div class="highlight-jinja">
+              <div class="highlight"><pre><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x">         </span><span class="c">{# сокращение для escape #}</span><span class="x"></span>
+</pre>
+              </div>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong>Ориентированный на шаблоны синтаксис</strong>: Twig имеет сокращения для многих общих паттернов, например, отображение текста по умолчанию, если вы перебираете пустой массив:
+            </p>
+            <div class="highlight-jinja">
+              <div class="highlight"><pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    * </span><span class="cp">{{</span> <span class="nv">user.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    Пользователи не найдены.</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+              </div>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong>Полнофункциональный</strong>: Twig поддерживает все, что вам надо для использования шаблонов: множественное наследование, блоки, автоматическое экранирование и многое другое:
+            </p>
+            <div class="highlight-jinja">
+              <div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    Содержимое страницы...</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+              </div>
+            </div>
+          </li>
+          <li>
+            <strong>Легок в изучении</strong>: Синтаксис просто изучить и оптимален для верстальщиков, что позволяет им быстро выполнять свою работу.
+          </li>
+        </ul>
+        <p>Конечно, для PHP написано большое число шаблонизаторов. Но большинство из них написаны под PHP4 и не используют лучшие практики разработки:</p>
+        <ul>
+          <li>
+            <p>
+              <strong>Расширяемость</strong>: Twig - гибкий движок для любых ваших потребностей, даже самых сложных. Благодаря открытой архитектуре, вы можете определять новые языковые конструкции (тэги и фильтры) для создания своего собственного DSL.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Юнит-тестирование</strong>: Twig полностью покрыт тестами. Библиотека стабильна и готова к использованию в больших проектах.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Документация</strong>: Twig полностью документирован, вся документация доступна на сайте, и, конечно, имеет полное описание API.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Безопасность</strong>: В отношении безопасности, Twig имеет несколько совершенно уникальных особенностей:
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <em>Автоматическое экранирование вывода</em>: Для безопасного вывода данных, вы можете включить экранирование как глобально, так и для отдельных блоков:
+                </p>
+                <div class="highlight-jinja">
+                  <div class="highlight"><pre><span class="cp">{%</span> <span class="k">autoescape</span> <span class="nv">"html"</span> <span class="cp">%}</span><span class="x"></span>
+    <span class="cp">{{</span> <span class="k">var</span> <span class="cp">}}</span><span class="x"></span>
+    <span class="cp">{{</span> <span class="k">var</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">     </span><span class="c">{# var не экранируется #}</span><span class="x"></span>
+    <span class="cp">{{</span> <span class="k">var</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x">  </span><span class="c">{# var не экранируется дважды #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <p>
+                  <em>Песочница</em>: Twig позволяет использовать для любого шаблона "песочницу", где пользователи имеют ограниченный набор тэгов, фильтров и методов объектов, определенных разработчиком. Режим "песочницы" может быть включен как глобально, так и локально, для определенных шаблонов:
+                </p>
+                <div class="highlight-jinja">
+                  <div class="highlight"><pre><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">'page.html'</span><span class="o">,</span> <span class="nv">sandboxed</span> <span class="o">=</span> <span class="kp">true</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <strong>Чистые сообщения об ошибках</strong>:Каждый раз, когда у вас возникают синтаксические ошибки в шаблоне, Twig выводит сообщение о имени файла с ошибкой и номере строки, которая ее вызвала. Это очень упрощает отладку.
+            </p>
+          </li>
+          <li><p>
+            <strong>Быстрый</strong>:Одна из целей создания Twig - сделать его таким быстрым как только можно. Для достижения максимальной скорости работы, Twig компилирует шаблоны в оптимизированный PHP код. Использование памяти по сравнению с обычным PHP кодом сведено к минимуму.
+          </p>
+          </li>
+        </ul>
+        <h2>Кто создал Twig?</h2>
+        <p>Twig написан <a target="_blank" href="http://fabien.potencier.org/">Fabien
+          Potencier</a>, создателем фреймворка
+          <a target="_blank" href="https://symfony.com/">Symfony framework</a>. Twig распространяется по новой лицензии BSD.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

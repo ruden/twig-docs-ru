@@ -1,0 +1,446 @@
+html, body
+{
+  width: 100%;
+  height: 100%;
+  background-color: #d9dadb;
+}
+
+body
+{
+  font: 1em Georgia, "Times New Roman", serif;
+  color: #626262;
+  text-align: left;
+}
+
+h1, h2, h3, h4
+{
+  font: 1em Georgia, "Times New Roman", serif;
+}
+
+a
+{
+  color: #21A6A4;
+}
+
+a:visited
+{
+  color: #004D7D;
+}
+
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+
+.content
+{
+  width: 947px;
+  margin: 0 auto;
+  padding-left: 49px;
+}
+
+.sensio_product
+{
+  position: absolute;
+  top: 50px;
+  right: 30px;
+}
+
+.hd, .bd, .ft
+{
+  max-width: 1200px;
+  min-width: 996px;
+  width: 100%;
+  _width: expression(document.body.clientWidth >= 1200 ? "1200px": document.body.clientWidth <= 996 ? "996px" :"100%");
+  margin: auto;
+  background-color: #fff;
+}
+
+.hd
+{
+  background: #fff url("../images/background.png") repeat-x;
+}
+
+.hd .illustration, .hd
+{
+  height:390px;
+}
+
+.hd .content
+{
+  padding-top: 110px;
+  position: relative;
+}
+
+.hd .logo_header
+{
+  float: left;
+  padding: 0px 25px 0 0;
+  height: 91px;
+  font-size: 76px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.hd .logo_header a
+{
+  color: #fff;
+  text-decoration: none;
+}
+
+.hd .title_header
+{
+  font-family: Arial, sans-serif;
+  float: left;
+  height: 70px;
+  padding: 14px 0 0 27px;
+  border-left: 4px solid #8fe6e5;
+  color: #006f9f;
+  font-size: 28px;
+  line-height: 1em;
+  _line-height: 0.85em;
+  margin-top: 0px;
+}
+
+.hd .title_header_home
+{
+  border-left: 4px solid #c4c3c3;
+}
+
+.hd .title_header_home span
+{
+  color: #d6cecf;
+}
+
+.hd .illustration
+{
+  background: transparent url(../images/logo.png) no-repeat center 2px;
+}
+
+.menu
+{
+  padding-top: 95px;
+  width: 940px;
+  font-family: Arial, sans-serif;
+}
+
+.menu li
+{
+  color: #ffffff;
+  font-size: 1.125em;
+  display: inline;
+  padding-right: 30px;
+}
+
+.menu a
+{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover
+{
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.menu a.active
+{
+  color: #444;
+}
+
+.bd .content
+{
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.bd .content li
+{
+  list-style: disc;
+  margin-left: 20px;
+  padding-bottom: 10px;
+}
+
+.bd h1
+{
+  padding: 20px 0 15px 0;
+  color: #21a6a4;
+  font-size: 2em;
+}
+
+.bd h3
+{
+  padding: 10px 0 5px 0;
+  color: #21a6a4;
+  font-size: 1.1em;
+}
+
+.page_title
+{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.79em;
+  margin-bottom: 40px;
+}
+
+.intro
+{
+  padding-top: 25px;
+  width: 625px;
+  float: left;
+}
+
+.links_intro
+{
+  padding: 20px 0 0 676px;
+}
+
+.bd .content .links_intro li
+{
+  padding: 15px 0;
+  border-radius: 8px;
+  list-style: none;
+  margin-left: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bd .content .links_intro li a, .bd .content .links_intro li a:hover {
+  text-decoration: none;
+  color: #fff;
+  font-size: 23px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Arial;
+}
+
+.bd .content .links_intro li a img {
+  margin-left: 15px;
+}
+
+.intro p
+{
+  color: #595959;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.box_content
+{
+  padding: 0 10px;
+  width: 939px;
+}
+
+.important
+{
+  margin: 20px 0;
+  padding-top: 10px;
+  border-top: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
+}
+
+.box_content div
+{
+  width: 260px;
+  float: left;
+}
+
+.box_content div.middle
+{
+  padding: 0 69px;
+}
+
+.box_content h3
+{
+  color: #21a6a4;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.important h3
+{
+  color: #db4528;
+  font-size: 1.27em;
+}
+
+.box_content p
+{
+  margin: 10px 0 30px;
+}
+
+.box_content p.last
+{
+  margin: 10px 0;
+}
+
+.bd .author
+{
+  margin: 0;
+}
+
+h2
+{
+  font: 1em Georgia, "Times New Roman", serif;
+  color: #444;
+  margin-bottom: 5px;
+  padding: 15px 0 10px 0;
+  font-size: 1.4em;
+}
+
+.ft {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    color: #ddd;
+    background-color: #000;
+}
+
+.ft a {
+    text-decoration: none;
+    color: #ddd;
+}
+
+.ft .sc {
+    width: 100px;
+    vertical-align: bottom;
+}
+
+.ft .content
+{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 0.793em;
+}
+
+em
+{
+  font-style: italic;
+}
+
+strong
+{
+  font-weight: bold;
+}
+
+p
+{
+  margin-bottom: 10px;
+}
+
+.latest
+{
+  margin-top: 5px;
+  text-align: left;
+  font-size: 14px;
+  font-family: Georgia;
+  color: #fff;
+  margin-left: 38px;
+}
+
+.latest a {
+    font-size: 14px !important;
+    font-family: Georgia !important;
+}
+
+.contributors
+{
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 30px;
+    list-style-type: none;
+}
+
+.bd .content .contributors li
+{
+    float: left;
+    margin-right: 50px;
+    margin-left: 0;
+    width: 250px;
+    height: 60px;
+    list-style-type: none;
+}
+
+.contributors small
+{
+    font-size: 0.7em;
+    color: #313131;
+}
+
+.contributors .gravatar
+{
+    float: left;
+    width: 50px;
+}
+
+
+.builtin-reference
+{
+    min-width: 120px;
+    float: left;
+    padding-right: 54px;
+    padding-bottom: 20px;
+}
+
+.bd .content .builtin-reference li
+{
+    margin-left: 0;
+    list-style: none;
+    padding-bottom: 5px;
+}
+
+.reference-column
+{
+    float: left;
+    padding-right: 20px;
+}
+
+.offline-docs
+{
+    float: right;
+    padding: 20px;
+    margin-top: 10px;
+    width: 200px;
+    -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;
+    background: #eee;
+}
+
+.bd .content .offline-docs ul
+{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.bd .content .offline-docs li
+{
+    margin: 10px;
+    list-style: none;
+    display: inline;
+}
+
+.rotate-90 {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.alert {
+    background-color: #d9edf7;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+a.sensiolabs {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.sensiolabs .brand {
+    color: #92db33;
+}

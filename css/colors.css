@@ -1,0 +1,39 @@
+.hd
+{
+  background-color: #fff;
+}
+
+.hd .title_header
+{
+  border-left-color: #e0e9a1;
+}
+
+.intro h2, .box_content h3, .bd h1, a, .bd h3, .bd h2, .bd .content .intro_more li strong
+{
+  color: #006f9f;
+}
+
+.important h3
+{
+  color: #bacf29;
+}
+
+#symfony-api #class-description, #symfony-api #method-details h3
+{
+  color: #bacf29 !important;
+}
+
+.links_intro .learn_more
+{
+  background-color: #bacf29;
+}
+
+.links_intro .certification
+{
+  background-color: #71b236;
+}
+
+.links_intro .install_now
+{
+  background-color: #006f9f;
+}
