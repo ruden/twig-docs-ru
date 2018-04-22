@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>convert_encoding - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+      <div id="doc-toc" class="infobar-box">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a class="reference internal" href="#"><code class="notranslate">convert_encoding</code></a>
+            <ul>
+              <li><a class="reference internal" href="#arguments">Arguments</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document?
+            <a href="https://github.com/twigphp/Twig/edit/2.x/doc/filters/convert_encoding.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="convert-encoding">
+        <h1>
+          <code class="notranslate">convert_encoding</code><a class="headerlink" href="#convert-encoding" title="Permalink to this headline">¶</a>
+        </h1>
+        <p>The <code class="notranslate">convert_encoding</code> filter converts a string from one encoding to
+          another. The first argument is the expected output charset and the second one
+          is the input charset:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">data</span><span class="o">|</span><span class="nf">convert_encoding</span><span class="o">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">,</span> <span class="s1">&#39;iso-2022-jp&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="admonition-wrapper">
+          <div class="note"></div>
+          <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+            <p class="last">This filter relies on the
+              <a class="reference external" href="https://secure.php.net/iconv">iconv</a> extension.</p>
+          </div>
+        </div>
+        <div class="section" id="arguments">
+          <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+          <ul class="simple">
+            <li><code class="notranslate">to</code>: The output charset</li>
+            <li><code class="notranslate">from</code>: The input charset</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="capitalize" href="capitalize.html">
+        &laquo;&nbsp;capitalize
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="date" href="date.html">
+      date&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

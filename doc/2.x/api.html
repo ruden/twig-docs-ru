@@ -1,0 +1,1143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>Twig for Developers - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+      <div id="doc-toc" class="infobar-box">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a class="reference internal" href="#">Twig for Developers</a>
+            <ul>
+              <li><a class="reference internal" href="#basics">Basics</a></li>
+              <li><a class="reference internal" href="#rendering-templates">Rendering Templates</a></li>
+              <li><a class="reference internal" href="#environment-options">Environment Options</a></li>
+              <li><a class="reference internal" href="#loaders">Loaders</a>
+                <ul>
+                  <li><a class="reference internal" href="#compilation-cache">Compilation Cache</a></li>
+                  <li><a class="reference internal" href="#built-in-loaders">Built-in Loaders</a>
+                    <ul>
+                      <li>
+                        <a class="reference internal" href="#twig-loader-filesystem"><code class="notranslate">Twig_Loader_Filesystem</code></a>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#twig-loader-array"><code class="notranslate">Twig_Loader_Array</code></a>
+                      </li>
+                      <li>
+                        <a class="reference internal" href="#twig-loader-chain"><code class="notranslate">Twig_Loader_Chain</code></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a class="reference internal" href="#create-your-own-loader">Create your own Loader</a></li>
+                </ul>
+              </li>
+              <li><a class="reference internal" href="#using-extensions">Using Extensions</a></li>
+              <li><a class="reference internal" href="#built-in-extensions">Built-in Extensions</a>
+                <ul>
+                  <li><a class="reference internal" href="#core-extension">Core Extension</a></li>
+                  <li><a class="reference internal" href="#escaper-extension">Escaper Extension</a></li>
+                  <li><a class="reference internal" href="#sandbox-extension">Sandbox Extension</a></li>
+                  <li><a class="reference internal" href="#profiler-extension">Profiler Extension</a></li>
+                  <li><a class="reference internal" href="#optimizer-extension">Optimizer Extension</a></li>
+                </ul>
+              </li>
+              <li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document? <a href="https://github.com/twigphp/Twig/edit/2.x/doc/api.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="twig-for-developers">
+        <h1>Twig for Developers<a class="headerlink" href="#twig-for-developers" title="Permalink to this headline">¶</a>
+        </h1>
+        <p>This chapter describes the API to Twig and not the template language. It will
+          be most useful as reference to those implementing the template interface to
+          the application and not those who are creating Twig templates.</p>
+        <div class="section" id="basics">
+          <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+          <p>Twig uses a central object called the <strong>environment</strong> (of class
+            <code class="notranslate">Twig_Environment</code>). Instances of this class are used to store the
+            configuration and extensions, and are used to load templates from the file
+            system or other locations.</p>
+          <p>Most applications will create one <code class="notranslate">Twig_Environment</code> object on application
+            initialization and use that to load templates. In some cases it's however
+            useful to have multiple environments side by side, if different configurations
+            are in use.</p>
+          <p>The simplest way to configure Twig to load templates for your application
+            looks roughly like this:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="k">require_once</span> <span class="s1">&#39;/path/to/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Filesystem</span><span class="p">(</span><span class="s1">&#39;/path/to/templates&#39;</span><span class="p">);</span>
+<span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;cache&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/path/to/compilation_cache&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>This will create a template environment with the default settings and a loader
+            that looks up the templates in the <code class="notranslate">/path/to/templates/</code> folder. Different
+            loaders are available and you can also write your own if you want to load
+            templates from a database or other resources.</p>
+          <div class="admonition-wrapper">
+            <div class="note"></div>
+            <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+              <p class="last">Notice that the second argument of the environment is an array of options.
+                The <code class="notranslate">cache</code> option is a compilation cache directory, where Twig caches
+                the compiled templates to avoid the parsing phase for sub-sequent
+                requests. It is very different from the cache you might want to add for
+                the evaluated templates. For such a need, you can use any available PHP
+                cache library.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="rendering-templates">
+          <h2>Rendering Templates<a class="headerlink" href="#rendering-templates" title="Permalink to this headline">¶</a>
+          </h2>
+          <p>To load a template from a Twig environment, call the <code class="notranslate">load()</code> method which
+            returns a <code class="notranslate">Twig_TemplateWrapper</code> instance:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$template</span> <span class="o">=</span> <span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>To render the template with some variables, call the <code class="notranslate">render()</code> method:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;the&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;variables&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;here&#39;</span><span class="p">));</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <div class="admonition-wrapper">
+            <div class="note"></div>
+            <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+              <p class="last">The
+                <code class="notranslate">display()</code> method is a shortcut to output the template directly.</p>
+            </div>
+          </div>
+          <p>You can also load and render the template in one fell swoop:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;the&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;variables&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;here&#39;</span><span class="p">));</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>If a template defines blocks, they can be rendered individually via the
+            <code class="notranslate">renderBlock()</code> call:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$template</span><span class="o">-&gt;</span><span class="na">renderBlock</span><span class="p">(</span><span class="s1">&#39;block_name&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;the&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;variables&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;here&#39;</span><span class="p">));</span>
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="environment-options">
+          <span id="id1"></span>
+          <h2>Environment Options<a class="headerlink" href="#environment-options" title="Permalink to this headline">¶</a>
+          </h2>
+          <p>When creating a new <code class="notranslate">Twig_Environment</code> instance, you can pass an array of
+            options as the constructor second argument:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>The following options are available:</p>
+          <ul>
+            <li><p class="first"><code class="notranslate">debug</code> <em>boolean</em></p>
+              <p>When set to <code class="notranslate">true</code>, the generated templates have a
+                <code class="notranslate">__toString()</code> method that you can use to display the generated nodes
+                (default to <code class="notranslate">false</code>).</p>
+            </li>
+            <li><p class="first"><code class="notranslate">charset</code> <em>string</em> (defaults to
+              <code class="notranslate">utf-8</code>)</p>
+              <p>The charset used by the templates.</p>
+            </li>
+            <li><p class="first"><code class="notranslate">base_template_class</code> <em>string</em> (defaults to
+              <code class="notranslate">Twig_Template</code>)</p>
+              <p>The base template class to use for generated
+                templates.</p>
+            </li>
+            <li><p class="first"><code class="notranslate">cache</code> <em>string</em> or
+              <code class="notranslate">false</code></p>
+              <p>An absolute path where to store the compiled templates, or
+                <code class="notranslate">false</code> to disable caching (which is the default).</p>
+            </li>
+            <li><p class="first"><code class="notranslate">auto_reload</code> <em>boolean</em></p>
+              <p>When developing with Twig, it's useful to recompile the
+                template whenever the source code changes. If you don't provide a value for
+                the
+                <code class="notranslate">auto_reload</code> option, it will be determined automatically based on the
+                <code class="notranslate">debug</code> value.</p>
+            </li>
+            <li><p class="first"><code class="notranslate">strict_variables</code> <em>boolean</em></p>
+              <p>If set to <code class="notranslate">false</code>, Twig will silently ignore invalid
+                variables (variables and or attributes/methods that do not exist) and
+                replace them with a <code class="notranslate">null</code> value. When set to
+                <code class="notranslate">true</code>, Twig throws an
+                exception instead (default to <code class="notranslate">false</code>).</p>
+            </li>
+            <li><p class="first"><code class="notranslate">autoescape</code> <em>string</em></p>
+              <p>Sets the default auto-escaping strategy (<code class="notranslate">name</code>,
+                <code class="notranslate">html</code>, <code class="notranslate">js</code>,
+                <code class="notranslate">css</code>,
+                <code class="notranslate">url</code>,
+                <code class="notranslate">html_attr</code>, or a PHP callback that takes the template &quot;filename&quot;
+                and returns the escaping strategy to use -- the callback cannot be a function
+                name to avoid collision with built-in escaping strategies); set it to
+                <code class="notranslate">false</code> to disable auto-escaping. The
+                <code class="notranslate">name</code> escaping strategy determines
+                the escaping strategy to use for a template based on the template filename
+                extension (this strategy does not incur any overhead at runtime as
+                auto-escaping is done at compilation time.)</p>
+            </li>
+            <li><p class="first"><code class="notranslate">optimizations</code> <em>integer</em></p>
+              <p>A flag that indicates which optimizations to apply
+                (default to <code class="notranslate">-1</code> -- all optimizations are enabled; set it to
+                <code class="notranslate">0</code> to
+                disable).</p>
+            </li>
+          </ul>
+        </div>
+        <div class="section" id="loaders">
+          <h2>Loaders<a class="headerlink" href="#loaders" title="Permalink to this headline">¶</a></h2>
+          <p>Loaders are responsible for loading templates from a resource such as the file
+            system.</p>
+          <div class="section" id="compilation-cache">
+            <h3>Compilation Cache<a class="headerlink" href="#compilation-cache" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>All template loaders can cache the compiled templates on the filesystem for
+              future reuse. It speeds up Twig a lot as templates are only compiled once; and
+              the performance boost is even larger if you use a PHP accelerator such as APC.
+              See the <code class="notranslate">cache</code> and <code class="notranslate">auto_reload</code> options of
+              <code class="notranslate">Twig_Environment</code> above
+              for more information.</p>
+          </div>
+          <div class="section" id="built-in-loaders">
+            <h3>Built-in Loaders<a class="headerlink" href="#built-in-loaders" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>Here is a list of the built-in loaders Twig provides:</p>
+            <div class="section" id="twig-loader-filesystem">
+              <h4>
+                <code class="notranslate">Twig_Loader_Filesystem</code><a class="headerlink" href="#twig-loader-filesystem" title="Permalink to this headline">¶</a>
+              </h4>
+              <p>
+                <code class="notranslate">Twig_Loader_Filesystem</code> loads templates from the file system. This loader
+                can find templates in folders on the file system and is the preferred way to
+                load them:</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Filesystem</span><span class="p">(</span><span class="nv">$templateDir</span><span class="p">);</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <p>It can also look for templates in an array of directories:</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Filesystem</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$templateDir1</span><span class="p">,</span> <span class="nv">$templateDir2</span><span class="p">));</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <p>With such a configuration, Twig will first look for templates in
+                <code class="notranslate">$templateDir1</code> and if they do not exist, it will fallback to look for them
+                in the <code class="notranslate">$templateDir2</code>.</p>
+              <p>You can add or prepend paths via the <code class="notranslate">addPath()</code> and
+                <code class="notranslate">prependPath()</code>
+                methods:</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">addPath</span><span class="p">(</span><span class="nv">$templateDir3</span><span class="p">);</span>
+<span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">prependPath</span><span class="p">(</span><span class="nv">$templateDir4</span><span class="p">);</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <p>The filesystem loader also supports namespaced templates. This allows to group
+                your templates under different namespaces which have their own template paths.</p>
+              <p>When using the <code class="notranslate">setPaths()</code>,
+                <code class="notranslate">addPath()</code>, and <code class="notranslate">prependPath()</code> methods,
+                specify the namespace as the second argument (when not specified, these
+                methods act on the &quot;main&quot; namespace):</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$loader</span><span class="o">-&gt;</span><span class="na">addPath</span><span class="p">(</span><span class="nv">$templateDir</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">);</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <p>Namespaced templates can be accessed via the special
+                <code class="notranslate">&#64;namespace_name/template_path</code> notation:</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;@admin/index.html&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">());</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <p>
+                <code class="notranslate">Twig_Loader_Filesystem</code> support absolute and relative paths. Using relative
+                paths is preferred as it makes the cache keys independent of the project root
+                directory (for instance, it allows warming the cache from a build server where
+                the directory might be different from the one used on production servers):</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <div class="highlight"><pre><span></span><span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Filesystem</span><span class="p">(</span><span class="s1">&#39;templates&#39;</span><span class="p">,</span> <span class="nb">getcwd</span><span class="p">()</span><span class="o">.</span><span class="s1">&#39;/..&#39;</span><span class="p">);</span>
+</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                  <p class="last">When not passing the root path as a second argument, Twig uses
+                    <code class="notranslate">getcwd()</code>
+                    for relative paths.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section" id="twig-loader-array">
+              <h4>
+                <code class="notranslate">Twig_Loader_Array</code><a class="headerlink" href="#twig-loader-array" title="Permalink to this headline">¶</a>
+              </h4>
+              <p>
+                <code class="notranslate">Twig_Loader_Array</code> loads a template from a PHP array. It's passed an array
+                of strings bound to template names:</p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <table class="highlighttable">
+                    <tr>
+                      <td class="linenos">
+                        <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre>
+                        </div>
+                      </td>
+                      <td class="code">
+                        <div class="highlight"><pre><span></span><span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;index.html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello {{ name }}!&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Fabien&#39;</span><span class="p">));</span>
+</pre>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <p>This loader is very useful for unit testing. It can also be used for small
+                projects where storing all templates in a single PHP file might make sense.</p>
+              <div class="admonition-wrapper">
+                <div class="tip"></div>
+                <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+                  <p class="last">When using the
+                    <code class="notranslate">Array</code> loader with a cache mechanism, you
+                    should know that a new cache key is generated each time a template content
+                    &quot;changes&quot; (the cache key being the source code of the template). If you
+                    don't want to see your cache grows out of control, you need to take care
+                    of clearing the old cache file by yourself.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section" id="twig-loader-chain">
+              <h4>
+                <code class="notranslate">Twig_Loader_Chain</code><a class="headerlink" href="#twig-loader-chain" title="Permalink to this headline">¶</a>
+              </h4>
+              <p><code class="notranslate">Twig_Loader_Chain</code> delegates the loading of templates to other loaders:
+              </p>
+              <div class="literal-block notranslate">
+                <div class="highlight-php">
+                  <table class="highlighttable">
+                    <tr>
+                      <td class="linenos">
+                        <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                        </div>
+                      </td>
+                      <td class="code">
+                        <div class="highlight"><pre><span></span><span class="nv">$loader1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;base.html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;{% block content %}{% endblock %}&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+<span class="nv">$loader2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Array</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;index.html&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;{% extends &quot;base.html&quot; %}{% block content %}Hello {{ name }}{% endblock %}&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;base.html&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Will never be loaded&#39;</span><span class="p">,</span>
+<span class="p">));</span>
+
+<span class="nv">$loader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Loader_Chain</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$loader1</span><span class="p">,</span> <span class="nv">$loader2</span><span class="p">));</span>
+
+<span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+</pre>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <p>When looking for a template, Twig will try each loader in turn and it will
+                return as soon as the template is found. When rendering the <code class="notranslate">index.html</code>
+                template from the above example, Twig will load it with
+                <code class="notranslate">$loader2</code> but the
+                <code class="notranslate">base.html</code> template will be loaded from
+                <code class="notranslate">$loader1</code>.</p>
+              <p><code class="notranslate">Twig_Loader_Chain</code> accepts any loader that implements
+                <code class="notranslate">Twig_LoaderInterface</code>.</p>
+              <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                  <p class="last">You can also add loaders via the <code class="notranslate">addLoader()</code> method.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="create-your-own-loader">
+            <h3>Create your own Loader<a class="headerlink" href="#create-your-own-loader" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>All loaders implement the <code class="notranslate">Twig_LoaderInterface</code>:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">interface</span> <span class="nx">Twig_LoaderInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Returns the source context for a given template logical name.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $name The template logical name</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_Source</span>
+<span class="sd">     *</span>
+<span class="sd">     * @throws Twig_Error_Loader When $name is not found</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSourceContext</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Gets the cache key to use for the cache for a given template name.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $name The name of the template to load</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return string The cache key</span>
+<span class="sd">     *</span>
+<span class="sd">     * @throws Twig_Error_Loader When $name is not found</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCacheKey</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns true if the template is still fresh.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string    $name The template name</span>
+<span class="sd">     * @param timestamp $time The last modification time of the cached template</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return bool    true if the template is fresh, false otherwise</span>
+<span class="sd">     *</span>
+<span class="sd">     * @throws Twig_Error_Loader When $name is not found</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isFresh</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$time</span><span class="p">);</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Check if we have the source code of a template, given its name.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @param string $name The name of the template to check if we can load</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return bool    If the template source code is handled by this loader or not</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>The <code class="notranslate">isFresh()</code> method must return
+              <code class="notranslate">true</code> if the current cached template
+              is still fresh, given the last modification time, or <code class="notranslate">false</code> otherwise.</p>
+            <p>The <code class="notranslate">getSourceContext()</code> method must return an instance of
+              <code class="notranslate">Twig_Source</code>.</p>
+          </div>
+        </div>
+        <div class="section" id="using-extensions">
+          <h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Permalink to this headline">¶</a>
+          </h2>
+          <p>Twig extensions are packages that add new features to Twig. Using an
+            extension is as simple as using the <code class="notranslate">addExtension()</code> method:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Twig_Extension_Sandbox</span><span class="p">());</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>Twig comes bundled with the following extensions:</p>
+          <ul class="simple">
+            <li><em>Twig_Extension_Core</em>: Defines all the core features of Twig.</li>
+            <li><em>Twig_Extension_Escaper</em>: Adds automatic output-escaping and the possibility
+              to escape/unescape blocks of code.
+            </li>
+            <li><em>Twig_Extension_Sandbox</em>: Adds a sandbox mode to the default Twig
+              environment, making it safe to evaluate untrusted code.
+            </li>
+            <li><em>Twig_Extension_Profiler</em>: Enabled the built-in Twig profiler.</li>
+            <li><em>Twig_Extension_Optimizer</em>: Optimizes the node tree before compilation.</li>
+          </ul>
+          <p>The core, escaper, and optimizer extensions do not need to be added to the
+            Twig environment, as they are registered by default.</p>
+        </div>
+        <div class="section" id="built-in-extensions">
+          <h2>Built-in Extensions<a class="headerlink" href="#built-in-extensions" title="Permalink to this headline">¶</a>
+          </h2>
+          <p>This section describes the features added by the built-in extensions.</p>
+          <div class="admonition-wrapper">
+            <div class="tip"></div>
+            <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+              <p class="last">Read the chapter about extending Twig to learn how to create your own
+                extensions.</p>
+            </div>
+          </div>
+          <div class="section" id="core-extension">
+            <h3>Core Extension<a class="headerlink" href="#core-extension" title="Permalink to this headline">¶</a></h3>
+            <p>The <code class="notranslate">core</code> extension defines all the core features of Twig:</p>
+            <ul class="simple">
+              <li><a class="reference internal" href="tags/index.html"><span class="doc">Tags</span></a>;</li>
+              <li><a class="reference internal" href="filters/index.html"><span class="doc">Filters</span></a>;</li>
+              <li><a class="reference internal" href="functions/index.html"><span class="doc">Functions</span></a>;</li>
+              <li><a class="reference internal" href="tests/index.html"><span class="doc">Tests</span></a>.</li>
+            </ul>
+          </div>
+          <div class="section" id="escaper-extension">
+            <h3>Escaper Extension<a class="headerlink" href="#escaper-extension" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>The
+              <code class="notranslate">escaper</code> extension adds automatic output escaping to Twig. It defines a
+              tag, <code class="notranslate">autoescape</code>, and a filter, <code class="notranslate">raw</code>.</p>
+            <p>When creating the escaper extension, you can switch on or off the global
+              output escaping strategy:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$escaper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Extension_Escaper</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="nv">$escaper</span><span class="p">);</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>If set to <code class="notranslate">html</code>, all variables in templates are escaped (using the
+              <code class="notranslate">html</code>
+              escaping strategy), except those using the <code class="notranslate">raw</code> filter:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv">
+                        <pre>1</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">article.to_html</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>You can also change the escaping mode locally by using the
+              <code class="notranslate">autoescape</code> tag:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">      </span><span class="c">{# var won&#39;t be escaped #}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# var won&#39;t be double-escaped #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="admonition-wrapper">
+              <div class="warning"></div>
+              <div class="admonition admonition-warning"><p class="first admonition-title">Warning</p>
+                <p class="last">The <code class="notranslate">autoescape</code> tag has no effect on included files.</p>
+              </div>
+            </div>
+            <p>The escaping rules are implemented as follows:</p>
+            <ul>
+              <li><p class="first">Literals (integers, booleans, arrays, ...) used in the template directly as
+                variables or filter arguments are never automatically escaped:</p>
+                <div class="literal-block notranslate">
+                  <div class="highlight-jinja">
+                    <table class="highlighttable">
+                      <tr>
+                        <td class="linenos">
+                          <div class="linenodiv"><pre>1
+2
+3
+4</pre>
+                          </div>
+                        </td>
+                        <td class="code">
+                          <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">&quot;Twig&lt;br /&gt;&quot;</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be escaped #}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;Twig&lt;br /&gt;&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">text</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped #}</span><span class="x"></span>
+</pre>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li><p class="first">Expressions which the result is always a literal or a variable marked safe
+                are never automatically escaped:</p>
+                <div class="literal-block notranslate">
+                  <div class="highlight-jinja">
+                    <table class="highlighttable">
+                      <tr>
+                        <td class="linenos">
+                          <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre>
+                          </div>
+                        </td>
+                        <td class="code">
+                          <div class="highlight"><pre><span></span>{{ foo ? &quot;Twig&lt;br /&gt;&quot; : &quot;&lt;br /&gt;Twig&quot; }} {# won&#39;t be escaped #}
+
+{% set text = &quot;Twig&lt;br /&gt;&quot; %}
+{{ foo ? text : &quot;&lt;br /&gt;Twig&quot; }} {# will be escaped #}
+
+{% set text = &quot;Twig&lt;br /&gt;&quot; %}
+{{ foo ? text|raw : &quot;&lt;br /&gt;Twig&quot; }} {# won&#39;t be escaped #}
+
+{% set text = &quot;Twig&lt;br /&gt;&quot; %}
+{{ foo ? text|escape : &quot;&lt;br /&gt;Twig&quot; }} {# the result of the expression won&#39;t be escaped #}
+</pre>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li><p class="first">Escaping is applied before printing, after any other filter is applied:</p>
+                <div class="literal-block notranslate">
+                  <div class="highlight-jinja">
+                    <table class="highlighttable">
+                      <tr>
+                        <td class="linenos">
+                          <div class="linenodiv">
+                            <pre>1</pre>
+                          </div>
+                        </td>
+                        <td class="code">
+                          <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# is equivalent to {{ var|upper|escape }} #}</span><span class="x"></span>
+</pre>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li><p class="first">The <cite>raw</cite> filter should only be used at the end of the filter chain:</p>
+                <div class="literal-block notranslate">
+                  <div class="highlight-jinja">
+                    <table class="highlighttable">
+                      <tr>
+                        <td class="linenos">
+                          <div class="linenodiv"><pre>1
+2
+3</pre>
+                          </div>
+                        </td>
+                        <td class="code">
+                          <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped #}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be escaped #}</span><span class="x"></span>
+</pre>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li><p class="first">Automatic escaping is not applied if the last filter in the chain is marked
+                safe for the current context (e.g. <code class="notranslate">html</code> or
+                <code class="notranslate">js</code>). <code class="notranslate">escape</code> and
+                <code class="notranslate">escape('html')</code> are marked safe for HTML,
+                <code class="notranslate">escape('js')</code> is marked
+                safe for JavaScript, <code class="notranslate">raw</code> is marked safe for everything.</p>
+                <div class="literal-block notranslate">
+                  <div class="highlight-jinja">
+                    <table class="highlighttable">
+                      <tr>
+                        <td class="linenos">
+                          <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                          </div>
+                        </td>
+                        <td class="code">
+                          <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;js&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;html&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for HTML and JavaScript #}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for JavaScript #}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be double-escaped #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="admonition-wrapper">
+              <div class="note"></div>
+              <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                <p class="last">Note that autoescaping has some limitations as escaping is applied on
+                  expressions after evaluation. For instance, when working with
+                  concatenation, <code class="notranslate">{{ foo|raw ~ bar }}</code> won't give the expected result as
+                  escaping is applied on the result of the concatenation, not on the
+                  individual variables (so, the <code class="notranslate">raw</code> filter won't have any effect here).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="sandbox-extension">
+            <h3>Sandbox Extension<a class="headerlink" href="#sandbox-extension" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>The <code class="notranslate">sandbox</code> extension can be used to evaluate untrusted code. Access to
+              unsafe attributes and methods is prohibited. The sandbox security is managed
+              by a policy instance. By default, Twig comes with one policy class:
+              <code class="notranslate">Twig_Sandbox_SecurityPolicy</code>. This class allows you to white-list some
+              tags, filters, properties, and methods:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="nv">$tags</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;if&#39;</span><span class="p">);</span>
+<span class="nv">$filters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;upper&#39;</span><span class="p">);</span>
+<span class="nv">$methods</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Article&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;getTitle&#39;</span><span class="p">,</span> <span class="s1">&#39;getBody&#39;</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="nv">$properties</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;Article&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="nv">$functions</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;range&#39;</span><span class="p">);</span>
+<span class="nv">$policy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Sandbox_SecurityPolicy</span><span class="p">(</span><span class="nv">$tags</span><span class="p">,</span> <span class="nv">$filters</span><span class="p">,</span> <span class="nv">$methods</span><span class="p">,</span> <span class="nv">$properties</span><span class="p">,</span> <span class="nv">$functions</span><span class="p">);</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>With the previous configuration, the security policy will only allow usage of
+              the <code class="notranslate">if</code> tag, and the
+              <code class="notranslate">upper</code> filter. Moreover, the templates will only be
+              able to call the <code class="notranslate">getTitle()</code> and
+              <code class="notranslate">getBody()</code> methods on <code class="notranslate">Article</code>
+              objects, and the <code class="notranslate">title</code> and
+              <code class="notranslate">body</code> public properties. Everything else
+              won't be allowed and will generate a
+              <code class="notranslate">Twig_Sandbox_SecurityError</code> exception.</p>
+            <p>The policy object is the first argument of the sandbox constructor:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$sandbox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Extension_Sandbox</span><span class="p">(</span><span class="nv">$policy</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="nv">$sandbox</span><span class="p">);</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>By default, the sandbox mode is disabled and should be enabled when including
+              untrusted template code by using the <code class="notranslate">sandbox</code> tag:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">sandbox</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;user.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endsandbox</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>You can sandbox all templates by passing <code class="notranslate">true</code> as the second argument of
+              the extension constructor:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$sandbox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Extension_Sandbox</span><span class="p">(</span><span class="nv">$policy</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="profiler-extension">
+            <h3>Profiler Extension<a class="headerlink" href="#profiler-extension" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>The <code class="notranslate">profiler</code> extension enables a profiler for Twig templates; it should
+              only be used on your development machines as it adds some overhead:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="nv">$profile</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Profiler_Profile</span><span class="p">();</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Twig_Extension_Profiler</span><span class="p">(</span><span class="nv">$profile</span><span class="p">));</span>
+
+<span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Profiler_Dumper_Text</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$profile</span><span class="p">);</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>A profile contains information about time and memory consumption for template,
+              block, and macro executions.</p>
+            <p>You can also dump the data in a
+              <a class="reference external" href="https://blackfire.io/">Blackfire.io</a>
+              compatible format:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$dumper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Profiler_Dumper_Blackfire</span><span class="p">();</span>
+<span class="nb">file_put_contents</span><span class="p">(</span><span class="s1">&#39;/path/to/profile.prof&#39;</span><span class="p">,</span> <span class="nv">$dumper</span><span class="o">-&gt;</span><span class="na">dump</span><span class="p">(</span><span class="nv">$profile</span><span class="p">));</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>Upload the profile to visualize it (create a
+              <a class="reference external" href="https://blackfire.io/signup">free account</a> first):</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-sh">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv">
+                        <pre>1</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span>blackfire --slot<span class="o">=</span><span class="m">7</span> upload /path/to/profile.prof
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="optimizer-extension">
+            <h3>Optimizer Extension<a class="headerlink" href="#optimizer-extension" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>The <code class="notranslate">optimizer</code> extension optimizes the node tree before compilation:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Twig_Extension_Optimizer</span><span class="p">());</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>By default, all optimizations are turned on. You can select the ones you want
+              to enable by passing them to the constructor:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$optimizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Extension_Optimizer</span><span class="p">(</span><span class="nx">Twig_NodeVisitor_Optimizer</span><span class="o">::</span><span class="na">OPTIMIZE_FOR</span><span class="p">);</span>
+
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="nv">$optimizer</span><span class="p">);</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>Twig supports the following optimizations:</p>
+            <ul class="simple">
+              <li><code class="notranslate">Twig_NodeVisitor_Optimizer::OPTIMIZE_ALL</code>, enables all optimizations
+                (this is the default value).
+              </li>
+              <li>
+                <code class="notranslate">Twig_NodeVisitor_Optimizer::OPTIMIZE_NONE</code>, disables all optimizations.
+                This reduces the compilation time, but it can increase the execution time
+                and the consumed memory.
+              </li>
+              <li><code class="notranslate">Twig_NodeVisitor_Optimizer::OPTIMIZE_FOR</code>, optimizes the
+                <code class="notranslate">for</code> tag by
+                removing the <code class="notranslate">loop</code> variable creation whenever possible.
+              </li>
+              <li><code class="notranslate">Twig_NodeVisitor_Optimizer::OPTIMIZE_RAW_FILTER</code>, removes the
+                <code class="notranslate">raw</code>
+                filter whenever possible.
+              </li>
+              <li>
+                <code class="notranslate">Twig_NodeVisitor_Optimizer::OPTIMIZE_VAR_ACCESS</code>, simplifies the creation
+                and access of variables in the compiled templates whenever possible.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section" id="exceptions">
+          <h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+          <p>Twig can throw exceptions:</p>
+          <ul class="simple">
+            <li><code class="notranslate">Twig_Error</code>: The base exception for all errors.</li>
+            <li><code class="notranslate">Twig_Error_Syntax</code>: Thrown to tell the user that there is a problem with
+              the template syntax.
+            </li>
+            <li>
+              <code class="notranslate">Twig_Error_Runtime</code>: Thrown when an error occurs at runtime (when a filter
+              does not exist for instance).
+            </li>
+            <li><code class="notranslate">Twig_Error_Loader</code>: Thrown when an error occurs during template loading.
+            </li>
+            <li><code class="notranslate">Twig_Sandbox_SecurityError</code>: Thrown when an unallowed tag, filter, or
+              method is called in a sandboxed template.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="Twig for Template Designers" href="templates.html">
+        &laquo;&nbsp;Twig for Template Designers
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="Extending Twig" href="advanced.html">
+      Extending Twig&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

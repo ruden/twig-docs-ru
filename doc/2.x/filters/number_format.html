@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>number_format - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+      <div id="doc-toc" class="infobar-box">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a class="reference internal" href="#"><code class="notranslate">number_format</code></a>
+            <ul>
+              <li><a class="reference internal" href="#arguments">Arguments</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document?
+            <a href="https://github.com/twigphp/Twig/edit/2.x/doc/filters/number_format.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="number-format">
+        <h1>
+          <code class="notranslate">number_format</code><a class="headerlink" href="#number-format" title="Permalink to this headline">¶</a>
+        </h1>
+        <p>The <code class="notranslate">number_format</code> filter formats numbers. It is a wrapper around PHP's
+          <a class="reference external" href="https://secure.php.net/number_format">number_format</a> function:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">200.35</span><span class="o">|</span><span class="nf">number_format</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>You can control the number of decimal places, decimal point, and thousands
+          separator using the additional arguments:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">9800.333</span><span class="o">|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">,</span> <span class="s1">&#39;.&#39;</span><span class="o">,</span> <span class="s1">&#39;,&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>To format negative numbers, wrap the number with parentheses (needed because of
+          Twig's
+          <a class="reference internal" href="../templates.html#twig-expressions"><span class="std std-ref">precedence of operators</span></a>:
+        </p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="o">-</span><span class="m">9800.333</span><span class="o">|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">,</span> <span class="s1">&#39;.&#39;</span><span class="o">,</span> <span class="s1">&#39;,&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# outputs : -9 #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="o">(-</span><span class="m">9800.333</span><span class="o">)|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">,</span> <span class="s1">&#39;.&#39;</span><span class="o">,</span> <span class="s1">&#39;,&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# outputs : -9,800.33 #}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>If no formatting options are provided then Twig will use the default formatting
+          options of:</p>
+        <ul class="simple">
+          <li>0 decimal places.</li>
+          <li><code class="notranslate">.</code> as the decimal point.</li>
+          <li><code class="notranslate">,</code> as the thousands separator.</li>
+        </ul>
+        <p>These defaults can be easily changed through the core extension:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-php">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">getExtension</span><span class="p">(</span><span class="s1">&#39;Twig_Extension_Core&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setNumberFormat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>The defaults set for
+          <code class="notranslate">number_format</code> can be over-ridden upon each call using the
+          additional parameters.</p>
+        <div class="section" id="arguments">
+          <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+          <ul class="simple">
+            <li><code class="notranslate">decimal</code>: The number of decimal points to display</li>
+            <li><code class="notranslate">decimal_point</code>: The character(s) to use for the decimal point</li>
+            <li><code class="notranslate">thousand_sep</code>: The character(s) to use for the thousands separator</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="nl2br" href="nl2br.html">
+        &laquo;&nbsp;nl2br
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="raw" href="raw.html">
+      raw&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

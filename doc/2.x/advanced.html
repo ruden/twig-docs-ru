@@ -1,0 +1,1976 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>Extending Twig - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+      <div id="doc-toc" class="infobar-box">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a class="reference internal" href="#">Extending Twig</a>
+            <ul>
+              <li><a class="reference internal" href="#globals">Globals</a></li>
+              <li><a class="reference internal" href="#filters">Filters</a>
+                <ul>
+                  <li><a class="reference internal" href="#environment-aware-filters">Environment-aware Filters</a></li>
+                  <li><a class="reference internal" href="#context-aware-filters">Context-aware Filters</a></li>
+                  <li><a class="reference internal" href="#automatic-escaping">Automatic Escaping</a></li>
+                  <li><a class="reference internal" href="#variadic-filters">Variadic Filters</a></li>
+                  <li><a class="reference internal" href="#dynamic-filters">Dynamic Filters</a></li>
+                  <li><a class="reference internal" href="#deprecated-filters">Deprecated Filters</a></li>
+                </ul>
+              </li>
+              <li><a class="reference internal" href="#functions">Functions</a></li>
+              <li><a class="reference internal" href="#tests">Tests</a></li>
+              <li><a class="reference internal" href="#tags">Tags</a>
+                <ul>
+                  <li><a class="reference internal" href="#registering-a-new-tag">Registering a new tag</a></li>
+                  <li><a class="reference internal" href="#defining-a-token-parser">Defining a Token Parser</a></li>
+                  <li><a class="reference internal" href="#defining-a-node">Defining a Node</a></li>
+                </ul>
+              </li>
+              <li><a class="reference internal" href="#creating-an-extension">Creating an Extension</a>
+                <ul>
+                  <li><a class="reference internal" href="#id1">Globals</a></li>
+                  <li><a class="reference internal" href="#id2">Functions</a></li>
+                  <li><a class="reference internal" href="#id3">Filters</a></li>
+                  <li><a class="reference internal" href="#id4">Tags</a></li>
+                  <li><a class="reference internal" href="#operators">Operators</a></li>
+                  <li><a class="reference internal" href="#id5">Tests</a></li>
+                  <li><a class="reference internal" href="#definition-vs-runtime">Definition vs Runtime</a></li>
+                </ul>
+              </li>
+              <li><a class="reference internal" href="#overloading">Overloading</a></li>
+              <li><a class="reference internal" href="#testing-an-extension">Testing an Extension</a>
+                <ul>
+                  <li><a class="reference internal" href="#functional-tests">Functional Tests</a></li>
+                  <li><a class="reference internal" href="#node-tests">Node Tests</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document?
+            <a href="https://github.com/twigphp/Twig/edit/2.x/doc/advanced.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="extending-twig">
+        <h1>Extending Twig<a class="headerlink" href="#extending-twig" title="Permalink to this headline">¶</a></h1>
+        <p>Twig can be extended in many ways; you can add extra tags, filters, tests,
+          operators, global variables, and functions. You can even extend the parser
+          itself with node visitors.</p>
+        <div class="admonition-wrapper">
+          <div class="note"></div>
+          <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+            <p class="last">The first section of this chapter describes how to extend Twig easily. If
+              you want to reuse your changes in different projects or if you want to
+              share them with others, you should then create an extension as described
+              in the following section.</p>
+          </div>
+        </div>
+        <div class="admonition-wrapper">
+          <div class="caution"></div>
+          <div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+            <p class="last">When extending Twig without creating an extension, Twig won't be able to
+              recompile your templates when the PHP code is updated. To see your changes
+              in real-time, either disable template caching or package your code into an
+              extension (see the next section of this chapter).</p>
+          </div>
+        </div>
+        <p>Before extending Twig, you must understand the differences between all the
+          different possible extension points and when to use them.</p>
+        <p>First, remember that Twig has two main language constructs:</p>
+        <ul class="simple">
+          <li><code class="notranslate">{{ }}</code>: used to print the result of an expression evaluation;</li>
+          <li><code class="notranslate">{% %}</code>: used to execute statements.</li>
+        </ul>
+        <p>To understand why Twig exposes so many extension points, let's see how to
+          implement a <em>Lorem ipsum</em> generator (it needs to know the number of words to
+          generate).</p>
+        <p>You can use a <code class="notranslate">lipsum</code> <em>tag</em>:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">lipsum</span> <span class="m">40</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>That works, but using a tag for <code class="notranslate">lipsum</code> is not a good idea for at least
+          three main reasons:</p>
+        <ul>
+          <li><p class="first"><code class="notranslate">lipsum</code> is not a language construct;</p>
+          </li>
+          <li><p class="first">The tag outputs something;</p>
+          </li>
+          <li><p class="first">The tag is not flexible as you cannot use it in an expression:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv">
+                        <pre>1</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span>{{ &#39;some text&#39; ~ {% lipsum 40 %} ~ &#39;some more text&#39; }}
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p>In fact, you rarely need to create tags; and that's good news because tags are
+          the most complex extension point of Twig.</p>
+        <p>Now, let's use a <code class="notranslate">lipsum</code> <em>filter</em>:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">40</span><span class="o">|</span><span class="nf">lipsum</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>Again, it works, but it looks weird. A filter transforms the passed value to
+          something else but here we use the value to indicate the number of words to
+          generate (so, <code class="notranslate">40</code> is an argument of the filter, not the value we want to
+          transform).</p>
+        <p>Next, let's use a <code class="notranslate">lipsum</code> <em>function</em>:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>Here we go. For this specific example, the creation of a function is the
+          extension point to use. And you can use it anywhere an expression is accepted:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;some text&#39;</span> <span class="o">~</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="o">~</span> <span class="s1">&#39;some more text&#39;</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">lipsum</span> <span class="o">=</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>Last but not the least, you can also use a <em>global</em> object with a method able
+          to generate lorem ipsum text:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>As a rule of thumb, use functions for frequently used features and global
+          objects for everything else.</p>
+        <p>Keep in mind the following when you want to extend Twig:</p>
+        <table border="1" class="docutils">
+          <colgroup>
+            <col width="14%"/>
+            <col width="37%"/>
+            <col width="14%"/>
+            <col width="35%"/>
+          </colgroup>
+          <thead valign="bottom">
+          <tr class="row-odd">
+            <th class="head">What?</th>
+            <th class="head">Implementation difficulty?</th>
+            <th class="head">How often?</th>
+            <th class="head">When?</th>
+          </tr>
+          </thead>
+          <tbody valign="top">
+          <tr class="row-even">
+            <td><em>macro</em></td>
+            <td>trivial</td>
+            <td>frequent</td>
+            <td>Content generation</td>
+          </tr>
+          <tr class="row-odd">
+            <td><em>global</em></td>
+            <td>trivial</td>
+            <td>frequent</td>
+            <td>Helper object</td>
+          </tr>
+          <tr class="row-even">
+            <td><em>function</em></td>
+            <td>trivial</td>
+            <td>frequent</td>
+            <td>Content generation</td>
+          </tr>
+          <tr class="row-odd">
+            <td><em>filter</em></td>
+            <td>trivial</td>
+            <td>frequent</td>
+            <td>Value transformation</td>
+          </tr>
+          <tr class="row-even">
+            <td><em>tag</em></td>
+            <td>complex</td>
+            <td>rare</td>
+            <td>DSL language construct</td>
+          </tr>
+          <tr class="row-odd">
+            <td><em>test</em></td>
+            <td>trivial</td>
+            <td>rare</td>
+            <td>Boolean decision</td>
+          </tr>
+          <tr class="row-even">
+            <td><em>operator</em></td>
+            <td>trivial</td>
+            <td>rare</td>
+            <td>Values transformation</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="section" id="globals">
+          <h2>Globals<a class="headerlink" href="#globals" title="Permalink to this headline">¶</a></h2>
+          <p>A global variable is like any other template variable, except that it's
+            available in all templates and macros:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addGlobal</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">());</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>You can then use the <code class="notranslate">text</code> variable anywhere in a template:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-jinja">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv">
+                      <pre>1</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="filters">
+          <h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+          <p>Creating a filter is as simple as associating a name with a PHP callable:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="c1">// an anonymous function</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">str_rot13</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// or a simple PHP function</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;str_rot13&#39;</span><span class="p">);</span>
+
+<span class="c1">// or a class static method</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SomeClass&#39;</span><span class="p">,</span> <span class="s1">&#39;rot13Filter&#39;</span><span class="p">));</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;SomeClass::rot13Filter&#39;</span><span class="p">);</span>
+
+<span class="c1">// or a class method</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;rot13Filter&#39;</span><span class="p">));</span>
+<span class="c1">// the one below needs a runtime implementation (see below for more information)</span>
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;SomeClass&#39;</span><span class="p">,</span> <span class="s1">&#39;rot13Filter&#39;</span><span class="p">));</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>The first argument passed to the
+            <code class="notranslate">Twig_Filter</code> constructor is the name of the
+            filter you will use in templates and the second one is the PHP callable to
+            associate with it.</p>
+          <p>Then, add the filter to your Twig environment:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addFilter</span><span class="p">(</span><span class="nv">$filter</span><span class="p">);</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>And here is how to use it in a template:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-jinja">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;Twig&#39;</span><span class="o">|</span><span class="nf">rot13</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# will output Gjvt #}</span><span class="x"></span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>When called by Twig, the PHP callable receives the left side of the filter
+            (before the pipe <code class="notranslate">|</code>) as the first argument and the extra arguments passed
+            to the filter (within parentheses <code class="notranslate">()</code>) as extra arguments.</p>
+          <p>For instance, the following code:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-jinja">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;TWIG&#39;</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">now</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="s1">&#39;d/m/Y&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>is compiled to something like the following:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nb">strtolower</span><span class="p">(</span><span class="s1">&#39;TWIG&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">twig_date_format_filter</span><span class="p">(</span><span class="nv">$now</span><span class="p">,</span> <span class="s1">&#39;d/m/Y&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <p>The <code class="notranslate">Twig_Filter</code> class takes an array of options as its last argument:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;str_rot13&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="environment-aware-filters">
+            <h3>Environment-aware Filters<a class="headerlink" href="#environment-aware-filters" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>If you want to access the current environment instance in your filter, set the
+              <code class="notranslate">needs_environment</code> option to
+              <code class="notranslate">true</code>; Twig will pass the current
+              environment as the first argument to the filter call:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Twig_Environment</span> <span class="nv">$env</span><span class="p">,</span> <span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// get the current charset for instance</span>
+    <span class="nv">$charset</span> <span class="o">=</span> <span class="nv">$env</span><span class="o">-&gt;</span><span class="na">getCharset</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nb">str_rot13</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+<span class="p">},</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;needs_environment&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="context-aware-filters">
+            <h3>Context-aware Filters<a class="headerlink" href="#context-aware-filters" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>If you want to access the current context in your filter, set the
+              <code class="notranslate">needs_context</code> option to
+              <code class="notranslate">true</code>; Twig will pass the current context as
+              the first argument to the filter call (or the second one if
+              <code class="notranslate">needs_environment</code> is also set to <code class="notranslate">true</code>):
+            </p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$context</span><span class="p">,</span> <span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">},</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;needs_context&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+
+<span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Twig_Environment</span> <span class="nv">$env</span><span class="p">,</span> <span class="nv">$context</span><span class="p">,</span> <span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">},</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;needs_context&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;needs_environment&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="automatic-escaping">
+            <h3>Automatic Escaping<a class="headerlink" href="#automatic-escaping" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>If automatic escaping is enabled, the output of the filter may be escaped
+              before printing. If your filter acts as an escaper (or explicitly outputs HTML
+              or JavaScript code), you will want the raw output to be printed. In such a
+              case, set the <code class="notranslate">is_safe</code> option:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;nl2br&#39;</span><span class="p">,</span> <span class="s1">&#39;nl2br&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_safe&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)));</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>Some filters may need to work on input that is already escaped or safe, for
+              example when adding (safe) HTML tags to originally unsafe output. In such a
+              case, set the <code class="notranslate">pre_escape</code> option to escape the input data before it is run
+              through your filter:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;somefilter&#39;</span><span class="p">,</span> <span class="s1">&#39;somefilter&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;pre_escape&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="s1">&#39;is_safe&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)));</span>
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="variadic-filters">
+            <h3>Variadic Filters<a class="headerlink" href="#variadic-filters" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>When a filter should accept an arbitrary number of arguments, set the
+              <code class="notranslate">is_variadic</code> option to
+              <code class="notranslate">true</code>; Twig will pass the extra arguments as the
+              last argument to the filter call as an array:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;thumbnail&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">},</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;is_variadic&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>Be warned that named arguments passed to a variadic filter cannot be checked
+              for validity as they will automatically end up in the option array.</p>
+          </div>
+          <div class="section" id="dynamic-filters">
+            <h3>Dynamic Filters<a class="headerlink" href="#dynamic-filters" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>A filter name containing the special <code class="notranslate">*</code> character is a dynamic filter as
+              the <code class="notranslate">*</code> can be any string:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;*_path&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>The following filters will be matched by the above defined dynamic filter:</p>
+            <ul class="simple">
+              <li><code class="notranslate">product_path</code></li>
+              <li><code class="notranslate">category_path</code></li>
+            </ul>
+            <p>A dynamic filter can define more than one dynamic parts:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;*_path_*&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$suffix</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>The filter will receive all dynamic part values before the normal filter
+              arguments, but after the environment and the context. For instance, a call to
+              <code class="notranslate">'foo'|a_path_b()</code> will result in the following arguments to be passed to
+              the filter: <code class="notranslate">('a', 'b', 'foo')</code>.</p>
+          </div>
+          <div class="section" id="deprecated-filters">
+            <h3>Deprecated Filters<a class="headerlink" href="#deprecated-filters" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>You can mark a filter as being deprecated by setting the
+              <code class="notranslate">deprecated</code> option
+              to <code class="notranslate">true</code>. You can also give an alternative filter that replaces the
+              deprecated one when that makes sense:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$filter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;obsolete&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">},</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;deprecated&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;alternative&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;new_one&#39;</span><span class="p">));</span>
+</pre>
+                </div>
+              </div>
+            </div>
+            <p>When a filter is deprecated, Twig emits a deprecation notice when compiling a
+              template using it. See
+              <a class="reference internal" href="recipes.html#deprecation-notices"><span class="std std-ref">Displaying Deprecation Notices</span></a> for more information.
+            </p>
+          </div>
+        </div>
+        <div class="section" id="functions">
+          <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+          <p>Functions are defined in the exact same way as filters, but you need to create
+            an instance of <code class="notranslate">Twig_Function</code>:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$function</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Function</span><span class="p">(</span><span class="s1">&#39;function_name&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addFunction</span><span class="p">(</span><span class="nv">$function</span><span class="p">);</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>Functions support the same features as filters, except for the <code class="notranslate">pre_escape</code>
+            and <code class="notranslate">preserves_safety</code> options.</p>
+        </div>
+        <div class="section" id="tests">
+          <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+          <p>Tests are defined in the exact same way as filters and functions, but you need
+            to create an instance of <code class="notranslate">Twig_Test</code>:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Test</span><span class="p">(</span><span class="s1">&#39;test_name&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">});</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addTest</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>Tests allow you to create custom application specific logic for evaluating
+            boolean conditions. As a simple example, let's create a Twig test that checks if
+            objects are 'red':</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Test</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$value</span><span class="o">-&gt;</span><span class="na">color</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$value</span><span class="o">-&gt;</span><span class="na">color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$value</span><span class="o">-&gt;</span><span class="na">paint</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">$value</span><span class="o">-&gt;</span><span class="na">paint</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addTest</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>Test functions should always return true/false.</p>
+          <p>When creating tests you can use the
+            <code class="notranslate">node_class</code> option to provide custom test
+            compilation. This is useful if your test can be compiled into PHP primitives.
+            This is used by many of the tests built into Twig:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Test</span><span class="p">(</span>
+    <span class="s1">&#39;odd&#39;</span><span class="p">,</span>
+    <span class="k">null</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;node_class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Twig_Node_Expression_Test_Odd&#39;</span><span class="p">));</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addTest</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+
+<span class="k">class</span> <span class="nc">Twig_Node_Expression_Test_Odd</span> <span class="k">extends</span> <span class="nx">Twig_Node_Expression_Test</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">compile</span><span class="p">(</span><span class="nx">Twig_Compiler</span> <span class="nv">$compiler</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$compiler</span>
+            <span class="o">-&gt;</span><span class="na">raw</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">subcompile</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getNode</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">raw</span><span class="p">(</span><span class="s1">&#39; % 2 == 1&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">raw</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>The above example shows how you can create tests that use a node class. The
+            node class has access to one sub-node called 'node'. This sub-node contains the
+            value that is being tested. When the <code class="notranslate">odd</code> filter is used in code such as:
+          </p>
+          <div class="literal-block notranslate">
+            <div class="highlight-jinja">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv">
+                      <pre>1</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">my_value</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>The <code class="notranslate">node</code> sub-node will contain an expression of
+            <code class="notranslate">my_value</code>. Node-based
+            tests also have access to the <code class="notranslate">arguments</code> node. This node will contain the
+            various other arguments that have been provided to your test.</p>
+          <p>If you want to pass a variable number of positional or named arguments to the
+            test, set the <code class="notranslate">is_variadic</code> option to
+            <code class="notranslate">true</code>. Tests also support dynamic
+            name feature as filters and functions.</p>
+        </div>
+        <div class="section" id="tags">
+          <h2>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h2>
+          <p>One of the most exciting features of a template engine like Twig is the
+            possibility to define new language constructs. This is also the most complex
+            feature as you need to understand how Twig's internals work.</p>
+          <p>Let's create a simple <code class="notranslate">set</code> tag that allows the definition of simple
+            variables from within a template. The tag can be used like follows:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-jinja">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x"></span>
+
+<span class="c">{# should output value #}</span><span class="x"></span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="admonition-wrapper">
+            <div class="note"></div>
+            <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+              <p class="last">The
+                <code class="notranslate">set</code> tag is part of the Core extension and as such is always
+                available. The built-in version is slightly more powerful and supports
+                multiple assignments by default (cf. the template designers chapter for
+                more information).</p>
+            </div>
+          </div>
+          <p>Three steps are needed to define a new tag:</p>
+          <ul class="simple">
+            <li>Defining a Token Parser class (responsible for parsing the template code);</li>
+            <li>Defining a Node class (responsible for converting the parsed code to PHP);</li>
+            <li>Registering the tag.</li>
+          </ul>
+          <div class="section" id="registering-a-new-tag">
+            <h3>Registering a new tag<a class="headerlink" href="#registering-a-new-tag" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>Adding a tag is as simple as calling the <code class="notranslate">addTokenParser</code> method on the
+              <code class="notranslate">Twig_Environment</code> instance:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addTokenParser</span><span class="p">(</span><span class="k">new</span> <span class="nx">Project_Set_TokenParser</span><span class="p">());</span>
+</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="defining-a-token-parser">
+            <h3>Defining a Token Parser<a class="headerlink" href="#defining-a-token-parser" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>Now, let's see the actual code of this class:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Set_TokenParser</span> <span class="k">extends</span> <span class="nx">Twig_TokenParser</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">parse</span><span class="p">(</span><span class="nx">Twig_Token</span> <span class="nv">$token</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$parser</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="p">;</span>
+        <span class="nv">$stream</span> <span class="o">=</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">getStream</span><span class="p">();</span>
+
+        <span class="nv">$name</span> <span class="o">=</span> <span class="nv">$stream</span><span class="o">-&gt;</span><span class="na">expect</span><span class="p">(</span><span class="nx">Twig_Token</span><span class="o">::</span><span class="na">NAME_TYPE</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getValue</span><span class="p">();</span>
+        <span class="nv">$stream</span><span class="o">-&gt;</span><span class="na">expect</span><span class="p">(</span><span class="nx">Twig_Token</span><span class="o">::</span><span class="na">OPERATOR_TYPE</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">);</span>
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$parser</span><span class="o">-&gt;</span><span class="na">getExpressionParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">parseExpression</span><span class="p">();</span>
+        <span class="nv">$stream</span><span class="o">-&gt;</span><span class="na">expect</span><span class="p">(</span><span class="nx">Twig_Token</span><span class="o">::</span><span class="na">BLOCK_END_TYPE</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Project_Set_Node</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">getLine</span><span class="p">(),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getTag</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTag</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;set&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>The <code class="notranslate">getTag()</code> method must return the tag we want to parse, here
+              <code class="notranslate">set</code>.</p>
+            <p>The <code class="notranslate">parse()</code> method is invoked whenever the parser encounters a
+              <code class="notranslate">set</code>
+              tag. It should return a <code class="notranslate">Twig_Node</code> instance that represents the node (the
+              <code class="notranslate">Project_Set_Node</code> calls creating is explained in the next section).</p>
+            <p>The parsing process is simplified thanks to a bunch of methods you can call
+              from the token stream (<code class="notranslate">$this-&gt;parser-&gt;getStream()</code>):</p>
+            <ul class="simple">
+              <li><code class="notranslate">getCurrent()</code>: Gets the current token in the stream.</li>
+              <li><code class="notranslate">next()</code>: Moves to the next token in the stream,
+                <em>but returns the old one</em>.
+              </li>
+              <li><code class="notranslate">test($type)</code>, <code class="notranslate">test($value)</code> or
+                <code class="notranslate">test($type, $value)</code>: Determines whether
+                the current token is of a particular type or value (or both). The value may be an
+                array of several possible values.
+              </li>
+              <li>
+                <code class="notranslate">expect($type[, $value[, $message]])</code>: If the current token isn't of the given
+                type/value a syntax error is thrown. Otherwise, if the type and value are correct,
+                the token is returned and the stream moves to the next token.
+              </li>
+              <li><code class="notranslate">look()</code>: Looks at the next token without consuming it.</li>
+            </ul>
+            <p>Parsing expressions is done by calling the
+              <code class="notranslate">parseExpression()</code> like we did for
+              the <code class="notranslate">set</code> tag.</p>
+            <div class="admonition-wrapper">
+              <div class="tip"></div>
+              <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+                <p class="last">Reading the existing
+                  <code class="notranslate">TokenParser</code> classes is the best way to learn all
+                  the nitty-gritty details of the parsing process.</p>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="defining-a-node">
+            <h3>Defining a Node<a class="headerlink" href="#defining-a-node" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>The <code class="notranslate">Project_Set_Node</code> class itself is rather simple:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Set_Node</span> <span class="k">extends</span> <span class="nx">Twig_Node</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nx">Twig_Node_Expression</span> <span class="nv">$value</span><span class="p">,</span> <span class="nv">$line</span><span class="p">,</span> <span class="nv">$tag</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">),</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$name</span><span class="p">),</span> <span class="nv">$line</span><span class="p">,</span> <span class="nv">$tag</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">compile</span><span class="p">(</span><span class="nx">Twig_Compiler</span> <span class="nv">$compiler</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$compiler</span>
+            <span class="o">-&gt;</span><span class="na">addDebugInfo</span><span class="p">(</span><span class="nv">$this</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;$context[\&#39;&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAttribute</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;\&#39;] = &#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">subcompile</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getNode</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">))</span>
+            <span class="o">-&gt;</span><span class="na">raw</span><span class="p">(</span><span class="s2">&quot;;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>The compiler implements a fluid interface and provides methods that helps the
+              developer generate beautiful and readable PHP code:</p>
+            <ul class="simple">
+              <li><code class="notranslate">subcompile()</code>: Compiles a node.</li>
+              <li><code class="notranslate">raw()</code>: Writes the given string as is.</li>
+              <li>
+                <code class="notranslate">write()</code>: Writes the given string by adding indentation at the beginning
+                of each line.
+              </li>
+              <li><code class="notranslate">string()</code>: Writes a quoted string.</li>
+              <li><code class="notranslate">repr()</code>: Writes a PHP representation of a given value (see
+                <code class="notranslate">Twig_Node_For</code> for a usage example).
+              </li>
+              <li>
+                <code class="notranslate">addDebugInfo()</code>: Adds the line of the original template file related to
+                the current node as a comment.
+              </li>
+              <li><code class="notranslate">indent()</code>: Indents the generated code (see
+                <code class="notranslate">Twig_Node_Block</code> for a
+                usage example).
+              </li>
+              <li><code class="notranslate">outdent()</code>: Outdents the generated code (see
+                <code class="notranslate">Twig_Node_Block</code> for a
+                usage example).
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section" id="creating-an-extension">
+          <span id="creating-extensions"></span>
+          <h2>Creating an Extension<a class="headerlink" href="#creating-an-extension" title="Permalink to this headline">¶</a>
+          </h2>
+          <p>The main motivation for writing an extension is to move often used code into a
+            reusable class like adding support for internationalization. An extension can
+            define tags, filters, tests, operators, global variables, functions, and node
+            visitors.</p>
+          <p>Most of the time, it is useful to create a single extension for your project,
+            to host all the specific tags and filters you want to add to Twig.</p>
+          <div class="admonition-wrapper">
+            <div class="tip"></div>
+            <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+              <p class="last">When packaging your code into an extension, Twig is smart enough to
+                recompile your templates whenever you make a change to it (when
+                <code class="notranslate">auto_reload</code> is enabled).</p>
+            </div>
+          </div>
+          <div class="admonition-wrapper">
+            <div class="note"></div>
+            <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+              <p class="last">Before writing your own extensions, have a look at the Twig official
+                extension repository:
+                <a class="reference external" href="https://github.com/twigphp/Twig-extensions">https://github.com/twigphp/Twig-extensions</a>.
+              </p>
+            </div>
+          </div>
+          <p>An extension is a class that implements the following interface:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="k">interface</span> <span class="nx">Twig_ExtensionInterface</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Returns the token parser instances to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_TokenParserInterface[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTokenParsers</span><span class="p">();</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns the node visitor instances to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_NodeVisitorInterface[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getNodeVisitors</span><span class="p">();</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns a list of filters to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_Filter[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFilters</span><span class="p">();</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns a list of tests to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_Test[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTests</span><span class="p">();</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns a list of functions to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return Twig_Function[]</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">();</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Returns a list of operators to add to the existing list.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @return array&lt;array&gt; First array of unary operators, second array of binary operators</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOperators</span><span class="p">();</span>
+<span class="p">}</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>To keep your extension class clean and lean, inherit from the built-in
+            <code class="notranslate">Twig_Extension</code> class instead of implementing the interface as it provides
+            empty implementations for all methods:</p>
+          <blockquote>
+            <div>class Project_Twig_Extension extends Twig_Extension
+              {
+              }
+            </div>
+          </blockquote>
+          <p>Of course, this extension does nothing for now. We will customize it in the
+            next sections.</p>
+          <p>Twig does not care where you save your extension on the filesystem, as all
+            extensions must be registered explicitly to be available in your templates.</p>
+          <p>You can register an extension by using the <code class="notranslate">addExtension()</code> method on your
+            main <code class="notranslate">Environment</code> object:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">Project_Twig_Extension</span><span class="p">());</span>
+</pre>
+              </div>
+            </div>
+          </div>
+          <div class="admonition-wrapper">
+            <div class="tip"></div>
+            <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+              <p class="last">The Twig core extensions are great examples of how extensions work.</p>
+            </div>
+          </div>
+          <div class="section" id="id1">
+            <h3>Globals<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+            <p>Global variables can be registered in an extension via the <code class="notranslate">getGlobals()</code>
+              method:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span> <span class="k">implements</span> <span class="nx">Twig_Extension_GlobalsInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getGlobals</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="id2">
+            <h3>Functions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+            <p>Functions can be registered in an extension via the <code class="notranslate">getFunctions()</code>
+              method:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Function</span><span class="p">(</span><span class="s1">&#39;lipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;generate_lipsum&#39;</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="id3">
+            <h3>Filters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+            <p>To add a filter to an extension, you need to override the <code class="notranslate">getFilters()</code>
+              method. This method must return an array of filters to add to the Twig
+              environment:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFilters</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;str_rot13&#39;</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="id4">
+            <h3>Tags<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+            <p>Adding a tag in an extension can be done by overriding the
+              <code class="notranslate">getTokenParsers()</code> method. This method must return an array of tags to add
+              to the Twig environment:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTokenParsers</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Project_Set_TokenParser</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>In the above code, we have added a single new tag, defined by the
+              <code class="notranslate">Project_Set_TokenParser</code> class. The
+              <code class="notranslate">Project_Set_TokenParser</code> class is
+              responsible for parsing the tag and compiling it to PHP.</p>
+          </div>
+          <div class="section" id="operators">
+            <h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+            <p>The
+              <code class="notranslate">getOperators()</code> methods lets you add new operators. Here is how to add
+              <code class="notranslate">!</code>, <code class="notranslate">||</code>, and
+              <code class="notranslate">&amp;&amp;</code> operators:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getOperators</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;!&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Twig_Node_Expression_Unary_Not&#39;</span><span class="p">),</span>
+            <span class="p">),</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">&#39;||&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Twig_Node_Expression_Binary_Or&#39;</span><span class="p">,</span> <span class="s1">&#39;associativity&#39;</span> <span class="o">=&gt;</span> <span class="nx">Twig_ExpressionParser</span><span class="o">::</span><span class="na">OPERATOR_LEFT</span><span class="p">),</span>
+                <span class="s1">&#39;&amp;&amp;&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Twig_Node_Expression_Binary_And&#39;</span><span class="p">,</span> <span class="s1">&#39;associativity&#39;</span> <span class="o">=&gt;</span> <span class="nx">Twig_ExpressionParser</span><span class="o">::</span><span class="na">OPERATOR_LEFT</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="id5">
+            <h3>Tests<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+            <p>The <code class="notranslate">getTests()</code> method lets you add new test functions:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getTests</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Test</span><span class="p">(</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="s1">&#39;twig_test_even&#39;</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="definition-vs-runtime">
+            <h3>Definition vs Runtime<a class="headerlink" href="#definition-vs-runtime" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>Twig filters, functions, and tests runtime implementations can be defined as
+              any valid PHP callable:</p>
+            <ul class="simple">
+              <li><strong>functions/static methods</strong>: Simple to implement and fast (used by all Twig
+                core extensions); but it is hard for the runtime to depend on external
+                objects;
+              </li>
+              <li><strong>closures</strong>: Simple to implement;</li>
+              <li><strong>object methods</strong>: More flexible and required if your runtime code depends
+                on external objects.
+              </li>
+            </ul>
+            <p>The simplest way to use methods is to define them on the extension itself:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$rot13Provider</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$rot13Provider</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rot13Provider</span> <span class="o">=</span> <span class="nv">$rot13Provider</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Function</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;rot13&#39;</span><span class="p">)),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">rot13</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rot13Provider</span><span class="o">-&gt;</span><span class="na">rot13</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>This is very convenient but not recommended as it makes template compilation
+              depend on runtime dependencies even if they are not needed (think for instance
+              as a dependency that connects to a database engine).</p>
+            <p>You can easily decouple the extension definitions from their runtime
+              implementations by registering a <code class="notranslate">Twig_RuntimeLoaderInterface</code> instance on
+              the environment that knows how to instantiate such runtime classes (runtime
+              classes must be autoload-able):</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RuntimeLoader</span> <span class="k">implements</span> <span class="nx">Twig_RuntimeLoaderInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">load</span><span class="p">(</span><span class="nv">$class</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// implement the logic to create an instance of $class</span>
+        <span class="c1">// and inject its dependencies</span>
+        <span class="c1">// most of the time, it means using your dependency injection container</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;Project_Twig_RuntimeExtension&#39;</span> <span class="o">===</span> <span class="nv">$class</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nv">$class</span><span class="p">(</span><span class="k">new</span> <span class="nx">Rot13Provider</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addRuntimeLoader</span><span class="p">(</span><span class="k">new</span> <span class="nx">RuntimeLoader</span><span class="p">());</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="admonition-wrapper">
+              <div class="note"></div>
+              <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+                <p class="last">Twig comes with a PSR-11 compatible runtime loader
+                  (<code class="notranslate">Twig_ContainerRuntimeLoader</code>).</p>
+              </div>
+            </div>
+            <p>It is now possible to move the runtime logic to a new
+              <code class="notranslate">Project_Twig_RuntimeExtension</code> class and use it directly in the extension:
+            </p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_RuntimeExtension</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$rot13Provider</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$rot13Provider</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rot13Provider</span> <span class="o">=</span> <span class="nv">$rot13Provider</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">rot13</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">rot13Provider</span><span class="o">-&gt;</span><span class="na">rot13</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFunctions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Function</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;Project_Twig_RuntimeExtension&#39;</span><span class="p">,</span> <span class="s1">&#39;rot13&#39;</span><span class="p">)),</span>
+            <span class="c1">// or</span>
+            <span class="k">new</span> <span class="nx">Twig_Function</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;Project_Twig_RuntimeExtension::rot13&#39;</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="overloading">
+          <h2>Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">¶</a></h2>
+          <p>To overload an already defined filter, test, operator, global variable, or
+            function, re-define it in an extension and register it <strong>as late as
+              possible</strong> (order matters):</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCoreExtension</span> <span class="k">extends</span> <span class="nx">Twig_Extension</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFilters</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;dateFilter&#39;</span><span class="p">)),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">dateFilter</span><span class="p">(</span><span class="nv">$timestamp</span><span class="p">,</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;F j, Y H:i&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// do something different from the built-in date filter</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">MyCoreExtension</span><span class="p">());</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>Here, we have overloaded the built-in <code class="notranslate">date</code> filter with a custom one.</p>
+          <p>If you do the same on the <code class="notranslate">Twig_Environment</code> itself, beware that it takes
+            precedence over any other registered extensions:</p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addFilter</span><span class="p">(</span><span class="k">new</span> <span class="nx">Twig_Filter</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$timestamp</span><span class="p">,</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;F j, Y H:i&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something different from the built-in date filter</span>
+<span class="p">}));</span>
+<span class="c1">// the date filter will come from the above registration, not</span>
+<span class="c1">// from the registered extension below</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">addExtension</span><span class="p">(</span><span class="k">new</span> <span class="nx">MyCoreExtension</span><span class="p">());</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="admonition-wrapper">
+            <div class="caution"></div>
+            <div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+              <p class="last">Note that overloading the built-in Twig elements is not recommended as it
+                might be confusing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="testing-an-extension">
+          <h2>Testing an Extension<a class="headerlink" href="#testing-an-extension" title="Permalink to this headline">¶</a>
+          </h2>
+          <div class="section" id="functional-tests">
+            <h3>Functional Tests<a class="headerlink" href="#functional-tests" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>You can create functional tests for extensions simply by creating the
+              following file structure in your test directory:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="nx">Fixtures</span><span class="o">/</span>
+    <span class="nx">filters</span><span class="o">/</span>
+        <span class="nx">foo</span><span class="o">.</span><span class="nx">test</span>
+        <span class="nx">bar</span><span class="o">.</span><span class="nx">test</span>
+    <span class="nx">functions</span><span class="o">/</span>
+        <span class="nx">foo</span><span class="o">.</span><span class="nx">test</span>
+        <span class="nx">bar</span><span class="o">.</span><span class="nx">test</span>
+    <span class="nx">tags</span><span class="o">/</span>
+        <span class="nx">foo</span><span class="o">.</span><span class="nx">test</span>
+        <span class="nx">bar</span><span class="o">.</span><span class="nx">test</span>
+<span class="nx">IntegrationTest</span><span class="o">.</span><span class="nx">php</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>The <code class="notranslate">IntegrationTest.php</code> file should look like this:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-php">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Tests_IntegrationTest</span> <span class="k">extends</span> <span class="nx">Twig_Test_IntegrationTestCase</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getExtensions</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">new</span> <span class="nx">Project_Twig_Extension1</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="nx">Project_Twig_Extension2</span><span class="p">(),</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFixturesDir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">dirname</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;/Fixtures/&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>Fixtures examples can be found within the Twig repository
+              <a class="reference external" href="https://github.com/twigphp/Twig/tree/2.x/test/Twig/Tests/Fixtures">tests/Twig/Fixtures</a> directory.
+            </p>
+          </div>
+          <div class="section" id="node-tests">
+            <h3>Node Tests<a class="headerlink" href="#node-tests" title="Permalink to this headline">¶</a></h3>
+            <p>Testing the node visitors can be complex, so extend your test cases from
+              <code class="notranslate">Twig_Test_NodeTestCase</code>. Examples can be found in the Twig repository
+              <a class="reference external" href="https://github.com/twigphp/Twig/tree/2.x/test/Twig/Tests/Node">tests/Twig/Node</a> directory.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="Twig for Developers" href="api.html">
+        &laquo;&nbsp;Twig for Developers
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="Twig Internals" href="internals.html">
+      Twig Internals&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

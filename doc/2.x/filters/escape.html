@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>escape - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+      <div id="doc-toc" class="infobar-box">
+        <h3>Table of Contents</h3>
+        <ul>
+          <li><a class="reference internal" href="#"><code class="notranslate">escape</code></a>
+            <ul>
+              <li><a class="reference internal" href="#custom-escapers">Custom Escapers</a></li>
+              <li><a class="reference internal" href="#arguments">Arguments</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document?
+            <a href="https://github.com/twigphp/Twig/edit/2.x/doc/filters/escape.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="escape">
+        <h1>
+          <code class="notranslate">escape</code><a class="headerlink" href="#escape" title="Permalink to this headline">¶</a>
+        </h1>
+        <p>The <code class="notranslate">escape</code> filter escapes a string for safe insertion into the final
+          output. It supports different escaping strategies depending on the template
+          context.</p>
+        <p>By default, it uses the HTML escaping strategy:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>For convenience, the <code class="notranslate">e</code> filter is defined as an alias:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>The <code class="notranslate">escape</code> filter can also be used in other contexts than HTML thanks to
+          an optional argument which defines the escaping strategy to use:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# is equivalent to #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;html&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>And here is how to escape variables included in JavaScript code:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>The <code class="notranslate">escape</code> filter supports the following escaping strategies:</p>
+        <ul class="simple">
+          <li><code class="notranslate">html</code>: escapes a string for the <strong>HTML body</strong> context.</li>
+          <li><code class="notranslate">js</code>: escapes a string for the <strong>JavaScript context</strong>.</li>
+          <li><code class="notranslate">css</code>: escapes a string for the
+            <strong>CSS context</strong>. CSS escaping can be
+            applied to any string being inserted into CSS and escapes everything except
+            alphanumerics.
+          </li>
+          <li><code class="notranslate">url</code>: escapes a string for the
+            <strong>URI or parameter contexts</strong>. This should
+            not be used to escape an entire URI; only a subcomponent being inserted.
+          </li>
+          <li><code class="notranslate">html_attr</code>: escapes a string for the
+            <strong>HTML attribute</strong> context.
+          </li>
+        </ul>
+        <div class="admonition-wrapper">
+          <div class="note"></div>
+          <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+            <p class="last">Internally, <code class="notranslate">escape</code> uses the PHP native
+              <a class="reference external" href="https://secure.php.net/htmlspecialchars">htmlspecialchars</a> function
+              for the HTML escaping strategy.</p>
+          </div>
+        </div>
+        <div class="admonition-wrapper">
+          <div class="caution"></div>
+          <div class="admonition admonition-caution"><p class="first admonition-title">Caution</p>
+            <p>When using automatic escaping, Twig tries to not double-escape a variable
+              when the automatic escaping strategy is the same as the one applied by the
+              escape filter; but that does not work when using a variable as the
+              escaping strategy:</p>
+            <div class="literal-block notranslate">
+              <div class="highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">strategy</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;html&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# won&#39;t be double-escaped #}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="nv">strategy</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be double-escaped #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <p>When using a variable as the escaping strategy, you should disable
+              automatic escaping:</p>
+            <div class="literal-block notranslate">
+              <div class="last highlight-jinja">
+                <table class="highlighttable">
+                  <tr>
+                    <td class="linenos">
+                      <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                      </div>
+                    </td>
+                    <td class="code">
+                      <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">strategy</span> <span class="o">=</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="nv">strategy</span><span class="o">)|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be double-escaped #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="custom-escapers">
+          <h2>Custom Escapers<a class="headerlink" href="#custom-escapers" title="Permalink to this headline">¶</a></h2>
+          <p>You can define custom escapers by calling the <code class="notranslate">setEscaper()</code> method on the
+            <code class="notranslate">core</code> extension instance. The first argument is the escaper name (to be
+            used in the <code class="notranslate">escape</code> call) and the second one must be a valid PHP callable:
+          </p>
+          <div class="literal-block notranslate">
+            <div class="highlight-php">
+              <table class="highlighttable">
+                <tr>
+                  <td class="linenos">
+                    <div class="linenodiv"><pre>1
+2</pre>
+                    </div>
+                  </td>
+                  <td class="code">
+                    <div class="highlight"><pre><span></span><span class="nv">$twig</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twig_Environment</span><span class="p">(</span><span class="nv">$loader</span><span class="p">);</span>
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">getExtension</span><span class="p">(</span><span class="s1">&#39;Twig_Extension_Core&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setEscaper</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="s1">&#39;csv_escaper&#39;</span><span class="p">);</span>
+</pre>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <p>When called by Twig, the callable receives the Twig environment instance, the
+            string to escape, and the charset.</p>
+          <div class="admonition-wrapper">
+            <div class="note"></div>
+            <div class="admonition admonition-note"><p class="first admonition-title">Note</p>
+              <p class="last">Built-in escapers cannot be overridden mainly they should be considered as
+                the final implementation and also for better performance.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="arguments">
+          <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+          <ul class="simple">
+            <li><code class="notranslate">strategy</code>: The escaping strategy</li>
+            <li><code class="notranslate">charset</code>: The string charset</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="default" href="default.html">
+        &laquo;&nbsp;default
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="first" href="first.html">
+      first&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

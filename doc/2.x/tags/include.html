@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="robots" content="index, follow, all"/>
+  <meta name="Author" content="SensioLabs"/>
+  <meta name="Language" content="ru"/>
+  <meta name="Copyright" content="Sensio"/>
+  <meta name="Publisher" content="Sensio"/>
+  <meta name="Description" content="Twig - The flexible, fast, and secure template engine for PHP"/>
+  <meta name="Keywords" content="twig, templating, template, engine, template engine, template language, php"/>
+
+  <title>include - Documentation - Twig - The flexible, fast, and secure PHP template engine</title>
+
+  <link href="../../../css/reset-min.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/base.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/colors.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/code.css" rel="stylesheet" type="text/css"/>
+  <link href="../../../css/pygments.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">     var _gaq = _gaq || [];   </script>
+</head>
+<body>
+<a href="https://github.com/ruden/twig-docs-ru"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+<div id="sln"></div>
+<div class="hd">
+  <div class="illustration png_fix">
+    <div class="content">
+      <div class="sensio_product">
+        <img class="png_fix" src="../../../images/sensio-labs-product.svg" alt="a SensioLabs Product" height="18"/>
+      </div>
+      <div class="clearfix">
+        <div class="logo_header"><a href="/">Twig</a></div>
+        <h1 class="title_header">
+          Гибкий, быстрый и безопасный<br/>шаблонизатор для PHP
+        </h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/twig-docs-ru/">О TWIG</a></li>
+          <li><a class="active" href="/twig-docs-ru/doc/2.x/">ДОКУМЕНТАЦИЯ</a></li>
+          <li><a href="/twig-docs-ru/development.html">РАЗРАБОТКА</a></li>
+          <li><a href="/twig-docs-ru/contributors.html">УЧАСТНИКИ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bd">
+  <div class="content">
+    <div class="alert">
+
+      You are reading the documentation for Twig 2.x.
+
+      Switch to the documentation for Twig
+      <a href="/doc/1.x/">1.x</a>.
+    </div>
+
+
+    <div class="infobar clearfix">
+
+      <div class="infobar-box">
+        <h3>Questions &amp; Feedback</h3>
+        <div class="feedback">
+          <p>
+            <strong>Found a typo or an error?</strong><br/>
+            Want to improve this document?
+            <a href="https://github.com/twigphp/Twig/edit/2.x/doc/tags/include.rst">Edit</a> it.
+          </p>
+          <p>
+            <strong>Need support or have a technical question?</strong><br/>
+            Ask support on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+          </p>
+        </div>
+
+        <h3>License</h3>
+        <div id="license">
+          Twig
+          <span href="https://purl.org/dc/dcmitype/MovingImage" rel="dc:type">documentation</span> is licensed under the
+          new BSD <a rel="license" href="/license">license</a>.
+        </div>
+      </div>
+    </div>
+
+    <div class="body-web">
+      <div class="section" id="include">
+        <h1>
+          <code class="notranslate">include</code><a class="headerlink" href="#include" title="Permalink to this headline">¶</a>
+        </h1>
+        <p>The <code class="notranslate">include</code> statement includes a template and returns the rendered content
+          of that file into the current namespace:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;header.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    Body</span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;footer.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>Included templates have access to the variables of the active context.</p>
+        <p>If you are using the filesystem loader, the templates are looked for in the
+          paths defined by it.</p>
+        <p>You can add additional variables by passing them after the <code class="notranslate">with</code> keyword:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="c">{# template.html will have access to the variables from the current context and the additional ones provided #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;template.html&#39;</span> <span class="k">with</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">vars</span> <span class="o">=</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;template.html&#39;</span> <span class="k">with</span> <span class="nv">vars</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>You can disable access to the context by appending the <code class="notranslate">only</code> keyword:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="c">{# only the foo variable will be accessible #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;template.html&#39;</span> <span class="k">with</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}</span> <span class="nv">only</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="c">{# no variables will be accessible #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;template.html&#39;</span> <span class="nv">only</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="admonition-wrapper">
+          <div class="tip"></div>
+          <div class="admonition admonition-tip"><p class="first admonition-title">Tip</p>
+            <p class="last">When including a template created by an end user, you should consider
+              sandboxing it. More information in the
+              <a class="reference internal" href="../api.html"><span class="doc">Twig for Developers</span></a>
+              chapter and in the
+              <a class="reference internal" href="sandbox.html"><span class="doc">sandbox</span></a> tag documentation.
+            </p>
+          </div>
+        </div>
+        <p>The template name can be any valid Twig expression:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="nv">some_var</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="nv">ajax</span> <span class="p">?</span> <span class="s1">&#39;ajax.html&#39;</span> <span class="o">:</span> <span class="s1">&#39;not_ajax.html&#39;</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>And if the expression evaluates to a <code class="notranslate">Twig_Template</code> or a
+          <code class="notranslate">Twig_TemplateWrapper</code> instance, Twig will use it directly:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-php">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3
+4
+5</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="c1">// {% include template %}</span>
+
+<span class="nv">$template</span> <span class="o">=</span> <span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;some_template.twig&#39;</span><span class="p">);</span>
+
+<span class="nv">$twig</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="s1">&#39;template.twig&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;template&#39;</span> <span class="o">=&gt;</span> <span class="nv">$template</span><span class="p">));</span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>You can mark an include with <code class="notranslate">ignore missing</code> in which case Twig will ignore
+          the statement if the template to be included does not exist. It has to be
+          placed just after the template name. Here some valid examples:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv"><pre>1
+2
+3</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;sidebar.html&#39;</span> <span class="k">ignore missing</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;sidebar.html&#39;</span> <span class="k">ignore missing</span> <span class="k">with</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;sidebar.html&#39;</span> <span class="k">ignore missing</span> <span class="nv">only</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>You can also provide a list of templates that are checked for existence before
+          inclusion. The first template that exists will be included:</p>
+        <div class="literal-block notranslate">
+          <div class="highlight-jinja">
+            <table class="highlighttable">
+              <tr>
+                <td class="linenos">
+                  <div class="linenodiv">
+                    <pre>1</pre>
+                  </div>
+                </td>
+                <td class="code">
+                  <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="o">[</span><span class="s1">&#39;page_detailed.html&#39;</span><span class="o">,</span> <span class="s1">&#39;page.html&#39;</span><span class="o">]</span> <span class="cp">%}</span><span class="x"></span>
+</pre>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <p>If <code class="notranslate">ignore missing</code> is given, it will fall back to rendering nothing if none
+          of the templates exist, otherwise it will throw an exception.</p>
+      </div>
+
+    </div>
+
+    <div class="navigation">
+      <a accesskey="P" title="import" href="import.html">
+        &laquo;&nbsp;import
+      </a>
+      <span class="separator">|</span> <a accesskey="N" title="macro" href="macro.html">
+      macro&nbsp;&raquo;
+    </a>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="content">
+      The Twig <a href="images/twig-logo.png">logo</a> is &copy; 2010-2018
+      <a target="_blank" href="https://sensiolabs.com/" class="sensiolabs">Sensio<span class="brand">Labs</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
