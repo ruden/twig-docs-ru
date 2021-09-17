@@ -145,7 +145,7 @@
 * `Математические </doc/templates.rst#math>`_ (+, -, /, %, //, *, **)
 * `Логические </doc/templates.rst#math>`_ (and, or, not, (), b-and, b-xor, b-or)
 * `Сравнения </doc/templates.rst#comparisons>`_ (==, !=, \<, \>, \>=, \<=, `=== </doc/tests/sameas.rst>`_)
-* `Другие  </doc/templates.rst#other-operators>`_ (.., |, ~, ., [], ?:, ??)
+* `Другие  </doc/templates.rst#other-operators>`_ (.., \|, ~, ., [], ?:, ??)
 
 .. _`GitHub`: https://github.com/twigphp/Twig
 .. _`twig.symfony.com`: https://twig.symfony.com/
