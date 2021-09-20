@@ -2,10 +2,10 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Introduction" href="intro.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Installation" href="installation.html" /><link rel="prev" title="Twig" href="index.html" />
 
     <meta name="generator" content="sphinx-4.2.0, furo 2021.09.08"/>
-        <title>документация Twig 3.0</title>
+        <title>Introduction - документация Twig 3.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=c7c65a82b42f6b978e58466c1e9ef2509836d916" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">документация Twig 3.0</div></a>
+      <a href="index.html"><div class="brand">документация Twig 3.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -133,7 +133,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -142,7 +142,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">документация Twig 3.0</span>
@@ -153,8 +153,8 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+  <ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Twig для верстальщиков</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Twig for Developers</a></li>
@@ -294,201 +294,73 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <div class="section" id="twig">
-<h1>Twig<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#basic-api-usage">Basic API Usage</a></li>
+          <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Welcome to the documentation for Twig, the flexible, fast, and secure template
+engine for PHP.</p>
+<p>Twig is both designer and developer friendly by sticking to PHP’s principles and
+adding functionality useful for templating environments.</p>
+<p>The key-features are…</p>
+<ul class="simple">
+<li><p><em>Fast</em>: Twig compiles templates down to plain optimized PHP code. The
+overhead compared to regular PHP code was reduced to the very minimum.</p></li>
+<li><p><em>Secure</em>: Twig has a sandbox mode to evaluate untrusted template code. This
+allows Twig to be used as a template language for applications where users
+may modify the template design.</p></li>
+<li><p><em>Flexible</em>: Twig is powered by a flexible lexer and parser. This allows the
+developer to define their own custom tags and filters, and to create their own DSL.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="templates.html">Twig для верстальщиков</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id1">Краткий обзор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#ide">Интеграция с IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id2">Переменные</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id5">Фильтры</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id6">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#named-arguments">Именованные аргументов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id8">Управляющие конструкции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id9">Комментарии</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id10">Подключение шаблонов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id11">Наследование шаблонов</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#html">Экранирование HTML</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id14">Экранирование</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id15">Макросы</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id16">Операторы</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id25">Управление пробелами</a></li>
-<li class="toctree-l2"><a class="reference internal" href="templates.html#id26">Расширения</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Twig for Developers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#basics">Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#rendering-templates">Rendering Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#environment-options">Environment Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#loaders">Loaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#using-extensions">Using Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#built-in-extensions">Built-in Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="advanced.html">Extending Twig</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#globals">Globals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#filters">Filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#tests">Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#tags">Tags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#creating-an-extension">Creating an Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced.html#testing-an-extension">Testing an Extension</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="internals.html">Twig Internals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="internals.html#how-does-twig-work">How does Twig work?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals.html#the-lexer">The Lexer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals.html#the-parser">The Parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internals.html#the-compiler">The Compiler</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#displaying-deprecation-notices">Displaying Deprecation Notices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#making-a-layout-conditional">Making a Layout conditional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#making-an-include-dynamic">Making an Include dynamic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#overriding-a-template-that-also-extends-itself">Overriding a Template that also extends itself</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#customizing-the-syntax">Customizing the Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-dynamic-object-properties">Using dynamic Object Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#accessing-the-parent-context-in-nested-loops">Accessing the parent Context in Nested Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#defining-undefined-functions-filters-and-tags-on-the-fly">Defining undefined Functions, Filters, and Tags on the Fly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#validating-the-template-syntax">Validating the Template Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#refreshing-modified-templates-when-opcache-or-apc-is-enabled">Refreshing modified Templates when OPcache or APC is enabled</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#reusing-a-stateful-node-visitor">Reusing a stateful Node Visitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-a-database-to-store-templates">Using a Database to store Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-different-template-sources">Using different Template Sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#loading-a-template-from-a-string">Loading a Template from a String</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recipes.html#using-twig-and-angularjs-in-the-same-templates">Using Twig and AngularJS in the same Templates</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Coding Standards</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tags/index.html">Tags</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/cache.html"><code class="docutils literal notranslate"><span class="pre">cache</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/deprecated.html"><code class="docutils literal notranslate"><span class="pre">deprecated</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/do.html"><code class="docutils literal notranslate"><span class="pre">do</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/embed.html"><code class="docutils literal notranslate"><span class="pre">embed</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/extends.html"><code class="docutils literal notranslate"><span class="pre">extends</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/flush.html"><code class="docutils literal notranslate"><span class="pre">flush</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/for.html"><code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/from.html"><code class="docutils literal notranslate"><span class="pre">from</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/if.html"><code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/import.html"><code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/include.html"><code class="docutils literal notranslate"><span class="pre">include</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/macro.html"><code class="docutils literal notranslate"><span class="pre">macro</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/sandbox.html"><code class="docutils literal notranslate"><span class="pre">sandbox</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/set.html"><code class="docutils literal notranslate"><span class="pre">set</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/use.html"><code class="docutils literal notranslate"><span class="pre">use</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/verbatim.html"><code class="docutils literal notranslate"><span class="pre">verbatim</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="filters/index.html">Filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/column.html"><code class="docutils literal notranslate"><span class="pre">column</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/convert_encoding.html"><code class="docutils literal notranslate"><span class="pre">convert_encoding</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/country_name.html"><code class="docutils literal notranslate"><span class="pre">country_name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/currency_name.html"><code class="docutils literal notranslate"><span class="pre">currency_name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/currency_symbol.html"><code class="docutils literal notranslate"><span class="pre">currency_symbol</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/data_uri.html"><code class="docutils literal notranslate"><span class="pre">data_uri</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/date.html"><code class="docutils literal notranslate"><span class="pre">date</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/date_modify.html"><code class="docutils literal notranslate"><span class="pre">date_modify</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/default.html"><code class="docutils literal notranslate"><span class="pre">default</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/escape.html"><code class="docutils literal notranslate"><span class="pre">escape</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/filter.html"><code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/first.html"><code class="docutils literal notranslate"><span class="pre">first</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format.html"><code class="docutils literal notranslate"><span class="pre">format</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format_currency.html"><code class="docutils literal notranslate"><span class="pre">format_currency</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format_date.html"><code class="docutils literal notranslate"><span class="pre">format_date</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format_datetime.html"><code class="docutils literal notranslate"><span class="pre">format_datetime</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format_number.html"><code class="docutils literal notranslate"><span class="pre">format_number</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/format_time.html"><code class="docutils literal notranslate"><span class="pre">format_time</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/html_to_markdown.html"><code class="docutils literal notranslate"><span class="pre">html_to_markdown</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/inline_css.html"><code class="docutils literal notranslate"><span class="pre">inline_css</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/inky_to_html.html"><code class="docutils literal notranslate"><span class="pre">inky_to_html</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/join.html"><code class="docutils literal notranslate"><span class="pre">join</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/json_encode.html"><code class="docutils literal notranslate"><span class="pre">json_encode</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/keys.html"><code class="docutils literal notranslate"><span class="pre">keys</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/language_name.html"><code class="docutils literal notranslate"><span class="pre">language_name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/last.html"><code class="docutils literal notranslate"><span class="pre">last</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/length.html"><code class="docutils literal notranslate"><span class="pre">length</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/locale_name.html"><code class="docutils literal notranslate"><span class="pre">locale_name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/lower.html"><code class="docutils literal notranslate"><span class="pre">lower</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/map.html"><code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/markdown_to_html.html"><code class="docutils literal notranslate"><span class="pre">markdown_to_html</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/merge.html"><code class="docutils literal notranslate"><span class="pre">merge</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/nl2br.html"><code class="docutils literal notranslate"><span class="pre">nl2br</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/number_format.html"><code class="docutils literal notranslate"><span class="pre">number_format</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/raw.html"><code class="docutils literal notranslate"><span class="pre">raw</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/reduce.html"><code class="docutils literal notranslate"><span class="pre">reduce</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/replace.html"><code class="docutils literal notranslate"><span class="pre">replace</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/reverse.html"><code class="docutils literal notranslate"><span class="pre">reverse</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/round.html"><code class="docutils literal notranslate"><span class="pre">round</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/slice.html"><code class="docutils literal notranslate"><span class="pre">slice</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/slug.html"><code class="docutils literal notranslate"><span class="pre">slug</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/sort.html"><code class="docutils literal notranslate"><span class="pre">sort</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/spaceless.html"><code class="docutils literal notranslate"><span class="pre">spaceless</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/split.html"><code class="docutils literal notranslate"><span class="pre">split</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/striptags.html"><code class="docutils literal notranslate"><span class="pre">striptags</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/timezone_name.html"><code class="docutils literal notranslate"><span class="pre">timezone_name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/title.html"><code class="docutils literal notranslate"><span class="pre">title</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/trim.html"><code class="docutils literal notranslate"><span class="pre">trim</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/u.html"><code class="docutils literal notranslate"><span class="pre">u</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/upper.html"><code class="docutils literal notranslate"><span class="pre">upper</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="functions/index.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/cycle.html"><code class="docutils literal notranslate"><span class="pre">cycle</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/date.html"><code class="docutils literal notranslate"><span class="pre">date</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/dump.html"><code class="docutils literal notranslate"><span class="pre">dump</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/html_classes.html"><code class="docutils literal notranslate"><span class="pre">html_classes</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/include.html"><code class="docutils literal notranslate"><span class="pre">include</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/max.html"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/min.html"><code class="docutils literal notranslate"><span class="pre">min</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/parent.html"><code class="docutils literal notranslate"><span class="pre">parent</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/random.html"><code class="docutils literal notranslate"><span class="pre">random</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/range.html"><code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/source.html"><code class="docutils literal notranslate"><span class="pre">source</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/country_timezones.html"><code class="docutils literal notranslate"><span class="pre">country_timezones</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tests/index.html">Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/empty.html"><code class="docutils literal notranslate"><span class="pre">empty</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/even.html"><code class="docutils literal notranslate"><span class="pre">even</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/iterable.html"><code class="docutils literal notranslate"><span class="pre">iterable</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/null.html"><code class="docutils literal notranslate"><span class="pre">null</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/odd.html"><code class="docutils literal notranslate"><span class="pre">odd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tests/sameas.html"><code class="docutils literal notranslate"><span class="pre">same</span> <span class="pre">as</span></code></a></li>
-</ul>
-</li>
-</ul>
+<p>Twig is used by many Open-Source projects like Symfony, Drupal8, eZPublish,
+phpBB, Matomo, OroCRM; and many frameworks have support for it as well like
+Slim, Yii, Laravel, and Codeigniter — just to name a few.</p>
+<div class="admonition-screencast admonition">
+<p class="admonition-title">Screencast</p>
+<p>Like to learn from video tutorials? Check out the <a class="reference external" href="https://symfonycasts.com/screencast/twig">SymfonyCasts Twig Tutorial</a>!</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Twig 3.x needs at least <strong>PHP 7.2.5</strong> to run.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Ссылка на этот заголовок">¶</a></h2>
+<p>The recommended way to install Twig is via Composer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>composer require <span class="s2">"twig/twig:^3.0"</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-api-usage">
+<h2>Basic API Usage<a class="headerlink" href="#basic-api-usage" title="Ссылка на этот заголовок">¶</a></h2>
+<p>This section gives you a brief introduction to the PHP API for Twig:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once '/path/to/vendor/autoload.php';
+
+$loader = new \Twig\Loader\ArrayLoader([
+    'index' =&gt; 'Hello {{ name }}!',
+]);
+$twig = new \Twig\Environment($loader);
+
+echo $twig-&gt;render('index', ['name' =&gt; 'Fabien']);
+</pre></div>
+</div>
+<p>Twig uses a loader (<code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code>) to locate templates, and an
+environment (<code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>) to store its configuration.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">render()</span></code> method loads the template passed as a first argument and
+renders it with the variables passed as a second argument.</p>
+<p>As templates are generally stored on the filesystem, Twig also comes with a
+filesystem loader:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\FilesystemLoader('/path/to/templates');
+$twig = new \Twig\Environment($loader, [
+    'cache' =&gt; '/path/to/compilation_cache',
+]);
+
+echo $twig-&gt;render('index.html', ['name' =&gt; 'Fabien']);
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -497,16 +369,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="intro.html">
+          <a class="next-page" href="installation.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Introduction</div>
+                <div class="title">Installation</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="index.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
 
         <div class="related-information">
@@ -515,7 +397,7 @@
               and
               <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
               <a href="https://github.com/pradyunsg/furo">Furo theme</a>. |
-            <a class="muted-link" href="_sources/index.rst.txt"
+            <a class="muted-link" href="_sources/intro.rst.txt"
                rel="nofollow">
               Исходный текст
             </a>
@@ -523,8 +405,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Содержание
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#basic-api-usage">Basic API Usage</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
