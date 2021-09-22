@@ -17,7 +17,7 @@ Twig для верстальщиков
 Рассмотрим небольшой пример шаблона, в котором показаны некоторые основы
 создания шаблонов:
 
-.. code-block:: html+jinja
+.. code-block:: html+twig
 
     <!DOCTYPE html>
     <html>
@@ -32,7 +32,7 @@ Twig для верстальщиков
             </ul>
 
             <h1>Моя статья</h1>
-            {{ text }}
+            {{ a_variable }}
         </body>
     </html>
 
@@ -45,18 +45,23 @@ Twig для верстальщиков
 
 Многие IDE поддерживают подсветку синтаксиса и автодополнение для Twig:
 
-* *Textmate* `Twig bundle`_
-* *Vim* `Jinja syntax plugin`_
-* *Netbeans* `Twig syntax plugin`_ (until 7.1, native as of 7.2)
+* *Textmate* via the `Twig bundle`_
+* *Vim* via the `Jinja syntax plugin`_ or the `vim-twig plugin`_
+* *Netbeans* via the `Twig syntax plugin`_ (until 7.1, native as of 7.2)
 * *PhpStorm* (native as of 2.1)
-* *Eclipse* `Twig plugin`_
-* *Sublime Text* `Twig bundle`_
-* *GtkSourceView* `Twig language definition`_ (used by gedit and other projects)
-* *Coda* and *SubEthaEdit* `Twig syntax mode`_
-* *Coda 2* `other Twig syntax mode`_
-* *Komodo* and *Komodo Edit* Twig highlight/syntax check mode
-* *Notepad++* `Notepad++ Twig Highlighter`_
-* *Emacs* `web-mode.el`_
+* *Eclipse* via the `Twig plugin`_
+* *Sublime Text* via the `Twig bundle`_
+* *GtkSourceView* via the `Twig language definition`_ (used by gedit and other projects)
+* *Coda* and *SubEthaEdit* via the `Twig syntax mode`_
+* *Coda 2* via the `other Twig syntax mode`_
+* *Komodo* and *Komodo Edit* via the Twig highlight/syntax check mode
+* *Notepad++* via the `Notepad++ Twig Highlighter`_
+* *Emacs* via `web-mode.el`_
+* *Atom* via the `PHP-twig for atom`_
+* *Visual Studio Code* via the `Twig pack`_
+
+Also, `TwigFiddle`_ is an online service that allows you to execute Twig templates
+from a browser; it supports all versions of Twig.
 
 Переменные
 ----------
@@ -69,7 +74,7 @@ Twig для верстальщиков
 (методы, свойства объекта, или массивы PHP),
 или так называемый "индекс" синтаксис (``[]``):
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ foo.bar }}
     {{ foo['bar'] }}
@@ -77,7 +82,7 @@ Twig для верстальщиков
 Если атрибуты содержат специальные символы (например, ``-`` это воспримется,
 как оператор минус), в этом случае используйте функцию ``attribute``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# Подобное не будет работать foo.data-foo #}
     {{ attribute(foo, 'data-foo') }}
@@ -129,7 +134,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Вы можете устанавливать значения переменных в блоках кода для этого
 используйте тег :doc:`set<tags/set>`:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% set foo = 'foo' %}
     {% set foo = [1, 2] %}
@@ -145,20 +150,20 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Следующий пример удаляет все HTML-тэги из ``name`` и преобразует в верхний
 регистр первый символ каждого слова:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ name|striptags|title }}
 
 У фильтров, которые принимают аргументы, есть круглые скобки вокруг аргументов.
 В этом примере, добавится после list запятая :
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ list|join(', ') }}
 
 Чтобы применить фильтр к блоку кода — оберните его тэгом :doc:`filter<tags/filter>`:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% filter upper %}
         Этот текст будет в верхнем регистре
@@ -176,7 +181,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Например, функция ``range`` возвращает список, содержащий
 арифметическую прогрессию целых чисел:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for i in range(0, 3) %}
         {{ i }},
@@ -185,15 +190,12 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Перейдите на страницу :doc:`functions<functions/index>`, чтобы узнать больше о
 встроенных функциях.
 
+.. _named-arguments:
+
 Именованные аргументов
--------------------
+----------------------
 
-.. versionadded:: 1.122
-Поддержка именованний аргументов была добавлена в Twig 1.12.
-
-Аргументы для фильтров и функций могут быть *дополнительно названы*:
-
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for i in range(low=1, high=10, step=2) %}
         {{ i }},
@@ -201,7 +203,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Использование именованных аргументов делает шаблоны более понятными:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ data|convert_encoding('UTF-8', 'iso-2022-jp') }}
 
@@ -212,7 +214,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Также позволяют Вам пропускать некоторые аргументы,
 для которых Вы не хотите менять значение по умолчанию:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# Первый аргумент — формат даты, который задан в приложении глобально #}
     {{ "now"|date(null, "Europe/Paris") }}
@@ -223,7 +225,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Вы также можете использовать за один вызов оба варианта вывода аргументов,
 однако это не рекомендуется, потому что это может привести к путанице:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# Оба варианта - рабочие #}
     {{ "now"|date('d/m/Y H:i', timezone="Europe/Paris") }}
@@ -235,7 +237,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
     где перечислено какие названия аргументов поддерживаются.
 
 Управляющие конструкции
----------------------
+-----------------------
 
 К управляющим конструкциям относится все условные операторы
 (такие как  ``if``/``elseif``/``else``), ``for``- циклы, а также блоки.
@@ -244,7 +246,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Например, чтобы отобразить список пользователей ``users``,
 используется тег :doc:`for<tags/for>`:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     <h1>Пользователи</h1>
     <ul>
@@ -255,7 +257,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Тег :doc:`if<tags/if>` может быть использован для проверки выражения:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% if users|length > 0 %}
         <ul>
@@ -274,7 +276,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Это бывает полезно при отладке или добавлении полезной информации для других
 дизайнеров или себя:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# примечание: это закомментированно, пока не используется
         {% for user in users %}
@@ -287,7 +289,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Тэг :doc:`include<tags/include>` используется для подключения одного шаблона в другой.
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% include 'sidebar.html' %}
 
@@ -296,7 +298,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Подключаемые шаблоны имеют доступ ко всем переменным шаблона к которому
 они подключаются.
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% for box in boxes %}
         {% include "render_box.html" %}
@@ -309,7 +311,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 названию файла. Вы можете получить доступ к шаблонам в подкаталогах,
 используя слэш ``/``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% include "sections/articles/sidebar.html" %}
 
@@ -333,7 +335,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 "скелет" HTML-документа, который можно использовать для простой страницы с
 двумя колонками:
 
-.. code-block:: html+jinja
+.. code-block:: html+twig
 
     <!DOCTYPE html>
     <html>
@@ -363,7 +365,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Дочерний шаблон может выглядеть следующим образом:
 
-.. code-block:: jinja
+.. code-block:: html+twig
 
     {% extends "base.html" %}
 
@@ -392,7 +394,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Используя функцию :doc:`parent<functions/parent>`, можно отобразить содержание
 родительского блока. Она возвращает первоначальное содержание родительского блока:
 
-.. code-block:: jinja
+.. code-block:: html+twig
 
     {% block sidebar %}
         <h3>Оглавление</h3>
@@ -434,7 +436,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Экранирование осуществляется с помощью фильтра :doc:`escape<filters/escape>` или ``e``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ user.username|e }}
 
@@ -442,7 +444,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 но в зависимости от ситуации вы можете использовать любые другие доступные
 способы экранирования:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ user.username|e('js') }}
     {{ user.username|e('css') }}
@@ -455,7 +457,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Вне зависимости от того включено экранирование или нет, вы можете добавить
 экранирование для блока кода с помощью тега :doc:`autoescape<tags/autoescape>`:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% autoescape %}
         В этом блоке все будет автоматически экранировано (с помощью HTML режима)
@@ -465,7 +467,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Если есть переменые для экранирования в других режимах, необходимо добавить этот
 режим:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% autoescape 'js' %}
         В этом блоке все будет автоматически экранировано (с помощью JavaScript режима)
@@ -479,7 +481,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Самый простой способ для вывода (``{{``) это использовать следующее выражение:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ '{{' }}
 
@@ -488,17 +490,13 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Макросы
 -------
 
-.. versionadded:: 1.12
-Возможность устанавливать значения для аргументов по умолчанию
-    была добавлена в Twig 1.12.
-
 Макросы сопоставимы с функциями в обычных языках программирования.
 Они полезны, когда нужно повторить многократно HTML-код, но не копировать его.
 
 Макрос определяется тегом :doc:`macro<tags/macro>`.
 Небольшой пример макроса для отображение элементов формы:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% macro input(name, value, type, size) %}
         <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
@@ -507,7 +505,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 Макросы могут быть определенны в любом шаблоне и должны быть импортированы
 с помощью тэга :doc:`import<tags/import>` перед использованием:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% import "forms.html" as forms %}
 
@@ -517,7 +515,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 в текущем пространстве имен с помощью тега :doc:`from<tags/from>`
 и опционально задать им псевдоним:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% from 'forms.html' import input as input_field %}
 
@@ -530,7 +528,7 @@ Twig выдаст сообщение об ошибке (см. :ref:`environment 
 
 Также могут быть определенны по умолчанию значения для аргументов при объявлении макроса:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% macro input(name, value = "", type = "text", size = 20) %}
         <input type="{{ type }}" name="{{ name }}" value="{{ value|e }}" size="{{ size }}" />
@@ -552,9 +550,6 @@ Twig позволяет использовать операторы везде. 
 Литералы
 ~~~~~~~~
 
-.. versionadded:: 1.5
-Поддержка хэш-ключей, имен и выражений была добавлена в Twig 1.5.
-
 Самая простая форма выражений - литералы. Литералы соответствуют типам данных
 PHP: строки, числа и массивы. Существуют следующие литералы:
 
@@ -574,7 +569,7 @@ PHP: строки, числа и массивы. Существуют следу
 * ``{"foo": "bar"}``: Хеши определяются списком ключей и значений
   разделенными запятой (``,``) и заключены в фигурные скобки (``{}``).
 
-  .. code-block:: jinja
+  .. code-block:: twig
 
     {# ключи как строка #}
     { 'foo': 'foo', 'bar': 'bar' }
@@ -595,7 +590,7 @@ PHP: строки, числа и массивы. Существуют следу
 
 Массивы и хеши могут быть вложены друг в друга:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% set foo = [1, {"foo": "bar"}] %}
 
@@ -656,7 +651,7 @@ Twig позволяет производить математические оп
 
 Возвращает ``true``, если левое значение содержится в правом:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# вернет true #}
 
@@ -671,7 +666,7 @@ Twig позволяет производить математические оп
 
 Для отрицания используйте оператор ``not in``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% if 1 not in [1, 2, 3] %}
 
@@ -683,7 +678,7 @@ Twig позволяет производить математические оп
 
 Оператор ``is`` проверяет данные на соответствие
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {# проверит является ли переменная нечетной #}
 
@@ -691,13 +686,13 @@ Twig позволяет производить математические оп
 
 Так же можно использовать аргументы:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% if loop.index is divisibleby(3) %}
 
 Для отрицания используйте оператор, используйте оператор ``is not``:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% if loop.index is not divisibleby(3) %}
 
@@ -708,9 +703,6 @@ Twig позволяет производить математические оп
 
 Другие операторы
 ~~~~~~~~~~~~~~~~
-
-.. versionadded:: 1.12.0
-Поддержка тернарного оператора была добавлена в Twig 1.12.0.
 
 Следующие операторы очень полезны, но не попадают ни в одну из других категорий:
 
@@ -727,7 +719,7 @@ Twig позволяет производить математические оп
 
 * ``?:``: Тернарный оператор:
 
-  .. code-block:: jinja
+  .. code-block:: twig
 
       {{ foo ? 'Да' : 'Нет' }}
 
@@ -738,13 +730,10 @@ Twig позволяет производить математические оп
 Подстановка переменных
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionadded:: 1.5
-Поддержка интерполяции строк (подстановки переменных) была добавлена в Twig 1.5.
-
-Подстановка переменных (``#{выражение}``) доступна для любого выражения
+Подстановка переменных (``#{expression}``) доступна для любого выражения
 находящегося в *строке с двойными скобками*:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {{ "Привет #{name}! Как дела?" }}
     {{ "Дважды два =  #{2*2}" }}
@@ -752,16 +741,13 @@ Twig позволяет производить математические оп
 Управление пробелами
 ---------------------
 
-.. versionadded:: 1.1
-Управление пробелами было добавлено в Twig 1.1.
-
 Первая строка после тэга удаляется автоматически (как в PHP.)
 Пробелы не изменяются шаблонизатором, так же как и другие подобные
 символы (табуляция, символ новой строки и др.) и возвращается без изменений.
 
 Используйте тег ``spaceless`` для удаления пробелов *между HTML тегами*:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% spaceless %}
         <div>
@@ -773,7 +759,7 @@ Twig позволяет производить математические оп
 
 Также можно удалять пробелы для блоков кода:
 
-.. code-block:: jinja
+.. code-block:: html+twig
 
     {% set value = 'no spaces' %}
     {#- нет начальных и конечных пробелов -#}
@@ -785,7 +771,7 @@ Twig позволяет производить математические оп
 
 Можно удалять пробелы с одной или другой стороны:
 
-.. code-block:: jinja
+.. code-block:: twig
 
     {% set value = 'no spaces' %}
     <li>    {{- value }}    </li>
@@ -795,21 +781,20 @@ Twig позволяет производить математические оп
 Расширения
 ----------
 
-Twig может быть легко расширен.
-
-Если вы ищете новые теги, фильтры, или функции для Twig загляните
-в официальный `extension repository`_.
-
-Если вы хотите создать свое собственное расширение, читайте раздел
-:ref:`Создание Расширений <creating_extensions>`.
+Twig может быть легко расширен. Если вы хотите создать свое собственное расширение, читайте раздел
+:ref:`Создание Расширения <creating_extensions>`.
 
 .. _`Twig bundle`:                https://github.com/Anomareh/PHP-Twig.tmbundle
-.. _`Jinja syntax plugin`:        http://jinja.pocoo.org/2/documentation/integration
+.. _`Jinja syntax plugin`:        http://jinja.pocoo.org/docs/integration/#vim
+.. _`vim-twig plugin`:            https://github.com/lumiliet/vim-twig
 .. _`Twig syntax plugin`:         http://plugins.netbeans.org/plugin/37069/php-twig
 .. _`Twig plugin`:                https://github.com/pulse00/Twig-Eclipse-Plugin
 .. _`Twig language definition`:   https://github.com/gabrielcorpse/gedit-twig-template-language
-.. _`extension repository`:       http://github.com/fabpot/Twig-extensions
 .. _`Twig syntax mode`:           https://github.com/bobthecow/Twig-HTML.mode
 .. _`other Twig syntax mode`:     https://github.com/muxx/Twig-HTML.mode
 .. _`Notepad++ Twig Highlighter`: https://github.com/Banane9/notepadplusplus-twig
 .. _`web-mode.el`:                http://web-mode.org/
+.. _`regular expressions`:        https://www.php.net/manual/en/pcre.pattern.php
+.. _`PHP-twig for atom`:          https://github.com/reesef/php-twig
+.. _`TwigFiddle`:                 https://twigfiddle.com/
+.. _`Twig pack`:                  https://marketplace.visualstudio.com/items?itemName=bajdzis.vscode-twig-pack
