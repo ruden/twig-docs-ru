@@ -1,5 +1,5 @@
-Coding Standards
-================
+Стандарты кодирования
+=====================
 
 When writing Twig templates, we recommend you to follow these official coding
 standards:

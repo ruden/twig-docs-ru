@@ -2,10 +2,10 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Deprecated Features" href="deprecated.html" /><link rel="prev" title="Extending Twig" href="advanced.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Deprecated Features" href="deprecated.html" /><link rel="prev" title="Расширения в Twig" href="advanced.html" />
 
     <meta name="generator" content="sphinx-4.2.0, furo 2021.09.22"/>
-        <title>Twig Internals - документация Twig 3.0</title>
+        <title>Twig изнутри - документация Twig 3.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=150e365fa939648e89c22f6d7d13c72a1657915a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
@@ -154,15 +154,15 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Вступление</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Установка</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Twig для верстальщиков</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Twig for Developers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced.html">Extending Twig</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Twig Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Twig для программистов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Расширения в Twig</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Twig изнутри</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Примеры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
@@ -300,8 +300,8 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="twig-internals">
-<h1>Twig Internals<a class="headerlink" href="#twig-internals" title="Ссылка на этот заголовок">¶</a></h1>
+          <div class="section" id="twig">
+<h1>Twig изнутри<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Twig is very extensible and you can hack it. Keep in mind that you
 should probably try to create an extension before hacking the core, as most
 features and enhancements can be handled with extensions. This chapter is also
@@ -458,7 +458,7 @@ class __TwigTemplate_1121b6f109fe93ebe8c6e22e3712bceb extends Template
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Extending Twig</div>
+                <div class="title">Расширения в Twig</div>
                 
               </div>
             </a>
@@ -482,7 +482,7 @@ class __TwigTemplate_1121b6f109fe93ebe8c6e22e3712bceb extends Template
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Twig Internals</a><ul>
+<li><a class="reference internal" href="#">Twig изнутри</a><ul>
 <li><a class="reference internal" href="#how-does-twig-work">How does Twig work?</a></li>
 <li><a class="reference internal" href="#the-lexer">The Lexer</a></li>
 <li><a class="reference internal" href="#the-parser">The Parser</a></li>

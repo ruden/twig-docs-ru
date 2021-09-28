@@ -1,5 +1,5 @@
-Twig Internals
-==============
+Twig изнутри
+============
 
 Twig is very extensible and you can hack it. Keep in mind that you
 should probably try to create an extension before hacking the core, as most
