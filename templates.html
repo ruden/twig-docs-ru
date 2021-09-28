@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig for Developers" href="api.html" /><link rel="prev" title="Installation" href="installation.html" />
 
-    <meta name="generator" content="sphinx-4.2.0, furo 2021.09.08"/>
+    <meta name="generator" content="sphinx-4.2.0, furo 2021.09.22"/>
         <title>Twig для верстальщиков - документация Twig 3.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=c7c65a82b42f6b978e58466c1e9ef2509836d916" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=150e365fa939648e89c22f6d7d13c72a1657915a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
     
     
@@ -372,7 +372,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 <p>Если атрибуты содержат специальные символы (например, <code class="docutils literal notranslate"><span class="pre">-</span></code> это воспримется,
 как оператор минус), в этом случае используйте функцию <code class="docutils literal notranslate"><span class="pre">attribute</span></code>:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="c">{# Подобное не будет работать foo.data-foo #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# Подобное не будет работать foo.data-foo #}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">attribute</span><span class="o">(</span><span class="nv">foo</span><span class="o">,</span> <span class="s1">'data-foo'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
@@ -440,7 +440,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 </div>
 <p>У фильтров, которые принимают аргументы, есть круглые скобки вокруг аргументов.
 В этом примере, добавится после list запятая :</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">list</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s1">', '</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">list</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s1">', '</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Чтобы применить фильтр к блоку кода — оберните его тэгом <span class="xref std std-doc">filter</span>:</p>
@@ -510,7 +510,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 Управляющие конструкции находятся внутри``{% … %}`` блоков.</p>
 <p>Например, чтобы отобразить список пользователей <code class="docutils literal notranslate"><span class="pre">users</span></code>,
 используется тег <a class="reference internal" href="tags/for.html"><span class="doc">for</span></a>:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;Пользователи&lt;/h1&gt;</span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;h1&gt;Пользователи&lt;/h1&gt;</span>
 <span class="x">&lt;ul&gt;</span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">        &lt;li&gt;</span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
@@ -519,7 +519,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 </pre></div>
 </div>
 <p>Тег <a class="reference internal" href="tags/if.html"><span class="doc">if</span></a> может быть использован для проверки выражения:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">users</span><span class="o">|</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">users</span><span class="o">|</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;ul&gt;</span>
 <span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">            &lt;li&gt;</span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
@@ -535,7 +535,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 <p>Чтобы закомментировать часть шаблона, используйте следующий синтаксис <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">...</span> <span class="pre">#}</span></code>.
 Это бывает полезно при отладке или добавлении полезной информации для других
 дизайнеров или себя:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="c">{# примечание: это закомментированно, пока не используется</span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# примечание: это закомментированно, пока не используется</span>
 <span class="c">    {% for user in users %}</span>
 <span class="c">        ...</span>
 <span class="c">    {% endfor %}</span>
@@ -546,13 +546,13 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 <div class="section" id="id10">
 <h2>Подключение шаблонов<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Тэг <a class="reference internal" href="tags/include.html"><span class="doc">include</span></a> используется для подключения одного шаблона в другой.</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">'sidebar.html'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">'sidebar.html'</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>По умолчанию содержимое подключаемых шаблонов выводится в месте их вызова</p>
 <p>Подключаемые шаблоны имеют доступ ко всем переменным шаблона к которому
 они подключаются.</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">box</span> <span class="k">in</span> <span class="nv">boxes</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">box</span> <span class="k">in</span> <span class="nv">boxes</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"render_box.html"</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
@@ -562,7 +562,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 <code class="docutils literal notranslate"><span class="pre">Twig_Loader_Filesystem</span></code> позволяет получить доступ к другим шаблонам по
 названию файла. Вы можете получить доступ к шаблонам в подкаталогах,
 используя слэш <code class="docutils literal notranslate"><span class="pre">/</span></code>:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"sections/articles/sidebar.html"</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">"sections/articles/sidebar.html"</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Такое поведение зависит от применения вложения Twig.</p>
@@ -715,14 +715,14 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 Они полезны, когда нужно повторить многократно HTML-код, но не копировать его.</p>
 <p>Макрос определяется тегом <a class="reference internal" href="tags/macro.html"><span class="doc">macro</span></a>.
 Небольшой пример макроса для отображение элементов формы:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">input</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">value</span><span class="o">,</span> <span class="nv">type</span><span class="o">,</span> <span class="nv">size</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">input</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">value</span><span class="o">,</span> <span class="nv">type</span><span class="o">,</span> <span class="nv">size</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;input type="</span><span class="cp">{{</span> <span class="nv">type</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">'text'</span><span class="o">)</span> <span class="cp">}}</span><span class="x">" name="</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">" value="</span><span class="cp">{{</span> <span class="nv">value</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x">" size="</span><span class="cp">{{</span> <span class="nv">size</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="m">20</span><span class="o">)</span> <span class="cp">}}</span><span class="x">" /&gt;</span>
 <span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Макросы могут быть определенны в любом шаблоне и должны быть импортированы
 с помощью тэга <a class="reference internal" href="tags/import.html"><span class="doc">import</span></a> перед использованием:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">import</span> <span class="s2">"forms.html"</span> <span class="k">as</span> <span class="nv">forms</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">import</span> <span class="s2">"forms.html"</span> <span class="nv">as</span> <span class="nv">forms</span> <span class="cp">%}</span><span class="x"></span>
 
 <span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">forms.input</span><span class="o">(</span><span class="s1">'username'</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
 </pre></div>
@@ -730,7 +730,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 <p>Кроме того, вы можете импортировать отдельные имена макросов из шаблона
 в текущем пространстве имен с помощью тега <a class="reference internal" href="tags/from.html"><span class="doc">from</span></a>
 и опционально задать им псевдоним:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s1">'forms.html'</span> <span class="k">import</span> <span class="nv">input</span> <span class="k">as</span> <span class="nv">input_field</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s1">'forms.html'</span> <span class="nv">import</span> <span class="nv">input</span> <span class="nv">as</span> <span class="nv">input_field</span> <span class="cp">%}</span><span class="x"></span>
 
 <span class="x">&lt;dl&gt;</span>
 <span class="x">    &lt;dt&gt;Логин&lt;/dt&gt;</span>
@@ -741,7 +741,7 @@ Twig выдаст сообщение об ошибке (см. <a class="referenc
 </pre></div>
 </div>
 <p>Также могут быть определенны по умолчанию значения для аргументов при объявлении макроса:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">input</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">value</span> <span class="o">=</span> <span class="s2">""</span><span class="o">,</span> <span class="nv">type</span> <span class="o">=</span> <span class="s2">"text"</span><span class="o">,</span> <span class="nv">size</span> <span class="o">=</span> <span class="m">20</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">input</span><span class="o">(</span><span class="nv">name</span><span class="o">,</span> <span class="nv">value</span> <span class="o">=</span> <span class="s2">""</span><span class="o">,</span> <span class="nv">type</span> <span class="o">=</span> <span class="s2">"text"</span><span class="o">,</span> <span class="nv">size</span> <span class="o">=</span> <span class="m">20</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;input type="</span><span class="cp">{{</span> <span class="nv">type</span> <span class="cp">}}</span><span class="x">" name="</span><span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x">" value="</span><span class="cp">{{</span> <span class="nv">value</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x">" size="</span><span class="cp">{{</span> <span class="nv">size</span> <span class="cp">}}</span><span class="x">" /&gt;</span>
 <span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
@@ -775,7 +775,7 @@ PHP: строки, числа и массивы. Существуют следу
 запятыми (<code class="docutils literal notranslate"><span class="pre">,</span></code>) и заключенных в квадратные скобки (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">{"foo":</span> <span class="pre">"bar"}</span></code>: Хеши определяются списком ключей и значений
 разделенными запятой (<code class="docutils literal notranslate"><span class="pre">,</span></code>) и заключены в фигурные скобки (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="c">{# ключи как строка #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# ключи как строка #}</span><span class="x"></span>
 <span class="x">{ 'foo': 'foo', 'bar': 'bar' }</span>
 
 <span class="c">{# ключи как названия (эквивалентно предыдущему варианту) -- доступно с Twig 1.5 #}</span><span class="x"></span>
@@ -794,7 +794,7 @@ PHP: строки, числа и массивы. Существуют следу
 когда переменной не существует. <code class="docutils literal notranslate"><span class="pre">none</span></code> является псевдонимом для <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
 </ul>
 <p>Массивы и хеши могут быть вложены друг в друга:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="o">{</span><span class="s2">"foo"</span><span class="o">:</span> <span class="s2">"bar"</span><span class="o">}]</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="o">{</span><span class="s2">"foo"</span><span class="o">:</span> <span class="s2">"bar"</span><span class="o">}]</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -865,17 +865,17 @@ PHP: строки, числа и массивы. Существуют следу
 <div class="section" id="id22">
 <h3>Оператор проверки<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> проверяет данные на соответствие</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="c">{# проверит является ли переменная нечетной #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# проверит является ли переменная нечетной #}</span><span class="x"></span>
 
 <span class="cp">{{</span> <span class="nv">name</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Так же можно использовать аргументы:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="k">is</span> <span class="nf">divisibleby</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="k">is</span> <span class="nf">divisibleby</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 <p>Для отрицания используйте оператор, используйте оператор <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">divisibleby</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">divisibleby</span><span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 
 <span class="c">{# эквивалентно #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="o">(</span><span class="nb">loop</span><span class="nv">.index</span> <span class="k">is</span> <span class="nf">divisibleby</span><span class="o">(</span><span class="m">3</span><span class="o">))</span> <span class="cp">%}</span><span class="x"></span>
@@ -921,7 +921,7 @@ PHP: строки, числа и массивы. Существуют следу
 Пробелы не изменяются шаблонизатором, так же как и другие подобные
 символы (табуляция, символ новой строки и др.) и возвращается без изменений.</p>
 <p>Используйте тег <code class="docutils literal notranslate"><span class="pre">spaceless</span></code> для удаления пробелов <em>между HTML тегами</em>:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">spaceless</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">spaceless</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;div&gt;</span>
 <span class="x">        &lt;strong&gt;foo&lt;/strong&gt;</span>
 <span class="x">    &lt;/div&gt;</span>
@@ -941,7 +941,7 @@ PHP: строки, числа и массивы. Существуют следу
 </pre></div>
 </div>
 <p>Можно удалять пробелы с одной или другой стороны:</p>
-<div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">value</span> <span class="o">=</span> <span class="s1">'no spaces'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">value</span> <span class="o">=</span> <span class="s1">'no spaces'</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;li&gt;    </span><span class="cp">{{</span><span class="o">-</span> <span class="nv">value</span> <span class="cp">}}</span><span class="x">    &lt;/li&gt;</span>
 
 <span class="c">{# выведет '&lt;li&gt;no spaces    &lt;/li&gt;' #}</span><span class="x"></span>
