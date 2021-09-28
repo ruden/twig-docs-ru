@@ -1,5 +1,5 @@
-Twig for Developers
-===================
+Twig для программистов
+======================
 
 This chapter describes the API to Twig and not the template language. It will
 be most useful as reference to those implementing the template interface to

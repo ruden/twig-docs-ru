@@ -1,4 +1,4 @@
-Recipes
+Примеры
 =======
 
 .. _deprecation-notices:

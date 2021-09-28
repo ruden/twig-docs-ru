@@ -1,5 +1,5 @@
-Extending Twig
-==============
+Расширения в Twig
+=================
 
 Twig can be extended in many ways; you can add extra tags, filters, tests,
 operators, global variables, and functions. You can even extend the parser
