@@ -313,7 +313,7 @@ separator using the additional arguments:</p>
 </pre></div>
 </div>
 <p>To format negative numbers or math calculation, wrap the previous statement
-with parentheses (needed because of Twig’s <span class="xref std std-ref">precedence of operators</span>):</p>
+with parentheses (needed because of Twig’s <a class="reference internal" href="../templates.html#twig-expressions"><span class="std std-ref">precedence of operators</span></a>):</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="o">-</span><span class="m">9800.333</span><span class="o">|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">,</span> <span class="s1">'.'</span><span class="o">,</span> <span class="s1">','</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# outputs : -9 #}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="o">(-</span><span class="m">9800.333</span><span class="o">)|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">,</span> <span class="s1">'.'</span><span class="o">,</span> <span class="s1">','</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# outputs : -9,800.33 #}</span><span class="x"></span>
 <span class="cp">{{</span>  <span class="m">1</span> <span class="o">+</span> <span class="m">0.2</span><span class="o">|</span><span class="nf">number_format</span><span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# outputs : 1.2 #}</span><span class="x"></span>
