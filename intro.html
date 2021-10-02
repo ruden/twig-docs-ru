@@ -302,41 +302,41 @@
         <article role="main">
           <div class="section" id="id1">
 <h1>Вступление<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<p>Welcome to the documentation for Twig, the flexible, fast, and secure template
-engine for PHP.</p>
-<p>Twig is both designer and developer friendly by sticking to PHP’s principles and
-adding functionality useful for templating environments.</p>
-<p>The key-features are…</p>
+<p>Добро пожаловать в документацию по Twig, гибкому, быстрому и безопасному
+шаблонизатору для PHP.</p>
+<p>Twig удобен как для дизайнеров, так и для разработчиков, поскольку придерживается
+принципов PHP и добавляет функциональность, полезную для создания сред шаблонов.</p>
+<p>Ключевые особенности…</p>
 <ul class="simple">
-<li><p><em>Fast</em>: Twig compiles templates down to plain optimized PHP code. The
-overhead compared to regular PHP code was reduced to the very minimum.</p></li>
-<li><p><em>Secure</em>: Twig has a sandbox mode to evaluate untrusted template code. This
-allows Twig to be used as a template language for applications where users
-may modify the template design.</p></li>
-<li><p><em>Flexible</em>: Twig is powered by a flexible lexer and parser. This allows the
-developer to define their own custom tags and filters, and to create their own DSL.</p></li>
+<li><p><em>Быстро</em>: Twig компилирует шаблоны в простой оптимизированный PHP-код. Накладные
+расходы по сравнению с обычным кодом PHP были сведены к минимуму.</p></li>
+<li><p><em>Безопасность</em>: Twig имеет режим песочницы для оценки ненадежного кода шаблона.
+Это позволяет использовать Twig в качестве языка шаблонов для приложений, где
+пользователи могут изменять дизайн шаблона.</p></li>
+<li><p><em>Гибкость</em>: Twig основан на гибком лексическом и синтаксическом анализаторе. Это позволяет
+разработчику определять свои собственные теги и фильтры, а также создавать свои собственные DSL.</p></li>
 </ul>
-<p>Twig is used by many Open-Source projects like Symfony, Drupal8, eZPublish,
-phpBB, Matomo, OroCRM; and many frameworks have support for it as well like
-Slim, Yii, Laravel, and Codeigniter — just to name a few.</p>
-<div class="admonition-screencast admonition">
-<p class="admonition-title">Screencast</p>
-<p>Like to learn from video tutorials? Check out the <a class="reference external" href="https://symfonycasts.com/screencast/twig">SymfonyCasts Twig Tutorial</a>!</p>
+<p>Twig используется многими проектами с открытым исходным кодом, такими как Symfony,
+Drupal8, eZPublish, phpBB, Matomo, OroCRM; и многие фреймворки также поддерживают его,
+например Slim, Yii, Laravel и Codeigniter — и это лишь некоторые из них.</p>
+<div class="admonition- admonition">
+<p class="admonition-title">Видеоуроки</p>
+<p>Хотите учиться на видеоуроках? Ознакомьтесь с <a class="reference external" href="https://symfonycasts.com/screencast/twig">учебным пособием по Twig</a>!</p>
 </div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Ссылка на этот заголовок">¶</a></h2>
-<p>Twig 3.x needs at least <strong>PHP 7.2.5</strong> to run.</p>
+<div class="section" id="id2">
+<h2>Совместимость<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для работы Twig 3.x требуется как минимум <strong>PHP 7.2.5</strong>.</p>
 </div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Ссылка на этот заголовок">¶</a></h2>
-<p>The recommended way to install Twig is via Composer:</p>
+<div class="section" id="id3">
+<h2>Установка<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Рекомендуемый способ установки Twig через Composer:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>composer require <span class="s2">"twig/twig:^3.0"</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="basic-api-usage">
-<h2>Basic API Usage<a class="headerlink" href="#basic-api-usage" title="Ссылка на этот заголовок">¶</a></h2>
-<p>This section gives you a brief introduction to the PHP API for Twig:</p>
+<div class="section" id="api">
+<h2>Базовое использование API<a class="headerlink" href="#api" title="Ссылка на этот заголовок">¶</a></h2>
+<p>В этом разделе дается краткое введение в PHP API для Twig:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once '/path/to/vendor/autoload.php';
 
 $loader = new \Twig\Loader\ArrayLoader([
@@ -347,12 +347,12 @@ $twig = new \Twig\Environment($loader);
 echo $twig-&gt;render('index', ['name' =&gt; 'Fabien']);
 </pre></div>
 </div>
-<p>Twig uses a loader (<code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code>) to locate templates, and an
-environment (<code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>) to store its configuration.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">render()</span></code> method loads the template passed as a first argument and
-renders it with the variables passed as a second argument.</p>
-<p>As templates are generally stored on the filesystem, Twig also comes with a
-filesystem loader:</p>
+<p>Twig использует загрузчик (<code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code>) для поиска шаблонов и
+окружение (<code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>) для хранения своей конфигурации.</p>
+<p>Метод <code class="docutils literal notranslate"><span class="pre">render()</span></code> загружает шаблон, переданный в качестве первого аргумента
+и отображает его с переменными, переданными в качестве второго аргумента.</p>
+<p>Поскольку шаблоны обычно хранятся в файловой системе Twig также поставляется с
+загрузчиком файловой системы:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\FilesystemLoader('/path/to/templates');
 $twig = new \Twig\Environment($loader, [
     'cache' =&gt; '/path/to/compilation_cache',
@@ -410,9 +410,9 @@ echo $twig-&gt;render('index.html', ['name' =&gt; 'Fabien']);
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Вступление</a><ul>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#basic-api-usage">Basic API Usage</a></li>
+<li><a class="reference internal" href="#id2">Совместимость</a></li>
+<li><a class="reference internal" href="#id3">Установка</a></li>
+<li><a class="reference internal" href="#api">Базовое использование API</a></li>
 </ul>
 </li>
 </ul>
