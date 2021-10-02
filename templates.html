@@ -376,9 +376,9 @@ from a browser; it supports all versions of Twig.</p>
 они используются для ее отображения. Если необходим доступ к переменной в
 теге — фигурные скобки не нужны.</p>
 </div>
-<div class="sidebar">
-<p class="sidebar-title">Реализация</p>
-<p>Рассмотрим что будет, когда Twig ищет <code class="docutils literal notranslate"><span class="pre">foo.bar</span></code> на уровне PHP:</p>
+<p><strong>Реализация</strong></p>
+<blockquote>
+<div><p>Рассмотрим что будет, когда Twig ищет <code class="docutils literal notranslate"><span class="pre">foo.bar</span></code> на уровне PHP:</p>
 <ul class="simple">
 <li><p>проверяет, что <code class="docutils literal notranslate"><span class="pre">foo</span></code> это массив, и bar это ключ в массиве;</p></li>
 <li><p>если нет, и <code class="docutils literal notranslate"><span class="pre">foo</span></code> это объект и <code class="docutils literal notranslate"><span class="pre">bar</span></code> соответствующие свойство;</p></li>
@@ -395,10 +395,10 @@ from a browser; it supports all versions of Twig.</p>
 <li><p>проверяет, что <code class="docutils literal notranslate"><span class="pre">foo</span></code> — массив и bar — существующий в нем ключ;</p></li>
 <li><p>если нет, вернется <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
 </ul>
-</div>
+</div></blockquote>
 <p>Если переменная или атрибут не существует, вы получите значение <code class="docutils literal notranslate"><span class="pre">null</span></code>.
 когда для параметра <code class="docutils literal notranslate"><span class="pre">strict_variables</span></code> установлено значение <code class="docutils literal notranslate"><span class="pre">false</span></code>; в качестве альтернативы, если <code class="docutils literal notranslate"><span class="pre">strict_variables</span></code>
-установлен, Twig выдаст ошибку (см. :ref: <cite>параметры среды&lt;environment_options&gt;</cite>).</p>
+установлен, Twig выдаст ошибку (см. <a class="reference internal" href="api.html#environment-options"><span class="std std-ref">параметры среды</span></a>).</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
 <p>Если вы хотите получить динамический атрибут переменной, используйте
@@ -654,7 +654,7 @@ from a browser; it supports all versions of Twig.</p>
 автоматически экранировать все по умолчанию.</p>
 <p>По умолчанию в Twig автоматическое экранирование переменных включено.</p>
 <p>Стратегию автоматического экранирования можно настроить с помощью
-: ref: <cite>autoescape &lt;environment_options&gt;</cite> и по умолчанию - `` html``.</p>
+<a class="reference internal" href="api.html#environment-options"><span class="std std-ref">autoescape</span></a> и по умолчанию - `` html``.</p>
 <div class="section" id="id12">
 <h3>Работа с ручным экранированием<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
 <p>Если ручное экранирование включено, ответственность за безопасность переменных
