@@ -302,55 +302,50 @@
         <article role="main">
           <div class="section" id="id1">
 <h1>Стандарты кодирования<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
-<p>When writing Twig templates, we recommend you to follow these official coding
-standards:</p>
+<p>При написании шаблонов Twig мы рекомендуем вам следовать этим официальным стандартам кодирования:</p>
 <ul>
-<li><p>Put one (and only one) space after the start of a delimiter (<code class="docutils literal notranslate"><span class="pre">{{</span></code>, <code class="docutils literal notranslate"><span class="pre">{%</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">{#</span></code>) and before the end of a delimiter (<code class="docutils literal notranslate"><span class="pre">}}</span></code>, <code class="docutils literal notranslate"><span class="pre">%}</span></code>, and <code class="docutils literal notranslate"><span class="pre">#}</span></code>):</p>
+<li><p>Ставьте один (и только один) пробел после начала разделителя (<code class="docutils literal notranslate"><span class="pre">{{</span></code>, <code class="docutils literal notranslate"><span class="pre">{%</span></code>, <code class="docutils literal notranslate"><span class="pre">{#</span></code>)
+и до конца разделителей (<code class="docutils literal notranslate"><span class="pre">}}</span></code>, <code class="docutils literal notranslate"><span class="pre">%}</span></code>, <code class="docutils literal notranslate"><span class="pre">#}</span></code>):</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span> <span class="cp">}}</span><span class="x"></span>
-<span class="c">{# comment #}</span><span class="x"></span>
+<span class="c">{# комментарий #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">foo</span> <span class="cp">%}{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>When using the whitespace control character, do not put any spaces between
-it and the delimiter:</p>
+<p>При использовании управляющего символа пробела не ставьте пробелы между ним и разделителем:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span><span class="o">-</span> <span class="nv">foo</span> -<span class="cp">}}</span><span class="x"></span>
-<span class="c">{#- comment -#}</span><span class="x"></span>
+<span class="c">{#- комментарий -#}</span><span class="x"></span>
 <span class="cp">{%</span>- <span class="k">if</span> <span class="nv">foo</span> -<span class="cp">%}{%</span>- <span class="k">endif</span> -<span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Put one (and only one) space before and after the following operators:
-comparison operators (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), math
-operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>), logic
-operators (<code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>), <code class="docutils literal notranslate"><span class="pre">~</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, and the ternary
-operator (<code class="docutils literal notranslate"><span class="pre">?:</span></code>):</p>
+<li><p>Ставьте один (и только один) пробел до и после следующих операторов:
+операторы сравнения (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), математические
+операторы (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>), логические операторы
+(<code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>),  <code class="docutils literal notranslate"><span class="pre">~</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code> и тернарный оператор (<code class="docutils literal notranslate"><span class="pre">?:</span></code>):</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">1</span> <span class="o">+</span> <span class="m">2</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">foo</span> <span class="o">~</span> <span class="nv">bar</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="kp">true</span> <span class="o">?</span> <span class="kp">true</span> <span class="o">:</span> <span class="kp">false</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Put one (and only one) space after the <code class="docutils literal notranslate"><span class="pre">:</span></code> sign in hashes and <code class="docutils literal notranslate"><span class="pre">,</span></code> in
-arrays and hashes:</p>
+<li><p>Ставьте один (и только один) пробел после <code class="docutils literal notranslate"><span class="pre">:</span></code> в хешах и <code class="docutils literal notranslate"><span class="pre">,</span></code> в массивах и хешах:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="o">{</span><span class="s1">'foo'</span><span class="o">:</span> <span class="s1">'bar'</span><span class="o">}</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Do not put any spaces after an opening parenthesis and before a closing
-parenthesis in expressions:</p>
+<li><p>Не ставьте пробелы после открывающей скобки и перед закрывающей скобкой в выражениях:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">1</span> <span class="o">+</span> <span class="o">(</span><span class="m">2</span> <span class="o">*</span> <span class="m">3</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Do not put any spaces before and after string delimiters:</p>
+<li><p>Не ставьте пробелы до и после разделителей строк:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'foo'</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="s2">"foo"</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Do not put any spaces before and after the following operators: <code class="docutils literal notranslate"><span class="pre">|</span></code>,
+<li><p>Не ставьте пробелы до и после следующих операторов: <code class="docutils literal notranslate"><span class="pre">|</span></code>,
 <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">..</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span><span class="o">|</span><span class="nf">upper</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">user.name</span> <span class="cp">}}</span><span class="x"></span>
@@ -359,28 +354,26 @@ parenthesis in expressions:</p>
 </pre></div>
 </div>
 </li>
-<li><p>Do not put any spaces before and after the parenthesis used for filter and
-function calls:</p>
+<li><p>Не ставьте пробелы до и после скобок, используемых для вызовов фильтров и функций:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">'foo'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="nv">range</span><span class="o">(</span><span class="m">1..10</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Do not put any spaces before and after the opening and the closing of arrays
-and hashes:</p>
+<li><p>Не ставьте пробелы до и после открытия и закрытия массивов и хешей:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{{</span> <span class="o">{</span><span class="s1">'foo'</span><span class="o">:</span> <span class="s1">'bar'</span><span class="o">}</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Use lower cased and underscored variable names:</p>
+<li><p>Используйте в нижнем регистре имена переменных и подчеркивания:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">'foo'</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo_bar</span> <span class="o">=</span> <span class="s1">'foo'</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
 </li>
-<li><p>Indent your code inside tags (use the same indentation as the one used for
-the target language of the rendered template):</p>
+<li><p>Сделайте отступ вашего кода внутри тегов (используйте тот же отступ,
+что и во всех блоках шаблона):</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">foo</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="kp">true</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">        true</span>
