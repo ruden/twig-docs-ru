@@ -1,32 +1,29 @@
 Стандарты кодирования
 =====================
 
-When writing Twig templates, we recommend you to follow these official coding
-standards:
+При написании шаблонов Twig мы рекомендуем вам следовать этим официальным стандартам кодирования:
 
-* Put one (and only one) space after the start of a delimiter (``{{``, ``{%``,
-  and ``{#``) and before the end of a delimiter (``}}``, ``%}``, and ``#}``):
+* Ставьте один (и только один) пробел после начала разделителя (``{{``, ``{%``, ``{#``)
+  и до конца разделителей (``}}``, ``%}``, ``#}``):
 
   .. code-block:: twig
 
     {{ foo }}
-    {# comment #}
+    {# комментарий #}
     {% if foo %}{% endif %}
 
-  When using the whitespace control character, do not put any spaces between
-  it and the delimiter:
+  При использовании управляющего символа пробела не ставьте пробелы между ним и разделителем:
 
   .. code-block:: twig
 
     {{- foo -}}
-    {#- comment -#}
+    {#- комментарий -#}
     {%- if foo -%}{%- endif -%}
 
-* Put one (and only one) space before and after the following operators:
-  comparison operators (``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``), math
-  operators (``+``, ``-``, ``/``, ``*``, ``%``, ``//``, ``**``), logic
-  operators (``not``, ``and``, ``or``), ``~``, ``is``, ``in``, and the ternary
-  operator (``?:``):
+* Ставьте один (и только один) пробел до и после следующих операторов:
+  операторы сравнения (``==``, ``!=``, ``<``, ``>``, ``>=``, ``<=``), математические
+  операторы (``+``, ``-``, ``/``, ``*``, ``%``, ``//``, ``**``), логические операторы
+  (``not``, ``and``, ``or``),  ``~``, ``is``, ``in`` и тернарный оператор (``?:``):
 
   .. code-block:: twig
 
@@ -34,29 +31,27 @@ standards:
      {{ foo ~ bar }}
      {{ true ? true : false }}
 
-* Put one (and only one) space after the ``:`` sign in hashes and ``,`` in
-  arrays and hashes:
+* Ставьте один (и только один) пробел после ``:`` в хешах и ``,`` в массивах и хешах:
 
   .. code-block:: twig
 
      {{ [1, 2, 3] }}
      {{ {'foo': 'bar'} }}
 
-* Do not put any spaces after an opening parenthesis and before a closing
-  parenthesis in expressions:
+* Не ставьте пробелы после открывающей скобки и перед закрывающей скобкой в выражениях:
 
   .. code-block:: twig
 
     {{ 1 + (2 * 3) }}
 
-* Do not put any spaces before and after string delimiters:
+* Не ставьте пробелы до и после разделителей строк:
 
   .. code-block:: twig
 
     {{ 'foo' }}
     {{ "foo" }}
 
-* Do not put any spaces before and after the following operators: ``|``,
+* Не ставьте пробелы до и после следующих операторов: ``|``,
   ``.``, ``..``, ``[]``:
 
   .. code-block:: twig
@@ -66,31 +61,29 @@ standards:
     {{ user[name] }}
     {% for i in 1..12 %}{% endfor %}
 
-* Do not put any spaces before and after the parenthesis used for filter and
-  function calls:
+* Не ставьте пробелы до и после скобок, используемых для вызовов фильтров и функций:
 
   .. code-block:: twig
 
      {{ foo|default('foo') }}
      {{ range(1..10) }}
 
-* Do not put any spaces before and after the opening and the closing of arrays
-  and hashes:
+* Не ставьте пробелы до и после открытия и закрытия массивов и хешей:
 
   .. code-block:: twig
 
      {{ [1, 2, 3] }}
      {{ {'foo': 'bar'} }}
 
-* Use lower cased and underscored variable names:
+* Используйте в нижнем регистре имена переменных и подчеркивания:
 
   .. code-block:: twig
 
      {% set foo = 'foo' %}
      {% set foo_bar = 'foo' %}
 
-* Indent your code inside tags (use the same indentation as the one used for
-  the target language of the rendered template):
+* Сделайте отступ вашего кода внутри тегов (используйте тот же отступ,
+  что и во всех блоках шаблона):
 
   .. code-block:: twig
 
