@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Расширения в Twig" href="advanced.html" /><link rel="prev" title="Twig для верстальщиков" href="templates.html" />
 
-    <meta name="generator" content="sphinx-4.2.0, furo 2021.09.22"/>
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
         <title>Twig для программистов - документация Twig 3.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=150e365fa939648e89c22f6d7d13c72a1657915a" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
     
 
@@ -40,17 +40,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" />
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
     </svg>
   </symbol>
   <symbol id="svg-menu" viewBox="0 0 24 24">
     <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -59,14 +55,14 @@
   </symbol>
   <symbol id="svg-arrow-right" viewBox="0 0 24 24">
     <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   </symbol>
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -81,7 +77,7 @@
   </symbol>
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
@@ -89,7 +85,7 @@
   </symbol>
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
@@ -278,6 +274,7 @@
 
 </div>
 </div>
+
       </div>
       
     </div>
@@ -285,8 +282,7 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -301,12 +297,12 @@
         </div>
         <article role="main">
           <div class="section" id="twig">
-<h1>Twig для программистов<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">¶</a></h1>
+<h1>Twig для программистов<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">#</a></h1>
 <p>This chapter describes the API to Twig and not the template language. It will
 be most useful as reference to those implementing the template interface to
 the application and not those who are creating Twig templates.</p>
 <div class="section" id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Basics<a class="headerlink" href="#basics" title="Ссылка на этот заголовок">#</a></h2>
 <p>Twig uses a central object called the <strong>environment</strong> (of class
 <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>). Instances of this class are used to store the
 configuration and extensions, and are used to load templates.</p>
@@ -338,7 +334,7 @@ cache library.</p>
 </div>
 </div>
 <div class="section" id="rendering-templates">
-<h2>Rendering Templates<a class="headerlink" href="#rendering-templates" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Rendering Templates<a class="headerlink" href="#rendering-templates" title="Ссылка на этот заголовок">#</a></h2>
 <p>To load a template from a Twig environment, call the <code class="docutils literal notranslate"><span class="pre">load()</span></code> method which
 returns a <code class="docutils literal notranslate"><span class="pre">\Twig\TemplateWrapper</span></code> instance:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template = $twig-&gt;load('index.html');
@@ -363,7 +359,7 @@ returns a <code class="docutils literal notranslate"><span class="pre">\Twig\Tem
 </div>
 </div>
 <div class="section" id="environment-options">
-<span id="id1"></span><h2>Environment Options<a class="headerlink" href="#environment-options" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id1"></span><h2>Environment Options<a class="headerlink" href="#environment-options" title="Ссылка на этот заголовок">#</a></h2>
 <p>When creating a new <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code> instance, you can pass an array of
 options as the constructor second argument:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader, ['debug' =&gt; true]);
@@ -413,19 +409,19 @@ disable).</p>
 </ul>
 </div>
 <div class="section" id="loaders">
-<h2>Loaders<a class="headerlink" href="#loaders" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Loaders<a class="headerlink" href="#loaders" title="Ссылка на этот заголовок">#</a></h2>
 <p>Loaders are responsible for loading templates from a resource such as the file
 system.</p>
 <div class="section" id="compilation-cache">
-<h3>Compilation Cache<a class="headerlink" href="#compilation-cache" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Compilation Cache<a class="headerlink" href="#compilation-cache" title="Ссылка на этот заголовок">#</a></h3>
 <p>All template loaders can cache the compiled templates on the filesystem for
 future reuse. It speeds up Twig a lot as templates are only compiled once.</p>
 </div>
 <div class="section" id="built-in-loaders">
-<h3>Built-in Loaders<a class="headerlink" href="#built-in-loaders" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Built-in Loaders<a class="headerlink" href="#built-in-loaders" title="Ссылка на этот заголовок">#</a></h3>
 <p>Here is a list of the built-in loaders:</p>
 <div class="section" id="twig-loader-filesystemloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code><a class="headerlink" href="#twig-loader-filesystemloader" title="Ссылка на этот заголовок">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code><a class="headerlink" href="#twig-loader-filesystemloader" title="Ссылка на этот заголовок">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code> loads templates from the file system. This loader
 can find templates in folders on the file system and is the preferred way to
 load them:</p>
@@ -472,7 +468,7 @@ for relative paths.</p>
 </div>
 </div>
 <div class="section" id="twig-loader-arrayloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code><a class="headerlink" href="#twig-loader-arrayloader" title="Ссылка на этот заголовок">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code><a class="headerlink" href="#twig-loader-arrayloader" title="Ссылка на этот заголовок">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code> loads a template from a PHP array. It is passed an
 array of strings bound to template names:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\ArrayLoader([
@@ -495,7 +491,7 @@ cache file by yourself.</p>
 </div>
 </div>
 <div class="section" id="twig-loader-chainloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code><a class="headerlink" href="#twig-loader-chainloader" title="Ссылка на этот заголовок">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code><a class="headerlink" href="#twig-loader-chainloader" title="Ссылка на этот заголовок">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code> delegates the loading of templates to other loaders:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader1 = new \Twig\Loader\ArrayLoader([
     'base.html' =&gt; '{% block content %}{% endblock %}',
@@ -521,7 +517,7 @@ template will be loaded from <code class="docutils literal notranslate"><span cl
 </div>
 </div>
 <div class="section" id="create-your-own-loader">
-<h3>Create your own Loader<a class="headerlink" href="#create-your-own-loader" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Create your own Loader<a class="headerlink" href="#create-your-own-loader" title="Ссылка на этот заголовок">#</a></h3>
 <p>All loaders implement the <code class="docutils literal notranslate"><span class="pre">\Twig\Loader\LoaderInterface</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>interface \Twig\Loader\LoaderInterface
 {
@@ -576,7 +572,7 @@ is still fresh, given the last modification time, or <code class="docutils liter
 </div>
 </div>
 <div class="section" id="using-extensions">
-<h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Ссылка на этот заголовок">#</a></h2>
 <p>Twig extensions are packages that add new features to Twig. Register an
 extension via the <code class="docutils literal notranslate"><span class="pre">addExtension()</span></code> method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;addExtension(new \Twig\Extension\SandboxExtension());
@@ -603,7 +599,7 @@ compilation.</p></li>
 <p>The Core, Escaper, and Optimizer extensions are registered by default.</p>
 </div>
 <div class="section" id="built-in-extensions">
-<h2>Built-in Extensions<a class="headerlink" href="#built-in-extensions" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Built-in Extensions<a class="headerlink" href="#built-in-extensions" title="Ссылка на этот заголовок">#</a></h2>
 <p>This section describes the features added by the built-in extensions.</p>
 <div class="admonition tip">
 <p class="admonition-title">Совет</p>
@@ -611,7 +607,7 @@ compilation.</p></li>
 create your own extensions.</p>
 </div>
 <div class="section" id="core-extension">
-<h3>Core Extension<a class="headerlink" href="#core-extension" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Core Extension<a class="headerlink" href="#core-extension" title="Ссылка на этот заголовок">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">core</span></code> extension defines all the core features of Twig:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="tags/index.html"><span class="doc">Tags</span></a>;</p></li>
@@ -621,7 +617,7 @@ create your own extensions.</p>
 </ul>
 </div>
 <div class="section" id="escaper-extension">
-<h3>Escaper Extension<a class="headerlink" href="#escaper-extension" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Escaper Extension<a class="headerlink" href="#escaper-extension" title="Ссылка на этот заголовок">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">escaper</span></code> extension adds automatic output escaping to Twig. It defines a
 tag, <code class="docutils literal notranslate"><span class="pre">autoescape</span></code>, and a filter, <code class="docutils literal notranslate"><span class="pre">raw</span></code>.</p>
 <p>When creating the escaper extension, you can switch on or off the global
@@ -723,7 +719,7 @@ individual variables (so, the <code class="docutils literal notranslate"><span c
 </div>
 </div>
 <div class="section" id="sandbox-extension">
-<h3>Sandbox Extension<a class="headerlink" href="#sandbox-extension" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Sandbox Extension<a class="headerlink" href="#sandbox-extension" title="Ссылка на этот заголовок">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sandbox</span></code> extension can be used to evaluate untrusted code. Access to
 unsafe attributes and methods is prohibited. The sandbox security is managed
 by a policy instance. By default, Twig comes with one policy class:
@@ -765,7 +761,7 @@ the extension constructor:</p>
 </div>
 </div>
 <div class="section" id="profiler-extension">
-<h3>Profiler Extension<a class="headerlink" href="#profiler-extension" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Profiler Extension<a class="headerlink" href="#profiler-extension" title="Ссылка на этот заголовок">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">profiler</span></code> extension enables a profiler for Twig templates; it should
 only be used on your development machines as it adds some overhead:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$profile = new \Twig\Profiler\Profile();
@@ -790,7 +786,7 @@ first):</p>
 </div>
 </div>
 <div class="section" id="optimizer-extension">
-<h3>Optimizer Extension<a class="headerlink" href="#optimizer-extension" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Optimizer Extension<a class="headerlink" href="#optimizer-extension" title="Ссылка на этот заголовок">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> extension optimizes the node tree before compilation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;addExtension(new \Twig\Extension\OptimizerExtension());
 </pre></div>
@@ -819,7 +815,7 @@ and access of variables in the compiled templates whenever possible.</p></li>
 </div>
 </div>
 <div class="section" id="exceptions">
-<h2>Exceptions<a class="headerlink" href="#exceptions" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Ссылка на этот заголовок">#</a></h2>
 <p>Twig can throw exceptions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">\Twig\Error\Error</span></code>: The base exception for all errors.</p></li>
@@ -860,9 +856,20 @@ method is called in a sandboxed template.</p></li>
               </div>
             </a>
         </div>
-
-        <div class="related-information">
-              Copyright &#169; 2021, OSCLab.com
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, OSCLab.com
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
         </div>
         
       </footer>
@@ -919,7 +926,7 @@ method is called in a sandboxed template.</p></li>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/translations.js"></script>
     </body>
 </html>

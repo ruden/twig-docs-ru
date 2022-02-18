@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig для программистов" href="api.html" /><link rel="prev" title="Установка" href="installation.html" />
 
-    <meta name="generator" content="sphinx-4.2.0, furo 2021.09.22"/>
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
         <title>Twig для верстальщиков - документация Twig 3.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=150e365fa939648e89c22f6d7d13c72a1657915a" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
     
 
@@ -40,17 +40,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" />
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
     </svg>
   </symbol>
   <symbol id="svg-menu" viewBox="0 0 24 24">
     <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -59,14 +55,14 @@
   </symbol>
   <symbol id="svg-arrow-right" viewBox="0 0 24 24">
     <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   </symbol>
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -81,7 +77,7 @@
   </symbol>
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
@@ -89,7 +85,7 @@
   </symbol>
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
@@ -278,6 +274,7 @@
 
 </div>
 </div>
+
       </div>
       
     </div>
@@ -285,8 +282,7 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -301,11 +297,11 @@
         </div>
         <article role="main">
           <div class="section" id="twig">
-<h1>Twig для верстальщиков<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">¶</a></h1>
+<h1>Twig для верстальщиков<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">#</a></h1>
 <p>Этот документ описывает синтаксис и семантику шаблонов. Будет наиболее полезен
 тем, кто создает Twig шаблоны</p>
 <div class="section" id="id1">
-<h2>Краткий обзор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Краткий обзор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h2>
 <p>Шаблон — это просто текстовой файл. Вы можете генерировать любой текстовый
 формат (HTML, XML, CSV, LaTeX, и тп.). Шаблон может иметь любое расширение,
 обычно это <code class="docutils literal notranslate"><span class="pre">.html</span></code> или <code class="docutils literal notranslate"><span class="pre">.xml</span></code>.</p>
@@ -337,7 +333,7 @@
 выражения в шаблоне.</p>
 </div>
 <div class="section" id="ide">
-<h2>Интеграция с IDE<a class="headerlink" href="#ide" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Интеграция с IDE<a class="headerlink" href="#ide" title="Ссылка на этот заголовок">#</a></h2>
 <p>Многие IDE поддерживают подсветку синтаксиса и авто-дополнение для Twig:</p>
 <ul class="simple">
 <li><p><em>Textmate</em> via the <a class="reference external" href="https://github.com/Anomareh/PHP-Twig.tmbundle">Twig bundle</a></p></li>
@@ -359,7 +355,7 @@
 from a browser; it supports all versions of Twig.</p>
 </div>
 <div class="section" id="id2">
-<h2>Переменные<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Переменные<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h2>
 <p>Приложение передает переменные в шаблон, где вы можете их использовать.
 У переменных могут быть атрибуты, значения которых вы можете получить.
 Как выглядит переменная во многом зависит от того, как приложение предоставит ее.</p>
@@ -412,7 +408,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>Глобальные переменные<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Глобальные переменные<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">#</a></h3>
 <p>Следующие переменные всегда доступны в шаблонах:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">_self</span></code>: ссылается на текущий шаблон;</p></li>
@@ -421,7 +417,7 @@ from a browser; it supports all versions of Twig.</p>
 </ul>
 </div>
 <div class="section" id="id4">
-<h3>Переменные<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Переменные<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">#</a></h3>
 <p>Вы можете устанавливать значения переменных в блоках кода для этого
 используйте тег <a class="reference internal" href="tags/set.html"><span class="doc">set</span></a>:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">'foo'</span> <span class="cp">%}</span><span class="x"></span>
@@ -432,7 +428,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id5">
-<h2>Фильтры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Фильтры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h2>
 <p>Переменные могут быть изменены с помощью фильтров. Фильтры отделяются от переменных
 прямой чертой (<code class="docutils literal notranslate"><span class="pre">|</span></code>) и могут содержать параметры в круглых скобках. Фильтры могут
 применяться по цепочке. Тогда результат одного фильтра передается к следующему.</p>
@@ -457,7 +453,7 @@ from a browser; it supports all versions of Twig.</p>
 встроенных фильтрах.</p>
 </div>
 <div class="section" id="id6">
-<h2>Функции<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Функции<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">#</a></h2>
 <p>Функции можно вызвать для генерации контента. После названия функции идут
 фигурные скобки (<code class="docutils literal notranslate"><span class="pre">()</span></code>) в скобках могут быть аргументы.</p>
 <p>Например, функция <code class="docutils literal notranslate"><span class="pre">range</span></code> возвращает список, содержащий
@@ -471,7 +467,7 @@ from a browser; it supports all versions of Twig.</p>
 встроенных функциях.</p>
 </div>
 <div class="section" id="named-arguments">
-<span id="id7"></span><h2>Именованные аргументов<a class="headerlink" href="#named-arguments" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id7"></span><h2>Именованные аргументов<a class="headerlink" href="#named-arguments" title="Ссылка на этот заголовок">#</a></h2>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="nv">low</span><span class="o">=</span><span class="m">1</span><span class="o">,</span> <span class="nv">high</span><span class="o">=</span><span class="m">10</span><span class="o">,</span> <span class="nv">step</span><span class="o">=</span><span class="m">2</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">,</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
@@ -506,7 +502,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id8">
-<h2>Управляющие конструкции<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Управляющие конструкции<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">#</a></h2>
 <p>К управляющим конструкциям относится все условные операторы
 (такие как  <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elseif</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>), <code class="docutils literal notranslate"><span class="pre">for</span></code>- циклы, а также блоки.
 Управляющие конструкции находятся внутри``{% … %}`` блоков.</p>
@@ -533,7 +529,7 @@ from a browser; it supports all versions of Twig.</p>
 <p>Перейдите на страницу <a class="reference internal" href="tags/index.html"><span class="doc">tags</span></a>, чтобы узнать больше о встроенных тегов.</p>
 </div>
 <div class="section" id="id9">
-<h2>Комментарии<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Комментарии<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">#</a></h2>
 <p>Чтобы закомментировать часть шаблона, используйте следующий синтаксис <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">...</span> <span class="pre">#}</span></code>.
 Это бывает полезно при отладке или добавлении полезной информации для других
 дизайнеров или себя:</p>
@@ -546,7 +542,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id10">
-<h2>Подключение шаблонов<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Подключение шаблонов<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">#</a></h2>
 <p>Тег <a class="reference internal" href="tags/include.html"><span class="doc">include</span></a> используется для подключения одного шаблона в другой.</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">'sidebar.html'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
@@ -569,7 +565,7 @@ from a browser; it supports all versions of Twig.</p>
 <p>Такое поведение зависит от применения вложения Twig.</p>
 </div>
 <div class="section" id="id11">
-<h2>Наследование шаблонов<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Наследование шаблонов<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">#</a></h2>
 <p>Самая мощная часть Twig — это наследование шаблонов. Наследование шаблонов
 позволяет вам создать основной «скелет» шаблона, который содержит все элементы
 вашего сайта и определить теги <strong>blocks</strong>, которые будут перезаписаны в дочерних
@@ -607,9 +603,9 @@ from a browser; it supports all versions of Twig.</p>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Главная<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
     <span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span>
-    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span>
-        <span class="p">.</span><span class="nc">important</span> <span class="p">{</span> <span class="k">color</span><span class="p">:</span> <span class="mh">#336699</span><span class="p">;</span> <span class="p">}</span>
-    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nc">important</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#336699</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Главная<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -647,7 +643,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="html">
-<h2>Экранирование HTML<a class="headerlink" href="#html" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Экранирование HTML<a class="headerlink" href="#html" title="Ссылка на этот заголовок">#</a></h2>
 <p>При генерации HTML в шаблоне всегда есть риск того, что переменные будут
 содержать специальные символы, которые влияют на полученный HTML. Есть два
 варианта решения: вручную отмечать переменные, которые нужно экранировать или
@@ -656,7 +652,7 @@ from a browser; it supports all versions of Twig.</p>
 <p>Стратегию автоматического экранирования можно настроить с помощью
 <a class="reference internal" href="api.html#environment-options"><span class="std std-ref">autoescape</span></a> и по умолчанию - `` html``.</p>
 <div class="section" id="id12">
-<h3>Работа с ручным экранированием<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Работа с ручным экранированием<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">#</a></h3>
 <p>Если ручное экранирование включено, ответственность за безопасность переменных
 лежит на <em>вас</em>. Что экранировать? Любую переменную, которой вы не доверяете.</p>
 <p>Экранирование осуществляется с помощью фильтра <a class="reference internal" href="filters/escape.html"><span class="doc">escape</span></a> или <code class="docutils literal notranslate"><span class="pre">e</span></code>:</p>
@@ -674,7 +670,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id13">
-<h3>Работа с автоматическим экранированием<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Работа с автоматическим экранированием<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">#</a></h3>
 <p>Вне зависимости от того включено экранирование или нет, вы можете добавить
 экранирование для блока кода с помощью тега <a class="reference internal" href="tags/autoescape.html"><span class="doc">autoescape</span></a>:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="cp">%}</span><span class="x"></span>
@@ -693,7 +689,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id14">
-<h2>Экранирование<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Экранирование<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">#</a></h2>
 <p>Иногда желательно или даже необходимо, чтобы Twig игнорировал части, которые
 в противном случае обрабатывать как переменные или блоки. Например, если синтаксис по умолчанию
 используется, и вы хотите использовать <code class="docutils literal notranslate"><span class="pre">{{</span></code> в качестве необработанной строки в шаблоне,
@@ -705,13 +701,13 @@ from a browser; it supports all versions of Twig.</p>
 <p>Для больших блоков нужно использовать тег <a class="reference internal" href="tags/verbatim.html"><span class="doc">verbatim</span></a>.</p>
 </div>
 <div class="section" id="id15">
-<h2>Макросы<a class="headerlink" href="#id15" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Макросы<a class="headerlink" href="#id15" title="Ссылка на этот заголовок">#</a></h2>
 <p>Макросы сопоставимы с функциями в обычных языках программирования.
 Они полезны, когда нужно повторить многократно HTML-код, но не копировать его.
 Макрос определяется тегом <a class="reference internal" href="tags/macro.html"><span class="doc">macro</span></a>.</p>
 </div>
 <div class="section" id="twig-expressions">
-<span id="id16"></span><h2>Операторы<a class="headerlink" href="#twig-expressions" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id16"></span><h2>Операторы<a class="headerlink" href="#twig-expressions" title="Ссылка на этот заголовок">#</a></h2>
 <p>Twig позволяет использовать операторы везде.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
@@ -732,7 +728,7 @@ from a browser; it supports all versions of Twig.</p>
 </div>
 </div>
 <div class="section" id="id17">
-<h3>Литералы<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Литералы<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">#</a></h3>
 <p>Самая простая форма выражений - литералы. Литералы соответствуют типам данных
 PHP: строки, числа и массивы. Существуют следующие литералы:</p>
 <ul>
@@ -789,7 +785,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="id18">
-<h3>Математические операторы<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Математические операторы<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">#</a></h3>
 <p>Twig позволяет производить математические операции над данными.
 Поддерживаются следующие операторы:</p>
 <ul class="simple">
@@ -808,7 +804,7 @@ PHP: строки, числа и массивы. Существуют следу
 </ul>
 </div>
 <div class="section" id="template-logic">
-<span id="id19"></span><h3>Логические операторы<a class="headerlink" href="#template-logic" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="id19"></span><h3>Логические операторы<a class="headerlink" href="#template-logic" title="Ссылка на этот заголовок">#</a></h3>
 <p>Вы можете сочетать выражения используя следующие операторы:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">and</span></code>: Возвращает <code class="docutils literal notranslate"><span class="pre">true</span></code>, если левое и правое значение являются <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
@@ -826,7 +822,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="id20">
-<h3>Операторы сравнения<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Операторы сравнения<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">#</a></h3>
 <p>Следующие операторы сравнения поддерживаются в любом выражении:
 <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>.</p>
 <p>Вы также можете проверить, если строка начинается <code class="docutils literal notranslate"><span class="pre">starts</span> <span class="pre">with</span></code> или заканчивается
@@ -849,7 +845,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="id21">
-<h3>Оператор содержания<a class="headerlink" href="#id21" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Оператор содержания<a class="headerlink" href="#id21" title="Ссылка на этот заголовок">#</a></h3>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">in</span></code> осуществляет проверку на совпадение.</p>
 <p>Возвращает <code class="docutils literal notranslate"><span class="pre">true</span></code>, если левое значение содержится в правом:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# вернет true #}</span><span class="x"></span>
@@ -873,7 +869,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="id22">
-<h3>Оператор проверки<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Оператор проверки<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">#</a></h3>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> выполняет тесты. Тесты можно использовать для проверки
 переменной на соответствие общему выражению. Правый операнд - это имя теста:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# проверит является ли переменная нечетной #}</span><span class="x"></span>
@@ -895,7 +891,7 @@ PHP: строки, числа и массивы. Существуют следу
 <p>Результаты работы можно посмотреть в тестах <a class="reference internal" href="tests/index.html"><span class="doc">tests</span></a>.</p>
 </div>
 <div class="section" id="id23">
-<h3>Другие операторы<a class="headerlink" href="#id23" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>Другие операторы<a class="headerlink" href="#id23" title="Ссылка на этот заголовок">#</a></h3>
 <p>Следующие операторы очень полезны, но не попадают ни в одну из других категорий:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: Применяет фильтр.</p></li>
@@ -935,7 +931,7 @@ PHP: строки, числа и массивы. Существуют следу
 </ul>
 </div>
 <div class="section" id="templates-string-interpolation">
-<span id="id24"></span><h3>Подстановка переменных<a class="headerlink" href="#templates-string-interpolation" title="Ссылка на этот заголовок">¶</a></h3>
+<span id="id24"></span><h3>Подстановка переменных<a class="headerlink" href="#templates-string-interpolation" title="Ссылка на этот заголовок">#</a></h3>
 <p>Подстановка переменных (<code class="docutils literal notranslate"><span class="pre">#{expression}</span></code>) доступна для любого выражения
 находящегося в <em>строке с двойными скобками</em>. Результатом выражения будет
 строка:</p>
@@ -946,7 +942,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="templates-whitespace-control">
-<span id="id25"></span><h2>Управление пробелами<a class="headerlink" href="#templates-whitespace-control" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id25"></span><h2>Управление пробелами<a class="headerlink" href="#templates-whitespace-control" title="Ссылка на этот заголовок">#</a></h2>
 <p>Первая строка после тега удаляется автоматически (как в PHP.)
 Пробелы не изменяются шаблонизатором, так же как и другие подобные
 символы (табуляция, символ новой строки и др.) и возвращается без изменений.</p>
@@ -999,7 +995,7 @@ PHP: строки, числа и массивы. Существуют следу
 </div>
 </div>
 <div class="section" id="id26">
-<h2>Расширения<a class="headerlink" href="#id26" title="Ссылка на этот заголовок">¶</a></h2>
+<h2>Расширения<a class="headerlink" href="#id26" title="Ссылка на этот заголовок">#</a></h2>
 <p>Twig может быть легко расширен. Если вы хотите создать свое собственное расширение, читайте раздел
 <a class="reference internal" href="advanced.html#creating-extensions"><span class="std std-ref">Создание Расширения</span></a>.</p>
 </div>
@@ -1031,9 +1027,20 @@ PHP: строки, числа и массивы. Существуют следу
               </div>
             </a>
         </div>
-
-        <div class="related-information">
-              Copyright &#169; 2021, OSCLab.com
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, OSCLab.com
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
         </div>
         
       </footer>
@@ -1100,7 +1107,7 @@ PHP: строки, числа и массивы. Существуют следу
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/main.js"></script>
+    <script src="_static/scripts/furo.js"></script>
     <script src="_static/translations.js"></script>
     </body>
 </html>
