@@ -1,16 +1,16 @@
 ``iterable``
 ============
 
-``iterable`` checks if a variable is an array or a traversable object:
+``iterable`` проверяет, является ли переменная массивом или обходимым объектом:
 
 .. code-block:: twig
 
     {# evaluates to true if the foo variable is iterable #}
     {% if users is iterable %}
         {% for user in users %}
-            Hello {{ user }}!
+            Привет {{ user }}!
         {% endfor %}
     {% else %}
         {# users is probably a string #}
-        Hello {{ users }}!
+        Привет {{ users }}!
     {% endif %}

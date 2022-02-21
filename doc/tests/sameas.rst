@@ -1,11 +1,11 @@
 ``same as``
 ===========
 
-``same as`` checks if a variable is the same as another variable.
-This is equivalent to ``===`` in PHP:
+``same as`` проверяет, совпадает ли переменная с другой переменной.
+Это эквивалентно ``===`` в PHP:
 
 .. code-block:: twig
 
     {% if foo.attribute is same as(false) %}
-        the foo attribute really is the 'false' PHP value
+        атрибут foo действительно является 'false' PHP значением
     {% endif %}

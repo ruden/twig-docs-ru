@@ -1,7 +1,7 @@
 ``null``
 ========
 
-``null`` returns ``true`` if the variable is ``null``:
+``null`` возвращает ``true``, если переменная имеет значение ``null``:
 
 .. code-block:: twig
 
@@ -9,4 +9,4 @@
 
 .. note::
 
-    ``none`` is an alias for ``null``.
+    ``none`` является псевдонимом для ``null``.

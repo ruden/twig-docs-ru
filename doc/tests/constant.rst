@@ -1,19 +1,19 @@
 ``constant``
 ============
 
-``constant`` checks if a variable has the exact same value as a constant. You
-can use either global constants or class constants:
+``constant`` проверяет, имеет ли переменная то же самое значение, что и константа. Вы
+можете использовать либо глобальные константы или константы класса:
 
 .. code-block:: twig
 
     {% if post.status is constant('Post::PUBLISHED') %}
-        the status attribute is exactly the same as Post::PUBLISHED
+        атрибут status в точности совпадает с атрибутом Post::PUBLISHED
     {% endif %}
 
-You can test constants from object instances as well:
+Можно также проверить константы из экземпляров объекта:
 
 .. code-block:: twig
 
     {% if post.status is constant('PUBLISHED', post) %}
-        the status attribute is exactly the same as Post::PUBLISHED
+        атрибут status в точности совпадает с атрибутом Post::PUBLISHED
     {% endif %}

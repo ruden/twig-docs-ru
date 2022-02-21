@@ -1,7 +1,7 @@
 ``odd``
 =======
 
-``odd`` returns ``true`` if the given number is odd:
+``odd`` возвращает ``true``, если данное число нечетное:
 
 .. code-block:: twig
 

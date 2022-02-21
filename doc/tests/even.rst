@@ -1,7 +1,7 @@
 ``even``
 ========
 
-``even`` returns ``true`` if the given number is even:
+``even`` возвращает ``true``, если данное число является четным:
 
 .. code-block:: twig
 
