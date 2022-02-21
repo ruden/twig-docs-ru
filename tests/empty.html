@@ -298,12 +298,12 @@
         <article role="main">
           <div class="section" id="empty">
 <h1><code class="docutils literal notranslate"><span class="pre">empty</span></code><a class="headerlink" href="#empty" title="Ссылка на этот заголовок">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">empty</span></code> checks if a variable is an empty string, an empty array, an empty
-hash, exactly <code class="docutils literal notranslate"><span class="pre">false</span></code>, or exactly <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
-<p>For objects that implement the <code class="docutils literal notranslate"><span class="pre">Countable</span></code> interface, <code class="docutils literal notranslate"><span class="pre">empty</span></code> will check the
-return value of the <code class="docutils literal notranslate"><span class="pre">count()</span></code> method.</p>
-<p>For objects that implement the <code class="docutils literal notranslate"><span class="pre">__toString()</span></code> magic method (and not <code class="docutils literal notranslate"><span class="pre">Countable</span></code>),
-it will check if an empty string is returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">empty</span></code> проверяет, является ли переменная пустой строкой, пустым массивом, пустым
+хеш, в точности <code class="docutils literal notranslate"><span class="pre">false</span></code> или в точности <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p>Для объектов, реализующих интерфейс <code class="docutils literal notranslate"><span class="pre">Countable</span></code>, <code class="docutils literal notranslate"><span class="pre">empty</span></code> проверяет
+возвращаемое значение метода <code class="docutils literal notranslate"><span class="pre">count()</span></code>.</p>
+<p>Для объектов, реализующих магический метод <code class="docutils literal notranslate"><span class="pre">__</span> <span class="pre">toString</span> <span class="pre">()</span></code> (а не <code class="docutils literal notranslate"><span class="pre">Countable</span></code>),
+он будет проверять, возвращена ли пустая строка.</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">foo</span> <span class="k">is</span> <span class="nf">empty</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    ...</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>

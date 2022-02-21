@@ -298,15 +298,15 @@
         <article role="main">
           <div class="section" id="iterable">
 <h1><code class="docutils literal notranslate"><span class="pre">iterable</span></code><a class="headerlink" href="#iterable" title="Ссылка на этот заголовок">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">iterable</span></code> checks if a variable is an array or a traversable object:</p>
+<p><code class="docutils literal notranslate"><span class="pre">iterable</span></code> проверяет, является ли переменная массивом или обходимым объектом:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# evaluates to true if the foo variable is iterable #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">users</span> <span class="k">is</span> <span class="nf">iterable</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">user</span> <span class="k">in</span> <span class="nv">users</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">        Hello </span><span class="cp">{{</span> <span class="nv">user</span> <span class="cp">}}</span><span class="x">!</span>
+<span class="x">        Привет </span><span class="cp">{{</span> <span class="nv">user</span> <span class="cp">}}</span><span class="x">!</span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    </span><span class="c">{# users is probably a string #}</span><span class="x"></span>
-<span class="x">    Hello </span><span class="cp">{{</span> <span class="nv">users</span> <span class="cp">}}</span><span class="x">!</span>
+<span class="x">    Привет </span><span class="cp">{{</span> <span class="nv">users</span> <span class="cp">}}</span><span class="x">!</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>

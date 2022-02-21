@@ -298,14 +298,14 @@
         <article role="main">
           <div class="section" id="defined">
 <h1><code class="docutils literal notranslate"><span class="pre">defined</span></code><a class="headerlink" href="#defined" title="Ссылка на этот заголовок">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">defined</span></code> checks if a variable is defined in the current context. This is very
-useful if you use the <code class="docutils literal notranslate"><span class="pre">strict_variables</span></code> option:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# defined works with variable names #}</span><span class="x"></span>
+<p><code class="docutils literal notranslate"><span class="pre">defined</span></code> проверяет, определена ли переменная в текущем контексте. Это очень
+полезно при использовании опции <code class="docutils literal notranslate"><span class="pre">strict_variables</span></code>:</p>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# defined работает с именами переменных #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">foo</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    ...</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 
-<span class="c">{# and attributes on variables names #}</span><span class="x"></span>
+<span class="c">{# и атрибутами в именах переменных #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">foo.bar</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    ...</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
@@ -317,11 +317,16 @@ useful if you use the <code class="docutils literal notranslate"><span class="pr
 </div>
 <p>When using the <code class="docutils literal notranslate"><span class="pre">defined</span></code> test on an expression that uses variables in some
 method calls, be sure that they are all defined first:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var</span> <span class="k">is</span> <span class="nf">defined</span> <span class="k">and</span> <span class="nv">foo.method</span><span class="o">(</span><span class="nv">var</span><span class="o">)</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    ...</span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
-</div>
+<p>При использовании <code class="docutils literal notranslate"><span class="pre">defined</span></code> для проверки выражения, в котором используются переменные
+в некоторых вызовах методов, убедитесь, что все они определены в первую очередь:
+.. code-block:: twig</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{% if var is defined and foo.method(var) is defined %}</dt><dd><p>…</p>
+</dd>
+</dl>
+<p>{% endif %}</p>
+</div></blockquote>
 </div>
 
         </article>

@@ -298,16 +298,16 @@
         <article role="main">
           <div class="section" id="constant">
 <h1><code class="docutils literal notranslate"><span class="pre">constant</span></code><a class="headerlink" href="#constant" title="Ссылка на этот заголовок">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">constant</span></code> checks if a variable has the exact same value as a constant. You
-can use either global constants or class constants:</p>
+<p><code class="docutils literal notranslate"><span class="pre">constant</span></code> проверяет, имеет ли переменная то же самое значение, что и константа. Вы
+можете использовать либо глобальные константы или константы класса:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">'Post::PUBLISHED'</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    the status attribute is exactly the same as Post::PUBLISHED</span>
+<span class="x">    атрибут status в точности совпадает с атрибутом Post::PUBLISHED</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
-<p>You can test constants from object instances as well:</p>
+<p>Можно также проверить константы из экземпляров объекта:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">'PUBLISHED'</span><span class="o">,</span> <span class="nv">post</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    the status attribute is exactly the same as Post::PUBLISHED</span>
+<span class="x">    атрибут status в точности совпадает с атрибутом Post::PUBLISHED</span>
 <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 </div>
