@@ -2,13 +2,14 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig для программистов" href="api.html" /><link rel="prev" title="Установка" href="installation.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig для программистов" href="api.html" /><link rel="prev" title="Установка" href="installation.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Twig для верстальщиков - документация Twig 3.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -19,24 +20,28 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -144,7 +149,7 @@
   <span class="sidebar-brand-text">документация Twig 3.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Поиск name="q" aria-label="Поиск">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -159,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recipes.html">Примеры</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tags</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
@@ -182,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Filters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
@@ -239,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
@@ -258,7 +263,7 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Tests</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
@@ -282,7 +287,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -296,12 +309,12 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="twig">
-<h1>Twig для верстальщиков<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">#</a></h1>
+          <section id="twig">
+<h1>Twig для верстальщиков<a class="headerlink" href="#twig" title="Permalink to this heading">#</a></h1>
 <p>Этот документ описывает синтаксис и семантику шаблонов. Будет наиболее полезен
 тем, кто создает Twig шаблоны</p>
-<div class="section" id="id1">
-<h2>Краткий обзор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h2>
+<section id="id1">
+<h2>Краткий обзор<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Шаблон — это просто текстовой файл. Вы можете генерировать любой текстовый
 формат (HTML, XML, CSV, LaTeX, и тп.). Шаблон может иметь любое расширение,
 обычно это <code class="docutils literal notranslate"><span class="pre">.html</span></code> или <code class="docutils literal notranslate"><span class="pre">.xml</span></code>.</p>
@@ -316,9 +329,9 @@
         <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Мой сайт<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">"navigation"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navigation&quot;</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">navigation</span> <span class="cp">%}</span>
-            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"</span><span class="cp">{{</span> <span class="nv">item.href</span> <span class="cp">}}</span><span class="s">"</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.caption</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">item.href</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">item.caption</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
         <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 
@@ -331,9 +344,9 @@
 <p>Есть два вида разделителей <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">...</span> <span class="pre">%}</span></code> и <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">...</span> <span class="pre">}}</span></code>. Первый используется
 для выполнения выражений, например, циклов, второй — для вывода результата
 выражения в шаблоне.</p>
-</div>
-<div class="section" id="ide">
-<h2>Интеграция с IDE<a class="headerlink" href="#ide" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="ide">
+<h2>Интеграция с IDE<a class="headerlink" href="#ide" title="Permalink to this heading">#</a></h2>
 <p>Многие IDE поддерживают подсветку синтаксиса и авто-дополнение для Twig:</p>
 <ul class="simple">
 <li><p><em>Textmate</em> via the <a class="reference external" href="https://github.com/Anomareh/PHP-Twig.tmbundle">Twig bundle</a></p></li>
@@ -353,17 +366,17 @@
 </ul>
 <p>Also, <a class="reference external" href="https://twigfiddle.com/">TwigFiddle</a> is an online service that allows you to execute Twig templates
 from a browser; it supports all versions of Twig.</p>
-</div>
-<div class="section" id="id2">
-<h2>Переменные<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id2">
+<h2>Переменные<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Приложение передает переменные в шаблон, где вы можете их использовать.
 У переменных могут быть атрибуты, значения которых вы можете получить.
 Как выглядит переменная во многом зависит от того, как приложение предоставит ее.</p>
 <p>Вы можете использовать точку (<code class="docutils literal notranslate"><span class="pre">.</span></code>) для доступа к атрибутам переменной
 (методы, свойства объекта, или массивы PHP),
 или так называемый «индекс» синтаксис (<code class="docutils literal notranslate"><span class="pre">[]</span></code>):</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo.bar</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">foo</span><span class="o">[</span><span class="s1">'bar'</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo.bar</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">foo</span><span class="o">[</span><span class="s1">&#39;bar&#39;</span><span class="o">]</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -402,97 +415,97 @@ from a browser; it supports all versions of Twig.</p>
 <p>Функция <code class="docutils literal notranslate"><span class="pre">attribute</span></code> также полезна, когда атрибут содержит
 специальные символы (например, <code class="docutils literal notranslate"><span class="pre">-</span></code> которые интерпретируются как оператор
 минус):</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# эквивалент неработающего foo.data-foo #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">attribute</span><span class="o">(</span><span class="nv">foo</span><span class="o">,</span> <span class="s1">'data-foo'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# эквивалент неработающего foo.data-foo #}</span>
+<span class="cp">{{</span> <span class="nv">attribute</span><span class="o">(</span><span class="nv">foo</span><span class="o">,</span> <span class="s1">&#39;data-foo&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>Глобальные переменные<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">#</a></h3>
+<section id="id3">
+<h3>Глобальные переменные<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>Следующие переменные всегда доступны в шаблонах:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">_self</span></code>: ссылается на текущий шаблон;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_context</span></code>: ссылается на текущее окружение;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_charset</span></code>: ссылается на текущую кодировку.</p></li>
 </ul>
-</div>
-<div class="section" id="id4">
-<h3>Переменные<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id4">
+<h3>Переменные<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Вы можете устанавливать значения переменных в блоках кода для этого
 используйте тег <a class="reference internal" href="tags/set.html"><span class="doc">set</span></a>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">'foo'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">]</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">{</span><span class="s1">'foo'</span><span class="o">:</span> <span class="s1">'bar'</span><span class="o">}</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">]</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">{</span><span class="s1">&#39;foo&#39;</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="o">}</span> <span class="cp">%}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id5">
-<h2>Фильтры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="id5">
+<h2>Фильтры<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>Переменные могут быть изменены с помощью фильтров. Фильтры отделяются от переменных
 прямой чертой (<code class="docutils literal notranslate"><span class="pre">|</span></code>) и могут содержать параметры в круглых скобках. Фильтры могут
 применяться по цепочке. Тогда результат одного фильтра передается к следующему.</p>
 <p>Следующий пример удаляет все HTML-теги из <code class="docutils literal notranslate"><span class="pre">name</span></code> и преобразует в верхний
 регистр первый символ каждого слова:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">striptags</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">name</span><span class="o">|</span><span class="nf">striptags</span><span class="o">|</span><span class="nf">title</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>У фильтров, которые принимают аргументы, есть круглые скобки вокруг аргументов.
 В этом примере, добавится после list запятая :</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">list</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s1">', '</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">list</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s1">&#39;, &#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Чтобы применить фильтр к блоку кода — оберните его тегом
 <a class="reference internal" href="tags/apply.html"><span class="doc">apply</span></a>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">filter</span> <span class="nf">upper</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">filter</span> <span class="nf">upper</span> <span class="cp">%}</span>
 <span class="x">    Этот текст будет в верхнем регистре</span>
-<span class="cp">{%</span> <span class="k">endfilter</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfilter</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Перейдите на страницу <a class="reference internal" href="filters/index.html"><span class="doc">filters</span></a>, чтобы узнать больше о
 встроенных фильтрах.</p>
-</div>
-<div class="section" id="id6">
-<h2>Функции<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id6">
+<h2>Функции<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <p>Функции можно вызвать для генерации контента. После названия функции идут
 фигурные скобки (<code class="docutils literal notranslate"><span class="pre">()</span></code>) в скобках могут быть аргументы.</p>
 <p>Например, функция <code class="docutils literal notranslate"><span class="pre">range</span></code> возвращает список, содержащий
 арифметическую прогрессию целых чисел:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="m">0</span><span class="o">,</span> <span class="m">3</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="m">0</span><span class="o">,</span> <span class="m">3</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">,</span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Перейдите на страницу <a class="reference internal" href="functions/index.html"><span class="doc">functions</span></a>, чтобы узнать больше о
 встроенных функциях.</p>
-</div>
-<div class="section" id="named-arguments">
-<span id="id7"></span><h2>Именованные аргументов<a class="headerlink" href="#named-arguments" title="Ссылка на этот заголовок">#</a></h2>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="nv">low</span><span class="o">=</span><span class="m">1</span><span class="o">,</span> <span class="nv">high</span><span class="o">=</span><span class="m">10</span><span class="o">,</span> <span class="nv">step</span><span class="o">=</span><span class="m">2</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+</section>
+<section id="named-arguments">
+<span id="id7"></span><h2>Именованные аргументов<a class="headerlink" href="#named-arguments" title="Permalink to this heading">#</a></h2>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="nv">range</span><span class="o">(</span><span class="nv">low</span><span class="o">=</span><span class="m">1</span><span class="o">,</span> <span class="nv">high</span><span class="o">=</span><span class="m">10</span><span class="o">,</span> <span class="nv">step</span><span class="o">=</span><span class="m">2</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">i</span> <span class="cp">}}</span><span class="x">,</span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Использование именованных аргументов делает шаблоны более понятными:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">data</span><span class="o">|</span><span class="nf">convert_encoding</span><span class="o">(</span><span class="s1">'UTF-8'</span><span class="o">,</span> <span class="s1">'iso-2022-jp'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">data</span><span class="o">|</span><span class="nf">convert_encoding</span><span class="o">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">,</span> <span class="s1">&#39;iso-2022-jp&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 
-<span class="c">{# В сравнении с  #}</span><span class="x"></span>
+<span class="c">{# В сравнении с  #}</span>
 
-<span class="cp">{{</span> <span class="nv">data</span><span class="o">|</span><span class="nf">convert_encoding</span><span class="o">(</span><span class="nv">from</span><span class="o">=</span><span class="s1">'iso-2022-jp'</span><span class="o">,</span> <span class="nv">to</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">data</span><span class="o">|</span><span class="nf">convert_encoding</span><span class="o">(</span><span class="nv">from</span><span class="o">=</span><span class="s1">&#39;iso-2022-jp&#39;</span><span class="o">,</span> <span class="nv">to</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Также позволяют Вам пропускать некоторые аргументы,
 для которых Вы не хотите менять значение по умолчанию:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# Первый аргумент — формат даты, который задан в приложении глобально #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="s2">"now"</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="kp">null</span><span class="o">,</span> <span class="s2">"Europe/Paris"</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# Первый аргумент — формат даты, который задан в приложении глобально #}</span>
+<span class="cp">{{</span> <span class="s2">&quot;now&quot;</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="kp">null</span><span class="o">,</span> <span class="s2">&quot;Europe/Paris&quot;</span><span class="o">)</span> <span class="cp">}}</span>
 
-<span class="c">{# Или можно пропустить ``format``, но указать ``timezone`` #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="s2">"now"</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="nv">timezone</span><span class="o">=</span><span class="s2">"Europe/Paris"</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# Или можно пропустить ``format``, но указать ``timezone`` #}</span>
+<span class="cp">{{</span> <span class="s2">&quot;now&quot;</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="nv">timezone</span><span class="o">=</span><span class="s2">&quot;Europe/Paris&quot;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Вы также можете использовать за один вызов оба варианта вывода аргументов,
 однако это не рекомендуется, потому что это может привести к путанице:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">"now"</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="s1">'d/m/Y H:i'</span><span class="o">,</span> <span class="nv">timezone</span><span class="o">=</span><span class="s2">"Europe/Paris"</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">&quot;now&quot;</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="s1">&#39;d/m/Y H:i&#39;</span><span class="o">,</span> <span class="nv">timezone</span><span class="o">=</span><span class="s2">&quot;Europe/Paris&quot;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -500,9 +513,9 @@ from a browser; it supports all versions of Twig.</p>
 <p>У каждой функции и фильтра есть страница документации,
 где перечислено какие названия аргументов поддерживаются.</p>
 </div>
-</div>
-<div class="section" id="id8">
-<h2>Управляющие конструкции<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id8">
+<h2>Управляющие конструкции<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <p>К управляющим конструкциям относится все условные операторы
 (такие как  <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">elseif</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>), <code class="docutils literal notranslate"><span class="pre">for</span></code>- циклы, а также блоки.
 Управляющие конструкции находятся внутри``{% … %}`` блоков.</p>
@@ -527,9 +540,9 @@ from a browser; it supports all versions of Twig.</p>
 </pre></div>
 </div>
 <p>Перейдите на страницу <a class="reference internal" href="tags/index.html"><span class="doc">tags</span></a>, чтобы узнать больше о встроенных тегов.</p>
-</div>
-<div class="section" id="id9">
-<h2>Комментарии<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id9">
+<h2>Комментарии<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>Чтобы закомментировать часть шаблона, используйте следующий синтаксис <code class="docutils literal notranslate"><span class="pre">{#</span> <span class="pre">...</span> <span class="pre">#}</span></code>.
 Это бывает полезно при отладке или добавлении полезной информации для других
 дизайнеров или себя:</p>
@@ -537,35 +550,35 @@ from a browser; it supports all versions of Twig.</p>
 <span class="c">    {% for user in users %}</span>
 <span class="c">        ...</span>
 <span class="c">    {% endfor %}</span>
-<span class="c">#}</span><span class="x"></span>
+<span class="c">#}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id10">
-<h2>Подключение шаблонов<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id10">
+<h2>Подключение шаблонов<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
 <p>Тег <a class="reference internal" href="tags/include.html"><span class="doc">include</span></a> используется для подключения одного шаблона в другой.</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">'sidebar.html'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;sidebar.html&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>По умолчанию включенные шаблоны имеют доступ к тому же контексту, что и шаблон.
 который включает их. Это означает, что любая переменная, определенная в основном шаблоне
 также будут доступны во включенном шаблоне:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">box</span> <span class="k">in</span> <span class="nv">boxes</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">'render_box.html'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">box</span> <span class="k">in</span> <span class="nv">boxes</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;render_box.html&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Подключенный шаблон <code class="docutils literal notranslate"><span class="pre">render_box.html</span></code> имеет доступ к переменной <code class="docutils literal notranslate"><span class="pre">box</span></code>.</p>
 <p>Название файла с шаблоном определяется в загрузчике шаблона. Например,
 <code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code> позволяет получить доступ к другим шаблонам по
 названию файла. Вы можете получить доступ к шаблонам в подкаталогах, используя слэш <code class="docutils literal notranslate"><span class="pre">/</span></code>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">'sections/articles/sidebar.html'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="s1">&#39;sections/articles/sidebar.html&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Такое поведение зависит от применения вложения Twig.</p>
-</div>
-<div class="section" id="id11">
-<h2>Наследование шаблонов<a class="headerlink" href="#id11" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id11">
+<h2>Наследование шаблонов<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
 <p>Самая мощная часть Twig — это наследование шаблонов. Наследование шаблонов
 позволяет вам создать основной «скелет» шаблона, который содержит все элементы
 вашего сайта и определить теги <strong>blocks</strong>, которые будут перезаписаны в дочерних
@@ -579,15 +592,15 @@ from a browser; it supports all versions of Twig.</p>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
-            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"style.css"</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;style.css&quot;</span> <span class="p">/&gt;</span>
             <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span> - Мой сайт<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"footer"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;footer&quot;</span><span class="p">&gt;</span>
             <span class="cp">{%</span> <span class="k">block</span> <span class="nv">footer</span> <span class="cp">%}</span>
-                <span class="ni">&amp;copy;</span> Copyright 2011 by <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"http://domain.invalid/"</span><span class="p">&gt;</span>you<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.
+                <span class="ni">&amp;copy;</span> Copyright 2011 by <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://domain.invalid/&quot;</span><span class="p">&gt;</span>you<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.
             <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
@@ -598,18 +611,18 @@ from a browser; it supports all versions of Twig.</p>
 будут заполнены в дочернем шаблоне. Все теги <code class="docutils literal notranslate"><span class="pre">block</span></code> говорят шаблонизатору,
 что они могут быть переопределены в дочернем шаблоне.</p>
 <p>Дочерний шаблон может выглядеть следующим образом:</p>
-<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"base.html"</span> <span class="cp">%}</span>
+<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
 
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Главная<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">head</span> <span class="cp">%}</span>
     <span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span>
-    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="p">.</span><span class="nc">important</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#336699</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">.</span><span class="nc">important</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#336699</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Главная<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"important"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;important&quot;</span><span class="p">&gt;</span>
         Приветствую на своем потрясном сайте!
     <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
@@ -641,9 +654,9 @@ from a browser; it supports all versions of Twig.</p>
 <p>Twig также поддерживает множественное наследование с использованием
 тега <a class="reference internal" href="tags/use.html"><span class="doc">use</span></a>.</p>
 </div>
-</div>
-<div class="section" id="html">
-<h2>Экранирование HTML<a class="headerlink" href="#html" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="html">
+<h2>Экранирование HTML<a class="headerlink" href="#html" title="Permalink to this heading">#</a></h2>
 <p>При генерации HTML в шаблоне всегда есть риск того, что переменные будут
 содержать специальные символы, которые влияют на полученный HTML. Есть два
 варианта решения: вручную отмечать переменные, которые нужно экранировать или
@@ -651,63 +664,63 @@ from a browser; it supports all versions of Twig.</p>
 <p>По умолчанию в Twig автоматическое экранирование переменных включено.</p>
 <p>Стратегию автоматического экранирования можно настроить с помощью
 <a class="reference internal" href="api.html#environment-options"><span class="std std-ref">autoescape</span></a> и по умолчанию - `` html``.</p>
-<div class="section" id="id12">
-<h3>Работа с ручным экранированием<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">#</a></h3>
+<section id="id12">
+<h3>Работа с ручным экранированием<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>Если ручное экранирование включено, ответственность за безопасность переменных
 лежит на <em>вас</em>. Что экранировать? Любую переменную, которой вы не доверяете.</p>
 <p>Экранирование осуществляется с помощью фильтра <a class="reference internal" href="filters/escape.html"><span class="doc">escape</span></a> или <code class="docutils literal notranslate"><span class="pre">e</span></code>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>По умолчанию фильтр <code class="docutils literal notranslate"><span class="pre">escape</span></code> использует <code class="docutils literal notranslate"><span class="pre">html</span></code> режим экранирования,
 но в зависимости от ситуации вы можете использовать любые другие доступные
 способы экранирования:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">'js'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">'css'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">'url'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">'html_attr'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;js&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;css&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;url&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">user.username</span><span class="o">|</span><span class="nf">e</span><span class="o">(</span><span class="s1">&#39;html_attr&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id13">
-<h3>Работа с автоматическим экранированием<a class="headerlink" href="#id13" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id13">
+<h3>Работа с автоматическим экранированием<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <p>Вне зависимости от того включено экранирование или нет, вы можете добавить
 экранирование для блока кода с помощью тега <a class="reference internal" href="tags/autoescape.html"><span class="doc">autoescape</span></a>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="cp">%}</span>
 <span class="x">    В этом блоке все будет автоматически экранировано (с помощью HTML режима)</span>
-<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>По умолчанию автоматическое экранирование использует режим <code class="docutils literal notranslate"><span class="pre">html</span></code>.
 Если есть переменные для экранирования в других режимах, необходимо добавить этот
 режим:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">'js'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;js&#39;</span> <span class="cp">%}</span>
 <span class="x">    В этом блоке все будет автоматически экранировано (с помощью JavaScript режима)</span>
-<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>Экранирование<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="id14">
+<h2>Экранирование<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
 <p>Иногда желательно или даже необходимо, чтобы Twig игнорировал части, которые
 в противном случае обрабатывать как переменные или блоки. Например, если синтаксис по умолчанию
 используется, и вы хотите использовать <code class="docutils literal notranslate"><span class="pre">{{</span></code> в качестве необработанной строки в шаблоне,
 а не запускать переменную, вы должны использовать трюк.</p>
 <p>Самый простой способ для вывода (<code class="docutils literal notranslate"><span class="pre">{{</span></code>) это использовать следующее выражение:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'{{'</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;{{&#39;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Для больших блоков нужно использовать тег <a class="reference internal" href="tags/verbatim.html"><span class="doc">verbatim</span></a>.</p>
-</div>
-<div class="section" id="id15">
-<h2>Макросы<a class="headerlink" href="#id15" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id15">
+<h2>Макросы<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
 <p>Макросы сопоставимы с функциями в обычных языках программирования.
 Они полезны, когда нужно повторить многократно HTML-код, но не копировать его.
 Макрос определяется тегом <a class="reference internal" href="tags/macro.html"><span class="doc">macro</span></a>.</p>
-</div>
-<div class="section" id="twig-expressions">
-<span id="id16"></span><h2>Операторы<a class="headerlink" href="#twig-expressions" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="twig-expressions">
+<span id="id16"></span><h2>Операторы<a class="headerlink" href="#twig-expressions" title="Permalink to this heading">#</a></h2>
 <p>Twig позволяет использовать операторы везде.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
@@ -717,22 +730,22 @@ from a browser; it supports all versions of Twig.</p>
 <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">matches</span></code>, <code class="docutils literal notranslate"><span class="pre">starts</span> <span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">ends</span> <span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">..</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>,
 <code class="docutils literal notranslate"><span class="pre">~</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code> (tests), <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">??</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>
 (filters), <code class="docutils literal notranslate"><span class="pre">[]</span></code>, and <code class="docutils literal notranslate"><span class="pre">.</span></code>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">greeting</span> <span class="o">=</span> <span class="s1">'Hello '</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">'Fabien'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">greeting</span> <span class="o">=</span> <span class="s1">&#39;Hello &#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s1">&#39;Fabien&#39;</span> <span class="cp">%}</span>
 
-<span class="cp">{{</span> <span class="nv">greeting</span> <span class="o">~</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# Hello fabien #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">greeting</span> <span class="o">~</span> <span class="nv">name</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# Hello fabien #}</span>
 
-<span class="c">{# используйте круглые скобки, чтобы изменить приоритет #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="o">(</span><span class="nv">greeting</span> <span class="o">~</span> <span class="nv">name</span><span class="o">)|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# hello fabien #}</span><span class="x"></span>
+<span class="c">{# используйте круглые скобки, чтобы изменить приоритет #}</span>
+<span class="cp">{{</span> <span class="o">(</span><span class="nv">greeting</span> <span class="o">~</span> <span class="nv">name</span><span class="o">)|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# hello fabien #}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id17">
-<h3>Литералы<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">#</a></h3>
+<section id="id17">
+<h3>Литералы<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <p>Самая простая форма выражений - литералы. Литералы соответствуют типам данных
 PHP: строки, числа и массивы. Существуют следующие литералы:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">"Привет</span> <span class="pre">мир"</span></code>: Все заключенное в одинарные или двойные кавычки
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Привет</span> <span class="pre">мир&quot;</span></code>: Все заключенное в одинарные или двойные кавычки
 является строками. Это полезно, когда нужно использовать строки в шаблоне
 (например, в качестве аргументов для вызова функций, фильтров или просто,
 чтобы расширить или подключить шаблон). Строка может содержать разделитель,
@@ -741,27 +754,27 @@ PHP: строки, числа и массивы. Существуют следу
 убрать черту можно удвоив её (напр., <code class="docutils literal notranslate"><span class="pre">'c:\\Program</span> <span class="pre">Files'</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">42</span></code> / <code class="docutils literal notranslate"><span class="pre">42.23</span></code>: Целые числа и числа с плавающей точкой записываются
 так как есть. Если есть точка — это float, иначе — integer.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">["foo",</span> <span class="pre">"bar"]</span></code>: Массивы определяются как набор данных разделенных
+<li><p><code class="docutils literal notranslate"><span class="pre">[&quot;foo&quot;,</span> <span class="pre">&quot;bar&quot;]</span></code>: Массивы определяются как набор данных разделенных
 запятыми (<code class="docutils literal notranslate"><span class="pre">,</span></code>) и заключенных в квадратные скобки (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">{"foo":</span> <span class="pre">"bar"}</span></code>: Хеши определяются списком ключей и значений
+<li><p><code class="docutils literal notranslate"><span class="pre">{&quot;foo&quot;:</span> <span class="pre">&quot;bar&quot;}</span></code>: Хеши определяются списком ключей и значений
 разделенными запятой (<code class="docutils literal notranslate"><span class="pre">,</span></code>) и заключены в фигурные скобки (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# ключи как строка #}</span><span class="x"></span>
-<span class="x">{ 'foo': 'foo', 'bar': 'bar' }</span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# ключи как строка #}</span>
+<span class="x">{ &#39;foo&#39;: &#39;foo&#39;, &#39;bar&#39;: &#39;bar&#39; }</span>
 
-<span class="c">{# ключи как названия (эквивалентно предыдущему варианту) #}</span><span class="x"></span>
-<span class="x">{ foo: 'foo', bar: 'bar' }</span>
+<span class="c">{# ключи как названия (эквивалентно предыдущему варианту) #}</span>
+<span class="x">{ foo: &#39;foo&#39;, bar: &#39;bar&#39; }</span>
 
-<span class="c">{# ключи как число #}</span><span class="x"></span>
-<span class="x">{ 2: 'foo', 4: 'bar' }</span>
+<span class="c">{# ключи как число #}</span>
+<span class="x">{ 2: &#39;foo&#39;, 4: &#39;bar&#39; }</span>
 
-<span class="c">{# ключи можно не указывать, если они совпадает с именем переменной #}</span><span class="x"></span>
+<span class="c">{# ключи можно не указывать, если они совпадает с именем переменной #}</span>
 <span class="x">{ foo }</span>
-<span class="c">{# эквивалентно следующему #}</span><span class="x"></span>
-<span class="x">{ 'foo': foo }</span>
+<span class="c">{# эквивалентно следующему #}</span>
+<span class="x">{ &#39;foo&#39;: foo }</span>
 
-<span class="c">{# ключи как выражения (выражение должно быть заключено в круглые скобки) #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">'foo'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">{ (foo): 'foo', (1 + 1): 'bar', (foo ~ 'b'): 'baz' }</span>
+<span class="c">{# ключи как выражения (выражение должно быть заключено в круглые скобки) #}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span> <span class="cp">%}</span>
+<span class="x">{ (foo): &#39;foo&#39;, (1 + 1): &#39;bar&#39;, (foo ~ &#39;b&#39;): &#39;baz&#39; }</span>
 </pre></div>
 </div>
 </li>
@@ -774,7 +787,7 @@ PHP: строки, числа и массивы. Существуют следу
 когда переменной не существует. <code class="docutils literal notranslate"><span class="pre">none</span></code> является псевдонимом для <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
 </ul>
 <p>Массивы и хеши могут быть вложены друг в друга:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="o">{</span><span class="s2">"foo"</span><span class="o">:</span> <span class="s2">"bar"</span><span class="o">}]</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">foo</span> <span class="o">=</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="o">{</span><span class="s2">&quot;foo&quot;</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="o">}]</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -783,9 +796,9 @@ PHP: строки, числа и массивы. Существуют следу
 но интерполяция строк (подстановка переменных) поддерживается только
 в двойных кавычках.</p>
 </div>
-</div>
-<div class="section" id="id18">
-<h3>Математические операторы<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id18">
+<h3>Математические операторы<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h3>
 <p>Twig позволяет производить математические операции над данными.
 Поддерживаются следующие операторы:</p>
 <ul class="simple">
@@ -796,15 +809,15 @@ PHP: строки, числа и массивы. Существуют следу
 равнозначно <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">0.5</span> <span class="pre">}}</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">%</span></code>: Вычисляет целый остаток от деления. <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">11</span> <span class="pre">%</span> <span class="pre">7</span> <span class="pre">}}</span></code> выведет <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">//</span></code>: Делит два числа и возвращает результат целое число. <code class="docutils literal notranslate"><span class="pre">{{20</span> <span class="pre">//</span> <span class="pre">7</span> <span class="pre">}}</span></code>
-выведет <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">-20</span>  <span class="pre">//</span> <span class="pre">7</span> <span class="pre">}}</span></code> is <code class="docutils literal notranslate"><span class="pre">-3</span></code> (это просто синтаксический
+выведет <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">-20</span>&#160; <span class="pre">//</span> <span class="pre">7</span> <span class="pre">}}</span></code> is <code class="docutils literal notranslate"><span class="pre">-3</span></code> (это просто синтаксический
 сахар для <a class="reference internal" href="filters/round.html"><span class="doc">round</span></a> фильтра).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>:Умножение. <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">2</span> <span class="pre">}}</span></code> вернет <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">**</span></code>: Возводит левый аргумент в степень правого аргумента <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span> <span class="pre">}}</span></code>
 вернет <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="template-logic">
-<span id="id19"></span><h3>Логические операторы<a class="headerlink" href="#template-logic" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="template-logic">
+<span id="id19"></span><h3>Логические операторы<a class="headerlink" href="#template-logic" title="Permalink to this heading">#</a></h3>
 <p>Вы можете сочетать выражения используя следующие операторы:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">and</span></code>: Возвращает <code class="docutils literal notranslate"><span class="pre">true</span></code>, если левое и правое значение являются <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
@@ -820,39 +833,39 @@ PHP: строки, числа и массивы. Существуют следу
 <p class="admonition-title">Примечание</p>
 <p>Операторы чувствительны к регистру.</p>
 </div>
-</div>
-<div class="section" id="id20">
-<h3>Операторы сравнения<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id20">
+<h3>Операторы сравнения<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h3>
 <p>Следующие операторы сравнения поддерживаются в любом выражении:
 <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>.</p>
 <p>Вы также можете проверить, если строка начинается <code class="docutils literal notranslate"><span class="pre">starts</span> <span class="pre">with</span></code> или заканчивается
 <code class="docutils literal notranslate"><span class="pre">ends</span> <span class="pre">with</span></code> другой строкой:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="s1">'Fabien'</span> <span class="k">starts with</span> <span class="s1">'F'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="s1">&#39;Fabien&#39;</span> <span class="k">starts with</span> <span class="s1">&#39;F&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 
-<span class="cp">{%</span> <span class="k">if</span> <span class="s1">'Fabien'</span> <span class="k">ends with</span> <span class="s1">'n'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="s1">&#39;Fabien&#39;</span> <span class="k">ends with</span> <span class="s1">&#39;n&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
 <p>For complex string comparisons, the <code class="docutils literal notranslate"><span class="pre">matches</span></code> operator allows you to use
 <a class="reference external" href="https://www.php.net/manual/en/pcre.pattern.php">regular expressions</a>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">phone</span> <span class="nv">matches</span> <span class="s1">'/^[\\d\\.]+$/'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">phone</span> <span class="nv">matches</span> <span class="s1">&#39;/^[\\d\\.]+$/&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id21">
-<h3>Оператор содержания<a class="headerlink" href="#id21" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id21">
+<h3>Оператор содержания<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h3>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">in</span></code> осуществляет проверку на совпадение.</p>
 <p>Возвращает <code class="docutils literal notranslate"><span class="pre">true</span></code>, если левое значение содержится в правом:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# вернет true #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# вернет true #}</span>
 
-<span class="cp">{{</span> <span class="m">1</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="m">1</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">}}</span>
 
-<span class="cp">{{</span> <span class="s1">'cd'</span> <span class="k">in</span> <span class="s1">'abcde'</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="s1">&#39;cd&#39;</span> <span class="k">in</span> <span class="s1">&#39;abcde&#39;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -861,88 +874,88 @@ PHP: строки, числа и массивы. Существуют следу
 или объектов реализующих интерфейс <code class="docutils literal notranslate"><span class="pre">Traversable</span></code>.</p>
 </div>
 <p>Для отрицания используйте оператор <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="m">1</span> <span class="k">not</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="m">1</span> <span class="k">not</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">]</span> <span class="cp">%}</span>
 
-<span class="c">{# эквивалентно #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="o">(</span><span class="m">1</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">])</span> <span class="cp">%}</span><span class="x"></span>
+<span class="c">{# эквивалентно #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="o">(</span><span class="m">1</span> <span class="k">in</span> <span class="o">[</span><span class="m">1</span><span class="o">,</span> <span class="m">2</span><span class="o">,</span> <span class="m">3</span><span class="o">])</span> <span class="cp">%}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id22">
-<h3>Оператор проверки<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id22">
+<h3>Оператор проверки<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h3>
 <p>Оператор <code class="docutils literal notranslate"><span class="pre">is</span></code> выполняет тесты. Тесты можно использовать для проверки
 переменной на соответствие общему выражению. Правый операнд - это имя теста:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# проверит является ли переменная нечетной #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# проверит является ли переменная нечетной #}</span>
 
-<span class="cp">{{</span> <span class="nv">name</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">name</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Так же можно использовать аргументы:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">'Post::PUBLISHED'</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">&#39;Post::PUBLISHED&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Для отрицания используйте оператор, используйте оператор <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">'Post::PUBLISHED'</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.status</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">&#39;Post::PUBLISHED&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 
-<span class="c">{# эквивалентно #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="o">(</span><span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">'Post::PUBLISHED'</span><span class="o">))</span> <span class="cp">%}</span><span class="x"></span>
+<span class="c">{# эквивалентно #}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="o">(</span><span class="nv">post.status</span> <span class="k">is</span> <span class="nf">constant</span><span class="o">(</span><span class="s1">&#39;Post::PUBLISHED&#39;</span><span class="o">))</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Результаты работы можно посмотреть в тестах <a class="reference internal" href="tests/index.html"><span class="doc">tests</span></a>.</p>
-</div>
-<div class="section" id="id23">
-<h3>Другие операторы<a class="headerlink" href="#id23" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id23">
+<h3>Другие операторы<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h3>
 <p>Следующие операторы очень полезны, но не попадают ни в одну из других категорий:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: Применяет фильтр.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>: Создает последовательность от левого до правого значения,
 (это просто синтаксический сахар для функции <a class="reference internal" href="functions/range.html"><span class="doc">range</span></a>):</p>
 <blockquote>
-<div><div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">1..5</span> <span class="cp">}}</span><span class="x"></span>
+<div><div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">1..5</span> <span class="cp">}}</span>
 
-<span class="c">{# эквивалентно #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">range</span><span class="o">(</span><span class="m">1</span><span class="o">,</span> <span class="m">5</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="c">{# эквивалентно #}</span>
+<span class="cp">{{</span> <span class="nv">range</span><span class="o">(</span><span class="m">1</span><span class="o">,</span> <span class="m">5</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>Обратите внимание, что вы должны использовать круглые скобки при объединении
 его с оператором фильтра из-за :ref: <cite>правил приоритета операторов &lt;twig-expressions&gt;</cite>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="x">(1..5)|join(', ')</span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="x">(1..5)|join(&#39;, &#39;)</span>
 </pre></div>
 </div>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: Преобразует все значения в строки и соединяет их.
-<code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">"Привет</span> <span class="pre">"</span> <span class="pre">~</span> <span class="pre">name</span> <span class="pre">~</span> <span class="pre">"!"</span> <span class="pre">}}</span></code> вернет
+<code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">&quot;Привет</span> <span class="pre">&quot;</span> <span class="pre">~</span> <span class="pre">name</span> <span class="pre">~</span> <span class="pre">&quot;!&quot;</span> <span class="pre">}}</span></code> вернет
 (предположим, что <code class="docutils literal notranslate"><span class="pre">name</span></code> это <code class="docutils literal notranslate"><span class="pre">'Иван'</span></code>) <code class="docutils literal notranslate"><span class="pre">Привет</span> <span class="pre">Иван!</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>: Получает атрибут объекта.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">?:</span></code>: Тернарный оператор:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">'yes'</span> <span class="o">:</span> <span class="s1">'no'</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?:</span> <span class="s1">'no'</span> <span class="cp">}}</span><span class="x"> is the same as </span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="nv">foo</span> <span class="o">:</span> <span class="s1">'no'</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">'yes'</span> <span class="cp">}}</span><span class="x"> is the same as </span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">'yes'</span> <span class="o">:</span> <span class="s1">''</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">&#39;yes&#39;</span> <span class="o">:</span> <span class="s1">&#39;no&#39;</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?:</span> <span class="s1">&#39;no&#39;</span> <span class="cp">}}</span><span class="x"> is the same as </span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="nv">foo</span> <span class="o">:</span> <span class="s1">&#39;no&#39;</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">&#39;yes&#39;</span> <span class="cp">}}</span><span class="x"> is the same as </span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s1">&#39;yes&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">??</span></code>: null-оператор объединения:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# возвращает значение foo, если foo определено, а не null, иначе 'no' #}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">??</span> <span class="s1">'no'</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# возвращает значение foo, если foo определено, а не null, иначе &#39;no&#39; #}</span>
+<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">??</span> <span class="s1">&#39;no&#39;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 </li>
 </ul>
-</div>
-<div class="section" id="templates-string-interpolation">
-<span id="id24"></span><h3>Подстановка переменных<a class="headerlink" href="#templates-string-interpolation" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="templates-string-interpolation">
+<span id="id24"></span><h3>Подстановка переменных<a class="headerlink" href="#templates-string-interpolation" title="Permalink to this heading">#</a></h3>
 <p>Подстановка переменных (<code class="docutils literal notranslate"><span class="pre">#{expression}</span></code>) доступна для любого выражения
 находящегося в <em>строке с двойными скобками</em>. Результатом выражения будет
 строка:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">"foo #{bar} baz"</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="s2">"foo #{1 + 2} baz"</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">&quot;foo #{bar} baz&quot;</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="s2">&quot;foo #{1 + 2} baz&quot;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="templates-whitespace-control">
-<span id="id25"></span><h2>Управление пробелами<a class="headerlink" href="#templates-whitespace-control" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="templates-whitespace-control">
+<span id="id25"></span><h2>Управление пробелами<a class="headerlink" href="#templates-whitespace-control" title="Permalink to this heading">#</a></h2>
 <p>Первая строка после тега удаляется автоматически (как в PHP.)
 Пробелы не изменяются шаблонизатором, так же как и другие подобные
 символы (табуляция, символ новой строки и др.) и возвращается без изменений.</p>
@@ -959,24 +972,24 @@ PHP: строки, числа и массивы. Существуют следу
 <p>Модификаторы можно использовать с любой стороны тегов, например, в <code class="docutils literal notranslate"><span class="pre">{%-</span></code> или <code class="docutils literal notranslate"><span class="pre">-%}</span></code>
 и они занимают все пробелы для этой стороны тега. Можно использовать
 модификаторы с одной стороны тега или с обеих сторон:</p>
-<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">value</span> <span class="o">=</span> <span class="s1">'no spaces'</span> <span class="cp">%}</span>
+<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">value</span> <span class="o">=</span> <span class="s1">&#39;no spaces&#39;</span> <span class="cp">%}</span>
 <span class="c">{#- нет начальных и конечных пробелов -#}</span>
 <span class="cp">{%</span>- <span class="k">if</span> <span class="kp">true</span> -<span class="cp">%}</span>
     <span class="cp">{{</span><span class="o">-</span> <span class="nv">value</span> -<span class="cp">}}</span>
 <span class="cp">{%</span>- <span class="k">endif</span> -<span class="cp">%}</span>
-<span class="c">{# выведет 'no spaces' #}</span>
+<span class="c">{# выведет &#39;no spaces&#39; #}</span>
 
 <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="c">{# outputs '&lt;li&gt;\n    no spaces    &lt;/li&gt;' #}</span>
+<span class="c">{# outputs &#39;&lt;li&gt;\n    no spaces    &lt;/li&gt;&#39; #}</span>
 
 <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{{</span><span class="o">-</span> <span class="nv">value</span> <span class="cp">}}</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="c">{# выведет '&lt;li&gt;no spaces    &lt;/li&gt;' #}</span>
+<span class="c">{# выведет &#39;&lt;li&gt;no spaces    &lt;/li&gt;&#39; #}</span>
 
 <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{{</span><span class="o">~</span> <span class="nv">value</span> <span class="cp">}}</span>    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="c">{# выведет '&lt;li&gt;\nno spaces    &lt;/li&gt;' #}</span>
+<span class="c">{# выведет &#39;&lt;li&gt;\nno spaces    &lt;/li&gt;&#39; #}</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -993,13 +1006,13 @@ PHP: строки, числа и массивы. Существуют следу
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id26">
-<h2>Расширения<a class="headerlink" href="#id26" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="id26">
+<h2>Расширения<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h2>
 <p>Twig может быть легко расширен. Если вы хотите создать свое собственное расширение, читайте раздел
 <a class="reference internal" href="advanced.html#creating-extensions"><span class="std std-ref">Создание Расширения</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -1013,10 +1026,10 @@ PHP: строки, числа и массивы. Существуют следу
                 </div>
                 <div class="title">Twig для программистов</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="installation.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -1037,9 +1050,7 @@ PHP: строки, числа и массивы. Существуют следу
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -1051,7 +1062,7 @@ PHP: строки, числа и массивы. Существуют следу
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Содержание
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -1103,11 +1114,10 @@ PHP: строки, числа и массивы. Существуют следу
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/translations.js"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7e7bbc52"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
     </body>
 </html>

@@ -2,13 +2,14 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig изнутри" href="internals.html" /><link rel="prev" title="Twig для программистов" href="api.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Twig изнутри" href="internals.html" /><link rel="prev" title="Twig для программистов" href="api.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Расширения в Twig - документация Twig 3.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -19,24 +20,28 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -144,7 +149,7 @@
   <span class="sidebar-brand-text">документация Twig 3.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Поиск name="q" aria-label="Поиск">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -159,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recipes.html">Примеры</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tags</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
@@ -182,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Filters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
@@ -239,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
@@ -258,7 +263,7 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Tests</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
@@ -282,7 +287,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -296,8 +309,8 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="twig">
-<h1>Расширения в Twig<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">#</a></h1>
+          <section id="twig">
+<h1>Расширения в Twig<a class="headerlink" href="#twig" title="Permalink to this heading">#</a></h1>
 <p>Twig can be extended in many ways; you can add extra tags, filters, tests,
 operators, global variables, and functions. You can even extend the parser
 itself with node visitors.</p>
@@ -326,7 +339,7 @@ different possible extension points and when to use them.</p>
 implement a <em>Lorem ipsum</em> generator (it needs to know the number of words to
 generate).</p>
 <p>You can use a <code class="docutils literal notranslate"><span class="pre">lipsum</span></code> <em>tag</em>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">lipsum</span> <span class="m">40</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">lipsum</span> <span class="m">40</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>That works, but using a tag for <code class="docutils literal notranslate"><span class="pre">lipsum</span></code> is not a good idea for at least
@@ -335,7 +348,7 @@ three main reasons:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">lipsum</span></code> is not a language construct;</p></li>
 <li><p>The tag outputs something;</p></li>
 <li><p>The tag is not flexible as you cannot use it in an expression:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'some text'</span> <span class="o">~</span> <span class="o">{%</span> <span class="nv">lipsum</span> <span class="m">40</span> <span class="o">%}</span> <span class="o">~</span> <span class="s1">'some more text'</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;some text&#39;</span> <span class="o">~</span> <span class="o">{%</span> <span class="nv">lipsum</span> <span class="m">40</span> <span class="o">%}</span> <span class="o">~</span> <span class="s1">&#39;some more text&#39;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 </li>
@@ -343,38 +356,33 @@ three main reasons:</p>
 <p>In fact, you rarely need to create tags; and that’s good news because tags are
 the most complex extension point.</p>
 <p>Now, let’s use a <code class="docutils literal notranslate"><span class="pre">lipsum</span></code> <em>filter</em>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">40</span><span class="o">|</span><span class="nf">lipsum</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="m">40</span><span class="o">|</span><span class="nf">lipsum</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Again, it works. But a filter should transform the passed value to something
 else. Here, we use the value to indicate the number of words to generate (so,
 <code class="docutils literal notranslate"><span class="pre">40</span></code> is an argument of the filter, not the value we want to transform).</p>
 <p>Next, let’s use a <code class="docutils literal notranslate"><span class="pre">lipsum</span></code> <em>function</em>:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>Here we go. For this specific example, the creation of a function is the
 extension point to use. And you can use it anywhere an expression is accepted:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'some text'</span> <span class="o">~</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="o">~</span> <span class="s1">'some more text'</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;some text&#39;</span> <span class="o">~</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="o">~</span> <span class="s1">&#39;some more text&#39;</span> <span class="cp">}}</span>
 
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">lipsum</span> <span class="o">=</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">lipsum</span> <span class="o">=</span> <span class="nv">lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Lastly, you can also use a <em>global</em> object with a method able to generate lorem
 ipsum text:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>As a rule of thumb, use functions for frequently used features and global
 objects for everything else.</p>
 <p>Keep in mind the following when you want to extend Twig:</p>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 14%"/>
-<col style="width: 37%"/>
-<col style="width: 14%"/>
-<col style="width: 35%"/>
-</colgroup>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>What?</p></th>
 <th class="head"><p>Implementation difficulty?</p></th>
@@ -419,39 +427,40 @@ objects for everything else.</p>
 <td><p>Values transformation</p></td>
 </tr>
 </tbody>
-</table></div>
-<div class="section" id="globals">
-<h2>Globals<a class="headerlink" href="#globals" title="Ссылка на этот заголовок">#</a></h2>
+</table>
+</div>
+<section id="globals">
+<h2>Globals<a class="headerlink" href="#globals" title="Permalink to this heading">#</a></h2>
 <p>A global variable is like any other template variable, except that it’s
 available in all templates and macros:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader);
-$twig-&gt;addGlobal('text', new Text());
+$twig-&gt;addGlobal(&#39;text&#39;, new Text());
 </pre></div>
 </div>
 <p>You can then use the <code class="docutils literal notranslate"><span class="pre">text</span></code> variable anywhere in a template:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">text.lipsum</span><span class="o">(</span><span class="m">40</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="filters">
-<h2>Filters<a class="headerlink" href="#filters" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this heading">#</a></h2>
 <p>Creating a filter consists of associating a name with a PHP callable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// an anonymous function
-$filter = new \Twig\TwigFilter('rot13', function ($string) {
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, function ($string) {
     return str_rot13($string);
 });
 
 // or a simple PHP function
-$filter = new \Twig\TwigFilter('rot13', 'str_rot13');
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, &#39;str_rot13&#39;);
 
 // or a class static method
-$filter = new \Twig\TwigFilter('rot13', ['SomeClass', 'rot13Filter']);
-$filter = new \Twig\TwigFilter('rot13', 'SomeClass::rot13Filter');
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, [&#39;SomeClass&#39;, &#39;rot13Filter&#39;]);
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, &#39;SomeClass::rot13Filter&#39;);
 
 // or a class method
-$filter = new \Twig\TwigFilter('rot13', [$this, 'rot13Filter']);
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, [$this, &#39;rot13Filter&#39;]);
 // the one below needs a runtime implementation (see below for more information)
-$filter = new \Twig\TwigFilter('rot13', ['SomeClass', 'rot13Filter']);
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, [&#39;SomeClass&#39;, &#39;rot13Filter&#39;]);
 </pre></div>
 </div>
 <p>The first argument passed to the <code class="docutils literal notranslate"><span class="pre">\Twig\TwigFilter</span></code> constructor is the name of the
@@ -463,94 +472,94 @@ $twig-&gt;addFilter($filter);
 </pre></div>
 </div>
 <p>And here is how to use it in a template:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'Twig'</span><span class="o">|</span><span class="nf">rot13</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;Twig&#39;</span><span class="o">|</span><span class="nf">rot13</span> <span class="cp">}}</span>
 
-<span class="c">{# will output Gjvt #}</span><span class="x"></span>
+<span class="c">{# will output Gjvt #}</span>
 </pre></div>
 </div>
 <p>When called by Twig, the PHP callable receives the left side of the filter
 (before the pipe <code class="docutils literal notranslate"><span class="pre">|</span></code>) as the first argument and the extra arguments passed
 to the filter (within parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>) as extra arguments.</p>
 <p>For instance, the following code:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'TWIG'</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span><span class="x"></span>
-<span class="cp">{{</span> <span class="nv">now</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="s1">'d/m/Y'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;TWIG&#39;</span><span class="o">|</span><span class="nf">lower</span> <span class="cp">}}</span>
+<span class="cp">{{</span> <span class="nv">now</span><span class="o">|</span><span class="nf">date</span><span class="o">(</span><span class="s1">&#39;d/m/Y&#39;</span><span class="o">)</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>is compiled to something like the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php echo strtolower('TWIG') ?&gt;
-&lt;?php echo twig_date_format_filter($now, 'd/m/Y') ?&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?php echo strtolower(&#39;TWIG&#39;) ?&gt;
+&lt;?php echo twig_date_format_filter($now, &#39;d/m/Y&#39;) ?&gt;
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">\Twig\TwigFilter</span></code> class takes an array of options as its last argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('rot13', 'str_rot13', $options);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;rot13&#39;, &#39;str_rot13&#39;, $options);
 </pre></div>
 </div>
-<div class="section" id="environment-aware-filters">
-<h3>Environment-aware Filters<a class="headerlink" href="#environment-aware-filters" title="Ссылка на этот заголовок">#</a></h3>
+<section id="environment-aware-filters">
+<h3>Environment-aware Filters<a class="headerlink" href="#environment-aware-filters" title="Permalink to this heading">#</a></h3>
 <p>If you want to access the current environment instance in your filter, set the
 <code class="docutils literal notranslate"><span class="pre">needs_environment</span></code> option to <code class="docutils literal notranslate"><span class="pre">true</span></code>; Twig will pass the current
 environment as the first argument to the filter call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('rot13', function (\Twig\Environment $env, $string) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;rot13&#39;, function (\Twig\Environment $env, $string) {
     // get the current charset for instance
     $charset = $env-&gt;getCharset();
 
     return str_rot13($string);
-}, ['needs_environment' =&gt; true]);
+}, [&#39;needs_environment&#39; =&gt; true]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="context-aware-filters">
-<h3>Context-aware Filters<a class="headerlink" href="#context-aware-filters" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="context-aware-filters">
+<h3>Context-aware Filters<a class="headerlink" href="#context-aware-filters" title="Permalink to this heading">#</a></h3>
 <p>If you want to access the current context in your filter, set the
 <code class="docutils literal notranslate"><span class="pre">needs_context</span></code> option to <code class="docutils literal notranslate"><span class="pre">true</span></code>; Twig will pass the current context as
 the first argument to the filter call (or the second one if
 <code class="docutils literal notranslate"><span class="pre">needs_environment</span></code> is also set to <code class="docutils literal notranslate"><span class="pre">true</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('rot13', function ($context, $string) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;rot13&#39;, function ($context, $string) {
     // ...
-}, ['needs_context' =&gt; true]);
+}, [&#39;needs_context&#39; =&gt; true]);
 
-$filter = new \Twig\TwigFilter('rot13', function (\Twig\Environment $env, $context, $string) {
+$filter = new \Twig\TwigFilter(&#39;rot13&#39;, function (\Twig\Environment $env, $context, $string) {
     // ...
-}, ['needs_context' =&gt; true, 'needs_environment' =&gt; true]);
+}, [&#39;needs_context&#39; =&gt; true, &#39;needs_environment&#39; =&gt; true]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="automatic-escaping">
-<h3>Automatic Escaping<a class="headerlink" href="#automatic-escaping" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="automatic-escaping">
+<h3>Automatic Escaping<a class="headerlink" href="#automatic-escaping" title="Permalink to this heading">#</a></h3>
 <p>If automatic escaping is enabled, the output of the filter may be escaped
 before printing. If your filter acts as an escaper (or explicitly outputs HTML
 or JavaScript code), you will want the raw output to be printed. In such a
 case, set the <code class="docutils literal notranslate"><span class="pre">is_safe</span></code> option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('nl2br', 'nl2br', ['is_safe' =&gt; ['html']]);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;nl2br&#39;, &#39;nl2br&#39;, [&#39;is_safe&#39; =&gt; [&#39;html&#39;]]);
 </pre></div>
 </div>
 <p>Some filters may need to work on input that is already escaped or safe, for
 example when adding (safe) HTML tags to originally unsafe output. In such a
 case, set the <code class="docutils literal notranslate"><span class="pre">pre_escape</span></code> option to escape the input data before it is run
 through your filter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('somefilter', 'somefilter', ['pre_escape' =&gt; 'html', 'is_safe' =&gt; ['html']]);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;somefilter&#39;, &#39;somefilter&#39;, [&#39;pre_escape&#39; =&gt; &#39;html&#39;, &#39;is_safe&#39; =&gt; [&#39;html&#39;]]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="variadic-filters">
-<h3>Variadic Filters<a class="headerlink" href="#variadic-filters" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="variadic-filters">
+<h3>Variadic Filters<a class="headerlink" href="#variadic-filters" title="Permalink to this heading">#</a></h3>
 <p>When a filter should accept an arbitrary number of arguments, set the
 <code class="docutils literal notranslate"><span class="pre">is_variadic</span></code> option to <code class="docutils literal notranslate"><span class="pre">true</span></code>; Twig will pass the extra arguments as the
 last argument to the filter call as an array:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('thumbnail', function ($file, array $options = []) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;thumbnail&#39;, function ($file, array $options = []) {
     // ...
-}, ['is_variadic' =&gt; true]);
+}, [&#39;is_variadic&#39; =&gt; true]);
 </pre></div>
 </div>
 <p>Be warned that <a class="reference internal" href="templates.html#named-arguments"><span class="std std-ref">named arguments</span></a> passed to a variadic
 filter cannot be checked for validity as they will automatically end up in the
 option array.</p>
-</div>
-<div class="section" id="dynamic-filters">
-<h3>Dynamic Filters<a class="headerlink" href="#dynamic-filters" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="dynamic-filters">
+<h3>Dynamic Filters<a class="headerlink" href="#dynamic-filters" title="Permalink to this heading">#</a></h3>
 <p>A filter name containing the special <code class="docutils literal notranslate"><span class="pre">*</span></code> character is a dynamic filter and
 the <code class="docutils literal notranslate"><span class="pre">*</span></code> part will match any string:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('*_path', function ($name, $arguments) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;*_path&#39;, function ($name, $arguments) {
     // ...
 });
 </pre></div>
@@ -561,7 +570,7 @@ the <code class="docutils literal notranslate"><span class="pre">*</span></code>
 <li><p><code class="docutils literal notranslate"><span class="pre">category_path</span></code></p></li>
 </ul>
 <p>A dynamic filter can define more than one dynamic parts:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('*_path_*', function ($name, $suffix, $arguments) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;*_path_*&#39;, function ($name, $suffix, $arguments) {
     // ...
 });
 </pre></div>
@@ -570,27 +579,27 @@ the <code class="docutils literal notranslate"><span class="pre">*</span></code>
 but after the environment and the context. For instance, a call to
 <code class="docutils literal notranslate"><span class="pre">'foo'|a_path_b()</span></code> will result in the following arguments to be passed to the
 filter: <code class="docutils literal notranslate"><span class="pre">('a',</span> <span class="pre">'b',</span> <span class="pre">'foo')</span></code>.</p>
-</div>
-<div class="section" id="deprecated-filters">
-<h3>Deprecated Filters<a class="headerlink" href="#deprecated-filters" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="deprecated-filters">
+<h3>Deprecated Filters<a class="headerlink" href="#deprecated-filters" title="Permalink to this heading">#</a></h3>
 <p>You can mark a filter as being deprecated by setting the <code class="docutils literal notranslate"><span class="pre">deprecated</span></code> option
 to <code class="docutils literal notranslate"><span class="pre">true</span></code>. You can also give an alternative filter that replaces the
 deprecated one when that makes sense:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter('obsolete', function () {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$filter = new \Twig\TwigFilter(&#39;obsolete&#39;, function () {
     // ...
-}, ['deprecated' =&gt; true, 'alternative' =&gt; 'new_one']);
+}, [&#39;deprecated&#39; =&gt; true, &#39;alternative&#39; =&gt; &#39;new_one&#39;]);
 </pre></div>
 </div>
 <p>When a filter is deprecated, Twig emits a deprecation notice when compiling a
 template using it. See <a class="reference internal" href="recipes.html#deprecation-notices"><span class="std std-ref">Displaying Deprecation Notices</span></a> for more information.</p>
-</div>
-</div>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
 <p>Functions are defined in the exact same way as filters, but you need to create
 an instance of <code class="docutils literal notranslate"><span class="pre">\Twig\TwigFunction</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader);
-$function = new \Twig\TwigFunction('function_name', function () {
+$function = new \Twig\TwigFunction(&#39;function_name&#39;, function () {
     // ...
 });
 $twig-&gt;addFunction($function);
@@ -598,13 +607,13 @@ $twig-&gt;addFunction($function);
 </div>
 <p>Functions support the same features as filters, except for the <code class="docutils literal notranslate"><span class="pre">pre_escape</span></code>
 and <code class="docutils literal notranslate"><span class="pre">preserves_safety</span></code> options.</p>
-</div>
-<div class="section" id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h2>
 <p>Tests are defined in the exact same way as filters and functions, but you need
 to create an instance of <code class="docutils literal notranslate"><span class="pre">\Twig\TwigTest</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader);
-$test = new \Twig\TwigTest('test_name', function () {
+$test = new \Twig\TwigTest(&#39;test_name&#39;, function () {
     // ...
 });
 $twig-&gt;addTest($test);
@@ -614,11 +623,11 @@ $twig-&gt;addTest($test);
 boolean conditions. As a simple example, let’s create a Twig test that checks if
 objects are „red“:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader);
-$test = new \Twig\TwigTest('red', function ($value) {
-    if (isset($value-&gt;color) &amp;&amp; $value-&gt;color == 'red') {
+$test = new \Twig\TwigTest(&#39;red&#39;, function ($value) {
+    if (isset($value-&gt;color) &amp;&amp; $value-&gt;color == &#39;red&#39;) {
         return true;
     }
-    if (isset($value-&gt;paint) &amp;&amp; $value-&gt;paint == 'red') {
+    if (isset($value-&gt;paint) &amp;&amp; $value-&gt;paint == &#39;red&#39;) {
         return true;
     }
     return false;
@@ -638,9 +647,9 @@ use Twig\TwigTest;
 
 $twig = new Environment($loader);
 $test = new TwigTest(
-    'odd',
+    &#39;odd&#39;,
     null,
-    ['node_class' =&gt; OddTestExpression::class]);
+    [&#39;node_class&#39; =&gt; OddTestExpression::class]);
 $twig-&gt;addTest($test);
 
 class OddTestExpression extends TestExpression
@@ -648,10 +657,10 @@ class OddTestExpression extends TestExpression
     public function compile(\Twig\Compiler $compiler)
     {
         $compiler
-            -&gt;raw('(')
-            -&gt;subcompile($this-&gt;getNode('node'))
-            -&gt;raw(' % 2 != 0')
-            -&gt;raw(')')
+            -&gt;raw(&#39;(&#39;)
+            -&gt;subcompile($this-&gt;getNode(&#39;node&#39;))
+            -&gt;raw(&#39; % 2 != 0&#39;)
+            -&gt;raw(&#39;)&#39;)
         ;
     }
 }
@@ -660,7 +669,7 @@ class OddTestExpression extends TestExpression
 <p>The above example shows how you can create tests that use a node class. The node
 class has access to one sub-node called <code class="docutils literal notranslate"><span class="pre">node</span></code>. This sub-node contains the
 value that is being tested. When the <code class="docutils literal notranslate"><span class="pre">odd</span></code> filter is used in code such as:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">my_value</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">my_value</span> <span class="k">is</span> <span class="nf">odd</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">node</span></code> sub-node will contain an expression of <code class="docutils literal notranslate"><span class="pre">my_value</span></code>. Node-based
@@ -669,9 +678,9 @@ various other arguments that have been provided to your test.</p>
 <p>If you want to pass a variable number of positional or named arguments to the
 test, set the <code class="docutils literal notranslate"><span class="pre">is_variadic</span></code> option to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Tests support dynamic
 names (see dynamic filters for the syntax).</p>
-</div>
-<div class="section" id="tags">
-<h2>Tags<a class="headerlink" href="#tags" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="tags">
+<h2>Tags<a class="headerlink" href="#tags" title="Permalink to this heading">#</a></h2>
 <p>One of the most exciting features of a template engine like Twig is the
 possibility to define new <strong>language constructs</strong>. This is also the most complex
 feature as you need to understand how Twig’s internals work.</p>
@@ -681,17 +690,17 @@ feature as you need to understand how Twig’s internals work.</p>
 <li><p>If your tag modifies some content and returns it, use a <strong>filter</strong> instead.</p>
 <p>For instance, if you want to create a tag that converts a Markdown formatted
 text to HTML, create a <code class="docutils literal notranslate"><span class="pre">markdown</span></code> filter instead:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">'**markdown** text'</span><span class="o">|</span><span class="nf">markdown</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s1">&#39;**markdown** text&#39;</span><span class="o">|</span><span class="nf">markdown</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>If you want use this filter on large amounts of text, wrap it with the
 <a class="reference internal" href="tags/apply.html"><span class="doc">apply</span></a> tag:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">apply</span> <span class="nv">markdown</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">apply</span> <span class="nv">markdown</span> <span class="cp">%}</span>
 <span class="x">Title</span>
 <span class="x">=====</span>
 
 <span class="x">Much better than creating a tag as you can **compose** filters.</span>
-<span class="cp">{%</span> <span class="k">endapply</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endapply</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </li>
@@ -700,7 +709,7 @@ effect, create a <strong>function</strong> that returns nothing and call it via 
 <a class="reference internal" href="tags/do.html"><span class="doc">filter</span></a> tag.</p>
 <p>For instance, if you want to create a tag that logs text, create a <code class="docutils literal notranslate"><span class="pre">log</span></code>
 function instead and call it via the <a class="reference internal" href="tags/do.html"><span class="doc">do</span></a> tag:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">do</span> <span class="nv">log</span><span class="o">(</span><span class="s1">'Log some things'</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">do</span> <span class="nv">log</span><span class="o">(</span><span class="s1">&#39;Log some things&#39;</span><span class="o">)</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </li>
@@ -708,11 +717,11 @@ function instead and call it via the <a class="reference internal" href="tags/do
 <p>If you still want to create a tag for a new language construct, great!</p>
 <p>Let’s create a <code class="docutils literal notranslate"><span class="pre">set</span></code> tag that allows the definition of simple variables from
 within a template. The tag can be used like follows:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">"value"</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">name</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span> <span class="cp">%}</span>
 
-<span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">name</span> <span class="cp">}}</span>
 
-<span class="c">{# should output value #}</span><span class="x"></span>
+<span class="c">{# should output value #}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -727,17 +736,17 @@ multiple assignments by default.</p>
 <li><p>Defining a Node class (responsible for converting the parsed code to PHP);</p></li>
 <li><p>Registering the tag.</p></li>
 </ul>
-<div class="section" id="registering-a-new-tag">
-<h3>Registering a new tag<a class="headerlink" href="#registering-a-new-tag" title="Ссылка на этот заголовок">#</a></h3>
+<section id="registering-a-new-tag">
+<h3>Registering a new tag<a class="headerlink" href="#registering-a-new-tag" title="Permalink to this heading">#</a></h3>
 <p>Add a tag by calling the <code class="docutils literal notranslate"><span class="pre">addTokenParser</span></code> method on the <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>
 instance:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader);
 $twig-&gt;addTokenParser(new Project_Set_TokenParser());
 </pre></div>
 </div>
-</div>
-<div class="section" id="defining-a-token-parser">
-<h3>Defining a Token Parser<a class="headerlink" href="#defining-a-token-parser" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="defining-a-token-parser">
+<h3>Defining a Token Parser<a class="headerlink" href="#defining-a-token-parser" title="Permalink to this heading">#</a></h3>
 <p>Now, let’s see the actual code of this class:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class Project_Set_TokenParser extends \Twig\TokenParser\AbstractTokenParser
 {
@@ -747,7 +756,7 @@ $twig-&gt;addTokenParser(new Project_Set_TokenParser());
         $stream = $parser-&gt;getStream();
 
         $name = $stream-&gt;expect(\Twig\Token::NAME_TYPE)-&gt;getValue();
-        $stream-&gt;expect(\Twig\Token::OPERATOR_TYPE, '=');
+        $stream-&gt;expect(\Twig\Token::OPERATOR_TYPE, &#39;=&#39;);
         $value = $parser-&gt;getExpressionParser()-&gt;parseExpression();
         $stream-&gt;expect(\Twig\Token::BLOCK_END_TYPE);
 
@@ -756,7 +765,7 @@ $twig-&gt;addTokenParser(new Project_Set_TokenParser());
 
     public function getTag()
     {
-        return 'set';
+        return &#39;set&#39;;
     }
 }
 </pre></div>
@@ -785,24 +794,24 @@ the <code class="docutils literal notranslate"><span class="pre">set</span></cod
 <p>Reading the existing <code class="docutils literal notranslate"><span class="pre">TokenParser</span></code> classes is the best way to learn all
 the nitty-gritty details of the parsing process.</p>
 </div>
-</div>
-<div class="section" id="defining-a-node">
-<h3>Defining a Node<a class="headerlink" href="#defining-a-node" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="defining-a-node">
+<h3>Defining a Node<a class="headerlink" href="#defining-a-node" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Project_Set_Node</span></code> class itself is quite short:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class Project_Set_Node extends \Twig\Node\Node
 {
     public function __construct($name, \Twig\Node\Expression\AbstractExpression $value, $line, $tag = null)
     {
-        parent::__construct(['value' =&gt; $value], ['name' =&gt; $name], $line, $tag);
+        parent::__construct([&#39;value&#39; =&gt; $value], [&#39;name&#39; =&gt; $name], $line, $tag);
     }
 
     public function compile(\Twig\Compiler $compiler)
     {
         $compiler
             -&gt;addDebugInfo($this)
-            -&gt;write('$context[\''.$this-&gt;getAttribute('name').'\'] = ')
-            -&gt;subcompile($this-&gt;getNode('value'))
-            -&gt;raw(";\n")
+            -&gt;write(&#39;$context[\&#39;&#39;.$this-&gt;getAttribute(&#39;name&#39;).&#39;\&#39;] = &#39;)
+            -&gt;subcompile($this-&gt;getNode(&#39;value&#39;))
+            -&gt;raw(&quot;;\n&quot;)
         ;
     }
 }
@@ -825,10 +834,10 @@ usage example).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">outdent()</span></code>: Outdents the generated code (see <code class="docutils literal notranslate"><span class="pre">\Twig\Node\BlockNode</span></code> for a
 usage example).</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="creating-an-extension">
-<span id="creating-extensions"></span><h2>Creating an Extension<a class="headerlink" href="#creating-an-extension" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="creating-an-extension">
+<span id="creating-extensions"></span><h2>Creating an Extension<a class="headerlink" href="#creating-an-extension" title="Permalink to this heading">#</a></h2>
 <p>The main motivation for writing an extension is to move often used code into a
 reusable class like adding support for internationalization. An extension can
 define tags, filters, tests, operators, functions, and node visitors.</p>
@@ -908,8 +917,8 @@ $twig-&gt;addExtension(new Project_Twig_Extension());
 <p class="admonition-title">Совет</p>
 <p>The Twig core extensions are great examples of how extensions work.</p>
 </div>
-<div class="section" id="id1">
-<h3>Globals<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h3>
+<section id="id1">
+<h3>Globals<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Global variables can be registered in an extension via the <code class="docutils literal notranslate"><span class="pre">getGlobals()</span></code>
 method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="n">extends</span> \<span class="n">Twig</span>\<span class="n">Extension</span>\<span class="n">AbstractExtension</span> <span class="n">implements</span> \<span class="n">Twig</span>\<span class="n">Extension</span>\<span class="n">GlobalsInterface</span>
@@ -917,7 +926,7 @@ method:</p>
     <span class="n">public</span> <span class="n">function</span> <span class="n">getGlobals</span><span class="p">():</span> <span class="n">array</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="p">[</span>
-            <span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">Text</span><span class="p">(),</span>
+            <span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">Text</span><span class="p">(),</span>
         <span class="p">];</span>
     <span class="p">}</span>
 
@@ -925,9 +934,9 @@ method:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>Functions<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id2">
+<h3>Functions<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>Functions can be registered in an extension via the <code class="docutils literal notranslate"><span class="pre">getFunctions()</span></code>
 method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="n">extends</span> \<span class="n">Twig</span>\<span class="n">Extension</span>\<span class="n">AbstractExtension</span>
@@ -935,7 +944,7 @@ method:</p>
     <span class="n">public</span> <span class="n">function</span> <span class="n">getFunctions</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="p">[</span>
-            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigFunction</span><span class="p">(</span><span class="s1">'lipsum'</span><span class="p">,</span> <span class="s1">'generate_lipsum'</span><span class="p">),</span>
+            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigFunction</span><span class="p">(</span><span class="s1">&#39;lipsum&#39;</span><span class="p">,</span> <span class="s1">&#39;generate_lipsum&#39;</span><span class="p">),</span>
         <span class="p">];</span>
     <span class="p">}</span>
 
@@ -943,9 +952,9 @@ method:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id3">
-<h3>Filters<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id3">
+<h3>Filters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>To add a filter to an extension, you need to override the <code class="docutils literal notranslate"><span class="pre">getFilters()</span></code>
 method. This method must return an array of filters to add to the Twig
 environment:</p>
@@ -954,7 +963,7 @@ environment:</p>
     <span class="n">public</span> <span class="n">function</span> <span class="n">getFilters</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="p">[</span>
-            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigFilter</span><span class="p">(</span><span class="s1">'rot13'</span><span class="p">,</span> <span class="s1">'str_rot13'</span><span class="p">),</span>
+            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigFilter</span><span class="p">(</span><span class="s1">&#39;rot13&#39;</span><span class="p">,</span> <span class="s1">&#39;str_rot13&#39;</span><span class="p">),</span>
         <span class="p">];</span>
     <span class="p">}</span>
 
@@ -962,9 +971,9 @@ environment:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h3>Tags<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id4">
+<h3>Tags<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Adding a tag in an extension can be done by overriding the
 <code class="docutils literal notranslate"><span class="pre">getTokenParsers()</span></code> method. This method must return an array of tags to add
 to the Twig environment:</p>
@@ -982,9 +991,9 @@ to the Twig environment:</p>
 <p>In the above code, we have added a single new tag, defined by the
 <code class="docutils literal notranslate"><span class="pre">Project_Set_TokenParser</span></code> class. The <code class="docutils literal notranslate"><span class="pre">Project_Set_TokenParser</span></code> class is
 responsible for parsing the tag and compiling it to PHP.</p>
-</div>
-<div class="section" id="operators">
-<h3>Operators<a class="headerlink" href="#operators" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">getOperators()</span></code> methods lets you add new operators. Here is how to add
 the <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, and <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> operators:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="n">extends</span> \<span class="n">Twig</span>\<span class="n">Extension</span>\<span class="n">AbstractExtension</span>
@@ -993,11 +1002,11 @@ the <code class="docutils literal notranslate"><span class="pre">!</span></code>
     <span class="p">{</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="p">[</span>
-                <span class="s1">'!'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'precedence'</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'class'</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Unary</span>\<span class="n">NotUnary</span><span class="p">::</span><span class="n">class</span><span class="p">],</span>
+                <span class="s1">&#39;!&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Unary</span>\<span class="n">NotUnary</span><span class="p">::</span><span class="n">class</span><span class="p">],</span>
             <span class="p">],</span>
             <span class="p">[</span>
-                <span class="s1">'||'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'precedence'</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'class'</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Binary</span>\<span class="n">OrBinary</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'associativity'</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">ExpressionParser</span><span class="p">::</span><span class="n">OPERATOR_LEFT</span><span class="p">],</span>
-                <span class="s1">'&amp;&amp;'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'precedence'</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'class'</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Binary</span>\<span class="n">AndBinary</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'associativity'</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">ExpressionParser</span><span class="p">::</span><span class="n">OPERATOR_LEFT</span><span class="p">],</span>
+                <span class="s1">&#39;||&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Binary</span>\<span class="n">OrBinary</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">&#39;associativity&#39;</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">ExpressionParser</span><span class="p">::</span><span class="n">OPERATOR_LEFT</span><span class="p">],</span>
+                <span class="s1">&#39;&amp;&amp;&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;precedence&#39;</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">Node</span>\<span class="n">Expression</span>\<span class="n">Binary</span>\<span class="n">AndBinary</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">&#39;associativity&#39;</span> <span class="o">=&gt;</span> \<span class="n">Twig</span>\<span class="n">ExpressionParser</span><span class="p">::</span><span class="n">OPERATOR_LEFT</span><span class="p">],</span>
             <span class="p">],</span>
         <span class="p">];</span>
     <span class="p">}</span>
@@ -1006,16 +1015,16 @@ the <code class="docutils literal notranslate"><span class="pre">!</span></code>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h3>Tests<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="id5">
+<h3>Tests<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">getTests()</span></code> method lets you add new test functions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Project_Twig_Extension</span> <span class="n">extends</span> \<span class="n">Twig</span>\<span class="n">Extension</span>\<span class="n">AbstractExtension</span>
 <span class="p">{</span>
     <span class="n">public</span> <span class="n">function</span> <span class="n">getTests</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="p">[</span>
-            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigTest</span><span class="p">(</span><span class="s1">'even'</span><span class="p">,</span> <span class="s1">'twig_test_even'</span><span class="p">),</span>
+            <span class="n">new</span> \<span class="n">Twig</span>\<span class="n">TwigTest</span><span class="p">(</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="s1">&#39;twig_test_even&#39;</span><span class="p">),</span>
         <span class="p">];</span>
     <span class="p">}</span>
 
@@ -1023,9 +1032,9 @@ the <code class="docutils literal notranslate"><span class="pre">!</span></code>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="definition-vs-runtime">
-<h3>Definition vs Runtime<a class="headerlink" href="#definition-vs-runtime" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="definition-vs-runtime">
+<h3>Definition vs Runtime<a class="headerlink" href="#definition-vs-runtime" title="Permalink to this heading">#</a></h3>
 <p>Twig filters, functions, and tests runtime implementations can be defined as
 any valid PHP callable:</p>
 <ul class="simple">
@@ -1049,7 +1058,7 @@ on external objects.</p></li>
     public function getFunctions()
     {
         return [
-            new \Twig\TwigFunction('rot13', [$this, 'rot13']),
+            new \Twig\TwigFunction(&#39;rot13&#39;, [$this, &#39;rot13&#39;]),
         ];
     }
 
@@ -1074,7 +1083,7 @@ must be autoload-able):</p>
         // implement the logic to create an instance of $class
         // and inject its dependencies
         // most of the time, it means using your dependency injection container
-        if ('Project_Twig_RuntimeExtension' === $class) {
+        if (&#39;Project_Twig_RuntimeExtension&#39; === $class) {
             return new $class(new Rot13Provider());
         } else {
             // ...
@@ -1112,20 +1121,20 @@ class Project_Twig_Extension extends \Twig\Extension\AbstractExtension
     public function getFunctions()
     {
         return [
-            new \Twig\TwigFunction('rot13', ['Project_Twig_RuntimeExtension', 'rot13']),
+            new \Twig\TwigFunction(&#39;rot13&#39;, [&#39;Project_Twig_RuntimeExtension&#39;, &#39;rot13&#39;]),
             // or
-            new \Twig\TwigFunction('rot13', 'Project_Twig_RuntimeExtension::rot13'),
+            new \Twig\TwigFunction(&#39;rot13&#39;, &#39;Project_Twig_RuntimeExtension::rot13&#39;),
         ];
     }
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="testing-an-extension">
-<h2>Testing an Extension<a class="headerlink" href="#testing-an-extension" title="Ссылка на этот заголовок">#</a></h2>
-<div class="section" id="functional-tests">
-<h3>Functional Tests<a class="headerlink" href="#functional-tests" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="testing-an-extension">
+<h2>Testing an Extension<a class="headerlink" href="#testing-an-extension" title="Permalink to this heading">#</a></h2>
+<section id="functional-tests">
+<h3>Functional Tests<a class="headerlink" href="#functional-tests" title="Permalink to this heading">#</a></h3>
 <p>You can create functional tests for extensions by creating the following file
 structure in your test directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fixtures</span><span class="o">/</span>
@@ -1156,22 +1165,22 @@ structure in your test directory:</p>
 
     <span class="n">public</span> <span class="n">function</span> <span class="n">getFixturesDir</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="n">__DIR__</span><span class="o">.</span><span class="s1">'/Fixtures/'</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">__DIR__</span><span class="o">.</span><span class="s1">&#39;/Fixtures/&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Fixtures examples can be found within the Twig repository
 <a class="reference external" href="https://github.com/twigphp/Twig/tree/3.x/tests/Fixtures">tests/Twig/Fixtures</a> directory.</p>
-</div>
-<div class="section" id="node-tests">
-<h3>Node Tests<a class="headerlink" href="#node-tests" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="node-tests">
+<h3>Node Tests<a class="headerlink" href="#node-tests" title="Permalink to this heading">#</a></h3>
 <p>Testing the node visitors can be complex, so extend your test cases from
 <code class="docutils literal notranslate"><span class="pre">\Twig\Test\NodeTestCase</span></code>. Examples can be found in the Twig repository
 <a class="reference external" href="https://github.com/twigphp/Twig/tree/3.x/tests/Node">tests/Twig/Node</a> directory.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
         </article>
       </div>
@@ -1185,10 +1194,10 @@ structure in your test directory:</p>
                 </div>
                 <div class="title">Twig изнутри</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="api.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -1209,9 +1218,7 @@ structure in your test directory:</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -1223,7 +1230,7 @@ structure in your test directory:</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Содержание
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -1274,11 +1281,10 @@ structure in your test directory:</p>
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/translations.js"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7e7bbc52"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
     </body>
 </html>

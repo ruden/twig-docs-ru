@@ -2,13 +2,14 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Расширения в Twig" href="advanced.html" /><link rel="prev" title="Twig для верстальщиков" href="templates.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Расширения в Twig" href="advanced.html" /><link rel="prev" title="Twig для верстальщиков" href="templates.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Twig для программистов - документация Twig 3.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -19,24 +20,28 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -144,7 +149,7 @@
   <span class="sidebar-brand-text">документация Twig 3.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Поиск name="q" aria-label="Поиск">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -159,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recipes.html">Примеры</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tags</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
@@ -182,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Filters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
@@ -239,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
@@ -258,7 +263,7 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Tests</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
@@ -282,7 +287,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -296,13 +309,13 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="twig">
-<h1>Twig для программистов<a class="headerlink" href="#twig" title="Ссылка на этот заголовок">#</a></h1>
+          <section id="twig">
+<h1>Twig для программистов<a class="headerlink" href="#twig" title="Permalink to this heading">#</a></h1>
 <p>This chapter describes the API to Twig and not the template language. It will
 be most useful as reference to those implementing the template interface to
 the application and not those who are creating Twig templates.</p>
-<div class="section" id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Ссылка на этот заголовок">#</a></h2>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">#</a></h2>
 <p>Twig uses a central object called the <strong>environment</strong> (of class
 <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code>). Instances of this class are used to store the
 configuration and extensions, and are used to load templates.</p>
@@ -311,11 +324,11 @@ initialization and use that to load templates. In some cases, it might be useful
 to have multiple environments side by side, with different configurations.</p>
 <p>The typical way to configure Twig to load templates for an application looks
 roughly like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once '/path/to/vendor/autoload.php';
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once &#39;/path/to/vendor/autoload.php&#39;;
 
-$loader = new \Twig\Loader\FilesystemLoader('/path/to/templates');
+$loader = new \Twig\Loader\FilesystemLoader(&#39;/path/to/templates&#39;);
 $twig = new \Twig\Environment($loader, [
-    'cache' =&gt; '/path/to/compilation_cache',
+    &#39;cache&#39; =&gt; &#39;/path/to/compilation_cache&#39;,
 ]);
 </pre></div>
 </div>
@@ -332,16 +345,16 @@ requests. It is very different from the cache you might want to add for
 the evaluated templates. For such a need, you can use any available PHP
 cache library.</p>
 </div>
-</div>
-<div class="section" id="rendering-templates">
-<h2>Rendering Templates<a class="headerlink" href="#rendering-templates" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="rendering-templates">
+<h2>Rendering Templates<a class="headerlink" href="#rendering-templates" title="Permalink to this heading">#</a></h2>
 <p>To load a template from a Twig environment, call the <code class="docutils literal notranslate"><span class="pre">load()</span></code> method which
 returns a <code class="docutils literal notranslate"><span class="pre">\Twig\TemplateWrapper</span></code> instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template = $twig-&gt;load('index.html');
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template = $twig-&gt;load(&#39;index.html&#39;);
 </pre></div>
 </div>
 <p>To render the template with some variables, call the <code class="docutils literal notranslate"><span class="pre">render()</span></code> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $template-&gt;render(['the' =&gt; 'variables', 'go' =&gt; 'here']);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $template-&gt;render([&#39;the&#39; =&gt; &#39;variables&#39;, &#39;go&#39; =&gt; &#39;here&#39;]);
 </pre></div>
 </div>
 <div class="admonition note">
@@ -349,20 +362,20 @@ returns a <code class="docutils literal notranslate"><span class="pre">\Twig\Tem
 <p>The <code class="docutils literal notranslate"><span class="pre">display()</span></code> method is a shortcut to output the rendered template.</p>
 </div>
 <p>You can also load and render the template in one fell swoop:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $twig-&gt;render('index.html', ['the' =&gt; 'variables', 'go' =&gt; 'here']);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $twig-&gt;render(&#39;index.html&#39;, [&#39;the&#39; =&gt; &#39;variables&#39;, &#39;go&#39; =&gt; &#39;here&#39;]);
 </pre></div>
 </div>
 <p>If a template defines blocks, they can be rendered individually via the
 <code class="docutils literal notranslate"><span class="pre">renderBlock()</span></code> call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $template-&gt;renderBlock('block_name', ['the' =&gt; 'variables', 'go' =&gt; 'here']);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $template-&gt;renderBlock(&#39;block_name&#39;, [&#39;the&#39; =&gt; &#39;variables&#39;, &#39;go&#39; =&gt; &#39;here&#39;]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="environment-options">
-<span id="id1"></span><h2>Environment Options<a class="headerlink" href="#environment-options" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="environment-options">
+<span id="id1"></span><h2>Environment Options<a class="headerlink" href="#environment-options" title="Permalink to this heading">#</a></h2>
 <p>When creating a new <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code> instance, you can pass an array of
 options as the constructor second argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader, ['debug' =&gt; true]);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader, [&#39;debug&#39; =&gt; true]);
 </pre></div>
 </div>
 <p>The following options are available:</p>
@@ -407,21 +420,21 @@ auto-escaping is done at compilation time.)</p>
 disable).</p>
 </li>
 </ul>
-</div>
-<div class="section" id="loaders">
-<h2>Loaders<a class="headerlink" href="#loaders" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="loaders">
+<h2>Loaders<a class="headerlink" href="#loaders" title="Permalink to this heading">#</a></h2>
 <p>Loaders are responsible for loading templates from a resource such as the file
 system.</p>
-<div class="section" id="compilation-cache">
-<h3>Compilation Cache<a class="headerlink" href="#compilation-cache" title="Ссылка на этот заголовок">#</a></h3>
+<section id="compilation-cache">
+<h3>Compilation Cache<a class="headerlink" href="#compilation-cache" title="Permalink to this heading">#</a></h3>
 <p>All template loaders can cache the compiled templates on the filesystem for
 future reuse. It speeds up Twig a lot as templates are only compiled once.</p>
-</div>
-<div class="section" id="built-in-loaders">
-<h3>Built-in Loaders<a class="headerlink" href="#built-in-loaders" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="built-in-loaders">
+<h3>Built-in Loaders<a class="headerlink" href="#built-in-loaders" title="Permalink to this heading">#</a></h3>
 <p>Here is a list of the built-in loaders:</p>
-<div class="section" id="twig-loader-filesystemloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code><a class="headerlink" href="#twig-loader-filesystemloader" title="Ссылка на этот заголовок">#</a></h4>
+<section id="twig-loader-filesystemloader">
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code><a class="headerlink" href="#twig-loader-filesystemloader" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code> loads templates from the file system. This loader
 can find templates in folders on the file system and is the preferred way to
 load them:</p>
@@ -446,19 +459,19 @@ your templates under different namespaces which have their own template paths.</
 <p>When using the <code class="docutils literal notranslate"><span class="pre">setPaths()</span></code>, <code class="docutils literal notranslate"><span class="pre">addPath()</span></code>, and <code class="docutils literal notranslate"><span class="pre">prependPath()</span></code> methods,
 specify the namespace as the second argument (when not specified, these
 methods act on the «main» namespace):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader-&gt;addPath($templateDir, 'admin');
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader-&gt;addPath($templateDir, &#39;admin&#39;);
 </pre></div>
 </div>
 <p>Namespaced templates can be accessed via the special
-<code class="docutils literal notranslate"><span class="pre">@namespace_name/template_path</span></code> notation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;render('@admin/index.html', []);
+<code class="docutils literal notranslate"><span class="pre">&#64;namespace_name/template_path</span></code> notation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;render(&#39;@admin/index.html&#39;, []);
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\FilesystemLoader</span></code> support absolute and relative paths. Using relative
 paths is preferred as it makes the cache keys independent of the project root
 directory (for instance, it allows warming the cache from a build server where
 the directory might be different from the one used on production servers):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\FilesystemLoader('templates', getcwd().'/..');
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\FilesystemLoader(&#39;templates&#39;, getcwd().&#39;/..&#39;);
 </pre></div>
 </div>
 <div class="admonition note">
@@ -466,17 +479,17 @@ the directory might be different from the one used on production servers):</p>
 <p>When not passing the root path as a second argument, Twig uses <code class="docutils literal notranslate"><span class="pre">getcwd()</span></code>
 for relative paths.</p>
 </div>
-</div>
-<div class="section" id="twig-loader-arrayloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code><a class="headerlink" href="#twig-loader-arrayloader" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="twig-loader-arrayloader">
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code><a class="headerlink" href="#twig-loader-arrayloader" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ArrayLoader</span></code> loads a template from a PHP array. It is passed an
 array of strings bound to template names:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new \Twig\Loader\ArrayLoader([
-    'index.html' =&gt; 'Hello {{ name }}!',
+    &#39;index.html&#39; =&gt; &#39;Hello {{ name }}!&#39;,
 ]);
 $twig = new \Twig\Environment($loader);
 
-echo $twig-&gt;render('index.html', ['name' =&gt; 'Fabien']);
+echo $twig-&gt;render(&#39;index.html&#39;, [&#39;name&#39; =&gt; &#39;Fabien&#39;]);
 </pre></div>
 </div>
 <p>This loader is very useful for unit testing. It can also be used for small
@@ -489,16 +502,16 @@ cache key being the source code of the template). If you don’t want to see
 your cache grows out of control, you need to take care of clearing the old
 cache file by yourself.</p>
 </div>
-</div>
-<div class="section" id="twig-loader-chainloader">
-<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code><a class="headerlink" href="#twig-loader-chainloader" title="Ссылка на этот заголовок">#</a></h4>
+</section>
+<section id="twig-loader-chainloader">
+<h4><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code><a class="headerlink" href="#twig-loader-chainloader" title="Permalink to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">\Twig\Loader\ChainLoader</span></code> delegates the loading of templates to other loaders:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader1 = new \Twig\Loader\ArrayLoader([
-    'base.html' =&gt; '{% block content %}{% endblock %}',
+    &#39;base.html&#39; =&gt; &#39;{% block content %}{% endblock %}&#39;,
 ]);
 $loader2 = new \Twig\Loader\ArrayLoader([
-    'index.html' =&gt; '{% extends "base.html" %}{% block content %}Hello {{ name }}{% endblock %}',
-    'base.html'  =&gt; 'Will never be loaded',
+    &#39;index.html&#39; =&gt; &#39;{% extends &quot;base.html&quot; %}{% block content %}Hello {{ name }}{% endblock %}&#39;,
+    &#39;base.html&#39;  =&gt; &#39;Will never be loaded&#39;,
 ]);
 
 $loader = new \Twig\Loader\ChainLoader([$loader1, $loader2]);
@@ -514,10 +527,10 @@ template will be loaded from <code class="docutils literal notranslate"><span cl
 <p class="admonition-title">Примечание</p>
 <p>You can also add loaders via the <code class="docutils literal notranslate"><span class="pre">addLoader()</span></code> method.</p>
 </div>
-</div>
-</div>
-<div class="section" id="create-your-own-loader">
-<h3>Create your own Loader<a class="headerlink" href="#create-your-own-loader" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+</section>
+<section id="create-your-own-loader">
+<h3>Create your own Loader<a class="headerlink" href="#create-your-own-loader" title="Permalink to this heading">#</a></h3>
 <p>All loaders implement the <code class="docutils literal notranslate"><span class="pre">\Twig\Loader\LoaderInterface</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>interface \Twig\Loader\LoaderInterface
 {
@@ -569,10 +582,10 @@ template will be loaded from <code class="docutils literal notranslate"><span cl
 <p>The <code class="docutils literal notranslate"><span class="pre">isFresh()</span></code> method must return <code class="docutils literal notranslate"><span class="pre">true</span></code> if the current cached template
 is still fresh, given the last modification time, or <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">getSourceContext()</span></code> method must return an instance of <code class="docutils literal notranslate"><span class="pre">\Twig\Source</span></code>.</p>
-</div>
-</div>
-<div class="section" id="using-extensions">
-<h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="using-extensions">
+<h2>Using Extensions<a class="headerlink" href="#using-extensions" title="Permalink to this heading">#</a></h2>
 <p>Twig extensions are packages that add new features to Twig. Register an
 extension via the <code class="docutils literal notranslate"><span class="pre">addExtension()</span></code> method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;addExtension(new \Twig\Extension\SandboxExtension());
@@ -597,17 +610,17 @@ compilation.</p></li>
 </li>
 </ul>
 <p>The Core, Escaper, and Optimizer extensions are registered by default.</p>
-</div>
-<div class="section" id="built-in-extensions">
-<h2>Built-in Extensions<a class="headerlink" href="#built-in-extensions" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="built-in-extensions">
+<h2>Built-in Extensions<a class="headerlink" href="#built-in-extensions" title="Permalink to this heading">#</a></h2>
 <p>This section describes the features added by the built-in extensions.</p>
 <div class="admonition tip">
 <p class="admonition-title">Совет</p>
 <p>Read the chapter about <a class="reference internal" href="advanced.html"><span class="doc">extending Twig</span></a> to learn how to
 create your own extensions.</p>
 </div>
-<div class="section" id="core-extension">
-<h3>Core Extension<a class="headerlink" href="#core-extension" title="Ссылка на этот заголовок">#</a></h3>
+<section id="core-extension">
+<h3>Core Extension<a class="headerlink" href="#core-extension" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">core</span></code> extension defines all the core features of Twig:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="tags/index.html"><span class="doc">Tags</span></a>;</p></li>
@@ -615,28 +628,28 @@ create your own extensions.</p>
 <li><p><a class="reference internal" href="functions/index.html"><span class="doc">Functions</span></a>;</p></li>
 <li><p><a class="reference internal" href="tests/index.html"><span class="doc">Tests</span></a>.</p></li>
 </ul>
-</div>
-<div class="section" id="escaper-extension">
-<h3>Escaper Extension<a class="headerlink" href="#escaper-extension" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="escaper-extension">
+<h3>Escaper Extension<a class="headerlink" href="#escaper-extension" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">escaper</span></code> extension adds automatic output escaping to Twig. It defines a
 tag, <code class="docutils literal notranslate"><span class="pre">autoescape</span></code>, and a filter, <code class="docutils literal notranslate"><span class="pre">raw</span></code>.</p>
 <p>When creating the escaper extension, you can switch on or off the global
 output escaping strategy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$escaper = new \Twig\Extension\EscaperExtension('html');
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$escaper = new \Twig\Extension\EscaperExtension(&#39;html&#39;);
 $twig-&gt;addExtension($escaper);
 </pre></div>
 </div>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">html</span></code>, all variables in templates are escaped (using the <code class="docutils literal notranslate"><span class="pre">html</span></code>
 escaping strategy), except those using the <code class="docutils literal notranslate"><span class="pre">raw</span></code> filter:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">article.to_html</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">article.to_html</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>You can also change the escaping mode locally by using the <code class="docutils literal notranslate"><span class="pre">autoescape</span></code> tag:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">'html'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">      </span><span class="c">{# var won't be escaped #}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# var won't be double-escaped #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;html&#39;</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">      </span><span class="c">{# var won&#39;t be escaped #}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x">   </span><span class="c">{# var won&#39;t be double-escaped #}</span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -647,23 +660,23 @@ escaping strategy), except those using the <code class="docutils literal notrans
 <ul>
 <li><p>Literals (integers, booleans, arrays, …) used in the template directly as
 variables or filter arguments are never automatically escaped:</p>
-<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">"Twig&lt;br/&gt;"</span> <span class="cp">}}</span> <span class="c">{# won't be escaped #}</span>
+<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="s2">&quot;Twig&lt;br/&gt;&quot;</span> <span class="cp">}}</span> <span class="c">{# won&#39;t be escaped #}</span>
 
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">"Twig&lt;br/&gt;"</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;Twig&lt;br/&gt;&quot;</span> <span class="cp">%}</span>
 <span class="cp">{{</span> <span class="nv">text</span> <span class="cp">}}</span> <span class="c">{# will be escaped #}</span>
 </pre></div>
 </div>
 </li>
 <li><p>Expressions which the result is a literal or a variable marked safe
 are never automatically escaped:</p>
-<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s2">"Twig&lt;br/&gt;"</span> <span class="o">:</span> <span class="s2">"&lt;br/&gt;Twig"</span> <span class="cp">}}</span> <span class="c">{# won't be escaped #}</span>
+<div class="highlight-html+twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="s2">&quot;Twig&lt;br/&gt;&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;br/&gt;Twig&quot;</span> <span class="cp">}}</span> <span class="c">{# won&#39;t be escaped #}</span>
 
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">"Twig&lt;br/&gt;"</span> <span class="cp">%}</span>
-<span class="cp">{{</span> <span class="kp">true</span> <span class="o">?</span> <span class="nv">text</span> <span class="o">:</span> <span class="s2">"&lt;br/&gt;Twig"</span> <span class="cp">}}</span> <span class="c">{# will be escaped #}</span>
-<span class="cp">{{</span> <span class="kp">false</span> <span class="o">?</span> <span class="nv">text</span> <span class="o">:</span> <span class="s2">"&lt;br/&gt;Twig"</span> <span class="cp">}}</span> <span class="c">{# won't be escaped #}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;Twig&lt;br/&gt;&quot;</span> <span class="cp">%}</span>
+<span class="cp">{{</span> <span class="kp">true</span> <span class="o">?</span> <span class="nv">text</span> <span class="o">:</span> <span class="s2">&quot;&lt;br/&gt;Twig&quot;</span> <span class="cp">}}</span> <span class="c">{# will be escaped #}</span>
+<span class="cp">{{</span> <span class="kp">false</span> <span class="o">?</span> <span class="nv">text</span> <span class="o">:</span> <span class="s2">&quot;&lt;br/&gt;Twig&quot;</span> <span class="cp">}}</span> <span class="c">{# won&#39;t be escaped #}</span>
 
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">"Twig&lt;br/&gt;"</span> <span class="cp">%}</span>
-<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="nv">text</span><span class="o">|</span><span class="nf">raw</span> <span class="o">:</span> <span class="s2">"&lt;br/&gt;Twig"</span> <span class="cp">}}</span> <span class="c">{# won't be escaped #}</span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">text</span> <span class="o">=</span> <span class="s2">&quot;Twig&lt;br/&gt;&quot;</span> <span class="cp">%}</span>
+<span class="cp">{{</span> <span class="nv">foo</span> <span class="o">?</span> <span class="nv">text</span><span class="o">|</span><span class="nf">raw</span> <span class="o">:</span> <span class="s2">&quot;&lt;br/&gt;Twig&quot;</span> <span class="cp">}}</span> <span class="c">{# won&#39;t be escaped #}</span>
 </pre></div>
 </div>
 </li>
@@ -671,28 +684,28 @@ are never automatically escaped:</p>
 escaped. You can mark some classes and/or interfaces as being safe for some
 strategies via <code class="docutils literal notranslate"><span class="pre">EscaperExtension::addSafeClass()</span></code>:</p>
 <div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="x">// mark object of class Foo as safe for the HTML strategy</span>
-<span class="x">$escaper-&gt;addSafeClass('Foo', ['html']);</span>
+<span class="x">$escaper-&gt;addSafeClass(&#39;Foo&#39;, [&#39;html&#39;]);</span>
 
 <span class="x">// mark object of interface Foo as safe for the HTML strategy</span>
-<span class="x">$escaper-&gt;addSafeClass('FooInterface', ['html']);</span>
+<span class="x">$escaper-&gt;addSafeClass(&#39;FooInterface&#39;, [&#39;html&#39;]);</span>
 
 <span class="x">// mark object of class Foo as safe for the HTML and JS strategies</span>
-<span class="x">$escaper-&gt;addSafeClass('Foo', ['html', 'js']);</span>
+<span class="x">$escaper-&gt;addSafeClass(&#39;Foo&#39;, [&#39;html&#39;, &#39;js&#39;]);</span>
 
 <span class="x">// mark object of class Foo as safe for all strategies</span>
-<span class="x">$escaper-&gt;addSafeClass('Foo', ['all']);</span>
+<span class="x">$escaper-&gt;addSafeClass(&#39;Foo&#39;, [&#39;all&#39;]);</span>
 </pre></div>
 </div>
 </li>
 <li><p>Escaping is applied before printing, after any other filter is applied:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# is equivalent to {{ var|upper|escape }} #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# is equivalent to {{ var|upper|escape }} #}</span>
 </pre></div>
 </div>
 </li>
 <li><p>The <cite>raw</cite> filter should only be used at the end of the filter chain:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">raw</span><span class="o">|</span><span class="nf">upper</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped #}</span>
 
-<span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won't be escaped #}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">upper</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be escaped #}</span>
 </pre></div>
 </div>
 </li>
@@ -700,11 +713,11 @@ strategies via <code class="docutils literal notranslate"><span class="pre">Esca
 safe for the current context (e.g. <code class="docutils literal notranslate"><span class="pre">html</span></code> or <code class="docutils literal notranslate"><span class="pre">js</span></code>). <code class="docutils literal notranslate"><span class="pre">escape</span></code> and
 <code class="docutils literal notranslate"><span class="pre">escape('html')</span></code> are marked safe for HTML, <code class="docutils literal notranslate"><span class="pre">escape('js')</span></code> is marked
 safe for JavaScript, <code class="docutils literal notranslate"><span class="pre">raw</span></code> is marked safe for everything.</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">'js'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">'html'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for HTML and JavaScript #}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for JavaScript #}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">'js'</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won't be double-escaped #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">autoescape</span> <span class="s1">&#39;js&#39;</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;html&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for HTML and JavaScript #}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# will be escaped for JavaScript #}</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">var</span><span class="o">|</span><span class="nf">escape</span><span class="o">(</span><span class="s1">&#39;js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x"> </span><span class="c">{# won&#39;t be double-escaped #}</span>
+<span class="cp">{%</span> <span class="k">endautoescape</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </li>
@@ -717,23 +730,23 @@ concatenation, <code class="docutils literal notranslate"><span class="pre">{{</
 escaping is applied on the result of the concatenation, not on the
 individual variables (so, the <code class="docutils literal notranslate"><span class="pre">raw</span></code> filter won’t have any effect here).</p>
 </div>
-</div>
-<div class="section" id="sandbox-extension">
-<h3>Sandbox Extension<a class="headerlink" href="#sandbox-extension" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="sandbox-extension">
+<h3>Sandbox Extension<a class="headerlink" href="#sandbox-extension" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sandbox</span></code> extension can be used to evaluate untrusted code. Access to
 unsafe attributes and methods is prohibited. The sandbox security is managed
 by a policy instance. By default, Twig comes with one policy class:
 <code class="docutils literal notranslate"><span class="pre">\Twig\Sandbox\SecurityPolicy</span></code>. This class allows you to white-list some
 tags, filters, properties, and methods:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$tags = ['if'];
-$filters = ['upper'];
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$tags = [&#39;if&#39;];
+$filters = [&#39;upper&#39;];
 $methods = [
-    'Article' =&gt; ['getTitle', 'getBody'],
+    &#39;Article&#39; =&gt; [&#39;getTitle&#39;, &#39;getBody&#39;],
 ];
 $properties = [
-    'Article' =&gt; ['title', 'body'],
+    &#39;Article&#39; =&gt; [&#39;title&#39;, &#39;body&#39;],
 ];
-$functions = ['range'];
+$functions = [&#39;range&#39;];
 $policy = new \Twig\Sandbox\SecurityPolicy($tags, $filters, $methods, $properties, $functions);
 </pre></div>
 </div>
@@ -749,9 +762,9 @@ $twig-&gt;addExtension($sandbox);
 </div>
 <p>By default, the sandbox mode is disabled and should be enabled when including
 untrusted template code by using the <code class="docutils literal notranslate"><span class="pre">sandbox</span></code> tag:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">sandbox</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    </span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">'user.html'</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endsandbox</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">sandbox</span> <span class="cp">%}</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">include</span> <span class="s1">&#39;user.html&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endsandbox</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>You can sandbox all templates by passing <code class="docutils literal notranslate"><span class="pre">true</span></code> as the second argument of
@@ -759,9 +772,9 @@ the extension constructor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$sandbox = new \Twig\Extension\SandboxExtension($policy, true);
 </pre></div>
 </div>
-</div>
-<div class="section" id="profiler-extension">
-<h3>Profiler Extension<a class="headerlink" href="#profiler-extension" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="profiler-extension">
+<h3>Profiler Extension<a class="headerlink" href="#profiler-extension" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">profiler</span></code> extension enables a profiler for Twig templates; it should
 only be used on your development machines as it adds some overhead:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$profile = new \Twig\Profiler\Profile();
@@ -776,17 +789,17 @@ block, and macro executions.</p>
 <p>You can also dump the data in a <a class="reference external" href="https://blackfire.io/">Blackfire.io</a>
 compatible format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$dumper = new \Twig\Profiler\Dumper\BlackfireDumper();
-file_put_contents('/path/to/profile.prof', $dumper-&gt;dump($profile));
+file_put_contents(&#39;/path/to/profile.prof&#39;, $dumper-&gt;dump($profile));
 </pre></div>
 </div>
 <p>Upload the profile to visualize it (create a <a class="reference external" href="https://blackfire.io/signup?utm_source=twig&amp;utm_medium=doc&amp;utm_campaign=profiler">free account</a>
 first):</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blackfire --slot<span class="o">=</span><span class="m">7</span> upload /path/to/profile.prof
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blackfire<span class="w"> </span>--slot<span class="o">=</span><span class="m">7</span><span class="w"> </span>upload<span class="w"> </span>/path/to/profile.prof
 </pre></div>
 </div>
-</div>
-<div class="section" id="optimizer-extension">
-<h3>Optimizer Extension<a class="headerlink" href="#optimizer-extension" title="Ссылка на этот заголовок">#</a></h3>
+</section>
+<section id="optimizer-extension">
+<h3>Optimizer Extension<a class="headerlink" href="#optimizer-extension" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> extension optimizes the node tree before compilation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig-&gt;addExtension(new \Twig\Extension\OptimizerExtension());
 </pre></div>
@@ -812,10 +825,10 @@ filter whenever possible.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">\Twig\NodeVisitor\OptimizerNodeVisitor::OPTIMIZE_VAR_ACCESS</span></code>, simplifies the creation
 and access of variables in the compiled templates whenever possible.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="exceptions">
-<h2>Exceptions<a class="headerlink" href="#exceptions" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">#</a></h2>
 <p>Twig can throw exceptions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">\Twig\Error\Error</span></code>: The base exception for all errors.</p></li>
@@ -827,8 +840,8 @@ does not exist for instance).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">\Twig\Sandbox\SecurityError</span></code>: Thrown when an unallowed tag, filter, or
 method is called in a sandboxed template.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -842,10 +855,10 @@ method is called in a sandboxed template.</p></li>
                 </div>
                 <div class="title">Расширения в Twig</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="templates.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -866,9 +879,7 @@ method is called in a sandboxed template.</p></li>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -880,7 +891,7 @@ method is called in a sandboxed template.</p></li>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Содержание
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -922,11 +933,10 @@ method is called in a sandboxed template.</p></li>
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/translations.js"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7e7bbc52"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
     </body>
 </html>

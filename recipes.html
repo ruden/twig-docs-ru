@@ -2,13 +2,14 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Стандарты кодирования" href="coding_standards.html" /><link rel="prev" title="Deprecated Features" href="deprecated.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Стандарты кодирования" href="coding_standards.html" /><link rel="prev" title="Deprecated Features" href="deprecated.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Примеры - документация Twig 3.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -19,24 +20,28 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -144,7 +149,7 @@
   <span class="sidebar-brand-text">документация Twig 3.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Поиск name="q" aria-label="Поиск">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -159,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="deprecated.html">Deprecated Features</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Примеры</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tags</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
@@ -182,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Filters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
@@ -239,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
@@ -258,7 +263,7 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Tests</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
@@ -282,7 +287,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -296,22 +309,22 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="id1">
-<h1>Примеры<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">#</a></h1>
-<div class="section" id="displaying-deprecation-notices">
-<span id="deprecation-notices"></span><h2>Displaying Deprecation Notices<a class="headerlink" href="#displaying-deprecation-notices" title="Ссылка на этот заголовок">#</a></h2>
+          <section id="id1">
+<h1>Примеры<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="displaying-deprecation-notices">
+<span id="deprecation-notices"></span><h2>Displaying Deprecation Notices<a class="headerlink" href="#displaying-deprecation-notices" title="Permalink to this heading">#</a></h2>
 <p>Deprecated features generate deprecation notices (via a call to the
 <code class="docutils literal notranslate"><span class="pre">trigger_error()</span></code> PHP function). By default, they are silenced and never
 displayed nor logged.</p>
 <p>To remove all deprecated feature usages from your templates, write and run a
 script along the lines of the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once __DIR__.'/vendor/autoload.php';
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>require_once __DIR__.&#39;/vendor/autoload.php&#39;;
 
 $twig = create_your_twig_env();
 
 $deprecations = new \Twig\Util\DeprecationCollector($twig);
 
-print_r($deprecations-&gt;collectDir(__DIR__.'/templates'));
+print_r($deprecations-&gt;collectDir(__DIR__.&#39;/templates&#39;));
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">collectDir()</span></code> method compiles all templates found in a directory,
@@ -346,38 +359,38 @@ they won’t be generated when templates are already cached.</p>
 a look at the <a class="reference external" href="https://github.com/symfony/phpunit-bridge">symfony/phpunit-bridge</a> package, which eases the
 process.</p>
 </div>
-</div>
-<div class="section" id="making-a-layout-conditional">
-<h2>Making a Layout conditional<a class="headerlink" href="#making-a-layout-conditional" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="making-a-layout-conditional">
+<h2>Making a Layout conditional<a class="headerlink" href="#making-a-layout-conditional" title="Permalink to this heading">#</a></h2>
 <p>Working with Ajax means that the same content is sometimes displayed as is,
 and sometimes decorated with a layout. As Twig layout template names can be
 any valid expression, you can pass a variable that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> when
 the request is made via Ajax and choose the layout accordingly:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="nv">request.ajax</span> <span class="o">?</span> <span class="s2">"base_ajax.html"</span> <span class="o">:</span> <span class="s2">"base.html"</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="nv">request.ajax</span> <span class="o">?</span> <span class="s2">&quot;base_ajax.html&quot;</span> <span class="o">:</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
 
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
 <span class="x">    This is the content to be displayed.</span>
-<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="making-an-include-dynamic">
-<h2>Making an Include dynamic<a class="headerlink" href="#making-an-include-dynamic" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="making-an-include-dynamic">
+<h2>Making an Include dynamic<a class="headerlink" href="#making-an-include-dynamic" title="Permalink to this heading">#</a></h2>
 <p>When including a template, its name does not need to be a string. For
 instance, the name can depend on the value of a variable:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="nv">var</span> <span class="o">~</span> <span class="s1">'_foo.html'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="nv">var</span> <span class="o">~</span> <span class="s1">&#39;_foo.html&#39;</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>If <code class="docutils literal notranslate"><span class="pre">var</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">index</span></code>, the <code class="docutils literal notranslate"><span class="pre">index_foo.html</span></code> template will be
 rendered.</p>
 <p>As a matter of fact, the template name can be any valid expression, such as
 the following:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="nv">var</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">'index'</span><span class="o">)</span> <span class="o">~</span> <span class="s1">'_foo.html'</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="nv">var</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">&#39;index&#39;</span><span class="o">)</span> <span class="o">~</span> <span class="s1">&#39;_foo.html&#39;</span> <span class="cp">%}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="overriding-a-template-that-also-extends-itself">
-<h2>Overriding a Template that also extends itself<a class="headerlink" href="#overriding-a-template-that-also-extends-itself" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="overriding-a-template-that-also-extends-itself">
+<h2>Overriding a Template that also extends itself<a class="headerlink" href="#overriding-a-template-that-also-extends-itself" title="Permalink to this heading">#</a></h2>
 <p>A template can be customized in two different ways:</p>
 <ul class="simple">
 <li><p><em>Inheritance</em>: A template <em>extends</em> a parent template and overrides some
@@ -391,18 +404,18 @@ directory <em>replaces</em> another one from a directory further in the list.</p
 <p>Let’s say that your templates are loaded from both <code class="docutils literal notranslate"><span class="pre">.../templates/mysite</span></code>
 and <code class="docutils literal notranslate"><span class="pre">.../templates/default</span></code> in this order. The <code class="docutils literal notranslate"><span class="pre">page.twig</span></code> template,
 stored in <code class="docutils literal notranslate"><span class="pre">.../templates/default</span></code> reads as follows:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"layout.twig"</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;layout.twig&quot;</span> <span class="cp">%}</span>
 
-<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>You can replace this template by putting a file with the same name in
 <code class="docutils literal notranslate"><span class="pre">.../templates/mysite</span></code>. And if you want to extend the original template, you
 might be tempted to write the following:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig in .../templates/mysite #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"page.twig"</span> <span class="cp">%}</span><span class="x"> </span><span class="c">{# from .../templates/default #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig in .../templates/mysite #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;page.twig&quot;</span> <span class="cp">%}</span><span class="x"> </span><span class="c">{# from .../templates/default #}</span>
 </pre></div>
 </div>
 <p>However, this will not work as Twig will always load the template from
@@ -414,8 +427,8 @@ making every template file within our system uniquely addressable. Most of the
 time you will use the «normal» paths, but in the special case of wanting to
 extend a template with an overriding version of itself we can reference its
 parent’s full, unambiguous template path in the extends tag:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig in .../templates/mysite #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">"default/page.twig"</span> <span class="cp">%}</span><span class="x"> </span><span class="c">{# from .../templates #}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# page.twig in .../templates/mysite #}</span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;default/page.twig&quot;</span> <span class="cp">%}</span><span class="x"> </span><span class="c">{# from .../templates #}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -423,9 +436,9 @@ parent’s full, unambiguous template path in the extends tag:</p>
 <p>This recipe was inspired by the following Django wiki page:
 <a class="reference external" href="https://code.djangoproject.com/wiki/ExtendingTemplates">https://code.djangoproject.com/wiki/ExtendingTemplates</a></p>
 </div>
-</div>
-<div class="section" id="customizing-the-syntax">
-<h2>Customizing the Syntax<a class="headerlink" href="#customizing-the-syntax" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="customizing-the-syntax">
+<h2>Customizing the Syntax<a class="headerlink" href="#customizing-the-syntax" title="Permalink to this heading">#</a></h2>
 <p>Twig allows some syntax customization for the block delimiters. It’s <strong>not</strong>
 recommended to use this feature as templates will be tied with your custom
 syntax. But for specific projects, it can make sense to change the defaults.</p>
@@ -433,10 +446,10 @@ syntax. But for specific projects, it can make sense to change the defaults.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment(...);
 
 $lexer = new \Twig\Lexer($twig, [
-    'tag_comment'   =&gt; ['{#', '#}'],
-    'tag_block'     =&gt; ['{%', '%}'],
-    'tag_variable'  =&gt; ['{{', '}}'],
-    'interpolation' =&gt; ['#{', '}'],
+    &#39;tag_comment&#39;   =&gt; [&#39;{#&#39;, &#39;#}&#39;],
+    &#39;tag_block&#39;     =&gt; [&#39;{%&#39;, &#39;%}&#39;],
+    &#39;tag_variable&#39;  =&gt; [&#39;{{&#39;, &#39;}}&#39;],
+    &#39;interpolation&#39; =&gt; [&#39;#{&#39;, &#39;}&#39;],
 ]);
 $twig-&gt;setLexer($lexer);
 </pre></div>
@@ -445,29 +458,29 @@ $twig-&gt;setLexer($lexer);
 syntax:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Ruby erb syntax
 $lexer = new \Twig\Lexer($twig, [
-    'tag_comment'  =&gt; ['&lt;%#', '%&gt;'],
-    'tag_block'    =&gt; ['&lt;%', '%&gt;'],
-    'tag_variable' =&gt; ['&lt;%=', '%&gt;'],
+    &#39;tag_comment&#39;  =&gt; [&#39;&lt;%#&#39;, &#39;%&gt;&#39;],
+    &#39;tag_block&#39;    =&gt; [&#39;&lt;%&#39;, &#39;%&gt;&#39;],
+    &#39;tag_variable&#39; =&gt; [&#39;&lt;%=&#39;, &#39;%&gt;&#39;],
 ]);
 
 // SGML Comment Syntax
 $lexer = new \Twig\Lexer($twig, [
-    'tag_comment'  =&gt; ['&lt;!--#', '--&gt;'],
-    'tag_block'    =&gt; ['&lt;!--', '--&gt;'],
-    'tag_variable' =&gt; ['${', '}'],
+    &#39;tag_comment&#39;  =&gt; [&#39;&lt;!--#&#39;, &#39;--&gt;&#39;],
+    &#39;tag_block&#39;    =&gt; [&#39;&lt;!--&#39;, &#39;--&gt;&#39;],
+    &#39;tag_variable&#39; =&gt; [&#39;${&#39;, &#39;}&#39;],
 ]);
 
 // Smarty like
 $lexer = new \Twig\Lexer($twig, [
-    'tag_comment'  =&gt; ['{*', '*}'],
-    'tag_block'    =&gt; ['{', '}'],
-    'tag_variable' =&gt; ['{$', '}'],
+    &#39;tag_comment&#39;  =&gt; [&#39;{*&#39;, &#39;*}&#39;],
+    &#39;tag_block&#39;    =&gt; [&#39;{&#39;, &#39;}&#39;],
+    &#39;tag_variable&#39; =&gt; [&#39;{$&#39;, &#39;}&#39;],
 ]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-dynamic-object-properties">
-<h2>Using dynamic Object Properties<a class="headerlink" href="#using-dynamic-object-properties" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="using-dynamic-object-properties">
+<h2>Using dynamic Object Properties<a class="headerlink" href="#using-dynamic-object-properties" title="Permalink to this heading">#</a></h2>
 <p>When Twig encounters a variable like <code class="docutils literal notranslate"><span class="pre">article.title</span></code>, it tries to find a
 <code class="docutils literal notranslate"><span class="pre">title</span></code> public property in the <code class="docutils literal notranslate"><span class="pre">article</span></code> object.</p>
 <p>It also works if the property does not exist but is rather defined dynamically
@@ -477,8 +490,8 @@ thanks to the magic <code class="docutils literal notranslate"><span class="pre"
 {
     public function __get($name)
     {
-        if ('title' == $name) {
-            return 'The title';
+        if (&#39;title&#39; == $name) {
+            return &#39;The title&#39;;
         }
 
         // throw some kind of error
@@ -486,7 +499,7 @@ thanks to the magic <code class="docutils literal notranslate"><span class="pre"
 
     public function __isset($name)
     {
-        if ('title' == $name) {
+        if (&#39;title&#39; == $name) {
             return true;
         }
 
@@ -495,27 +508,27 @@ thanks to the magic <code class="docutils literal notranslate"><span class="pre"
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="accessing-the-parent-context-in-nested-loops">
-<h2>Accessing the parent Context in Nested Loops<a class="headerlink" href="#accessing-the-parent-context-in-nested-loops" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="accessing-the-parent-context-in-nested-loops">
+<h2>Accessing the parent Context in Nested Loops<a class="headerlink" href="#accessing-the-parent-context-in-nested-loops" title="Permalink to this heading">#</a></h2>
 <p>Sometimes, when using nested loops, you need to access the parent context. The
 parent context is always accessible via the <code class="docutils literal notranslate"><span class="pre">loop.parent</span></code> variable. For
 instance, if you have the following template data:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$data = [
-    'topics' =&gt; [
-        'topic1' =&gt; ['Message 1 of topic 1', 'Message 2 of topic 1'],
-        'topic2' =&gt; ['Message 1 of topic 2', 'Message 2 of topic 2'],
+    &#39;topics&#39; =&gt; [
+        &#39;topic1&#39; =&gt; [&#39;Message 1 of topic 1&#39;, &#39;Message 2 of topic 1&#39;],
+        &#39;topic2&#39; =&gt; [&#39;Message 1 of topic 2&#39;, &#39;Message 2 of topic 2&#39;],
     ],
 ];
 </pre></div>
 </div>
 <p>And the following template to display all messages in all topics:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">topic</span><span class="o">,</span> <span class="nv">messages</span> <span class="k">in</span> <span class="nv">topics</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    * </span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="cp">}}</span><span class="x">: </span><span class="cp">{{</span> <span class="nv">topic</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">message</span> <span class="k">in</span> <span class="nv">messages</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">      - </span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.parent.loop.index</span> <span class="cp">}}</span><span class="x">.</span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="cp">}}</span><span class="x">: </span><span class="cp">{{</span> <span class="nv">message</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">topic</span><span class="o">,</span> <span class="nv">messages</span> <span class="k">in</span> <span class="nv">topics</span> <span class="cp">%}</span>
+<span class="x">    * </span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="cp">}}</span><span class="x">: </span><span class="cp">{{</span> <span class="nv">topic</span> <span class="cp">}}</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">message</span> <span class="k">in</span> <span class="nv">messages</span> <span class="cp">%}</span>
+<span class="x">      - </span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.parent.loop.index</span> <span class="cp">}}</span><span class="x">.</span><span class="cp">{{</span> <span class="nb">loop</span><span class="nv">.index</span> <span class="cp">}}</span><span class="x">: </span><span class="cp">{{</span> <span class="nv">message</span> <span class="cp">}}</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>The output will be similar to:</p>
@@ -530,9 +543,9 @@ instance, if you have the following template data:</p>
 <p>In the inner loop, the <code class="docutils literal notranslate"><span class="pre">loop.parent</span></code> variable is used to access the outer
 context. So, the index of the current <code class="docutils literal notranslate"><span class="pre">topic</span></code> defined in the outer for loop
 is accessible via the <code class="docutils literal notranslate"><span class="pre">loop.parent.loop.index</span></code> variable.</p>
-</div>
-<div class="section" id="defining-undefined-functions-filters-and-tags-on-the-fly">
-<h2>Defining undefined Functions, Filters, and Tags on the Fly<a class="headerlink" href="#defining-undefined-functions-filters-and-tags-on-the-fly" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="defining-undefined-functions-filters-and-tags-on-the-fly">
+<h2>Defining undefined Functions, Filters, and Tags on the Fly<a class="headerlink" href="#defining-undefined-functions-filters-and-tags-on-the-fly" title="Permalink to this heading">#</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">Добавлено в версии 3.2: </span>The <code class="docutils literal notranslate"><span class="pre">registerUndefinedTokenParserCallback()</span></code> method was added in Twig
 3.2.</p>
@@ -544,7 +557,7 @@ is accessible via the <code class="docutils literal notranslate"><span class="pr
 For filters, register callbacks with <code class="docutils literal notranslate"><span class="pre">registerUndefinedFilterCallback()</span></code>.
 For functions, use <code class="docutils literal notranslate"><span class="pre">registerUndefinedFunctionCallback()</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// auto-register all native PHP functions as Twig functions
-// NEVER do this in a project as it's NOT secure
+// NEVER do this in a project as it&#39;s NOT secure
 $twig-&gt;registerUndefinedFunctionCallback(function ($name) {
     if (function_exists($name)) {
         return new \Twig\TwigFunction($name, $name);
@@ -563,9 +576,9 @@ does not return <code class="docutils literal notranslate"><span class="pre">fal
 <p>As the resolution of functions/filters/tags is done during compilation,
 there is no overhead when registering these callbacks.</p>
 </div>
-</div>
-<div class="section" id="validating-the-template-syntax">
-<h2>Validating the Template Syntax<a class="headerlink" href="#validating-the-template-syntax" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="validating-the-template-syntax">
+<h2>Validating the Template Syntax<a class="headerlink" href="#validating-the-template-syntax" title="Permalink to this heading">#</a></h2>
 <p>When template code is provided by a third-party (through a web interface for
 instance), it might be interesting to validate the template syntax before
 saving it. If the template code is stored in a <code class="docutils literal notranslate"><span class="pre">$template</span></code> variable, here is
@@ -598,22 +611,22 @@ how you can do it:</p>
 is enforced during template rendering (as Twig needs the context for some
 checks like allowed methods on objects).</p>
 </div>
-</div>
-<div class="section" id="refreshing-modified-templates-when-opcache-or-apc-is-enabled">
-<h2>Refreshing modified Templates when OPcache or APC is enabled<a class="headerlink" href="#refreshing-modified-templates-when-opcache-or-apc-is-enabled" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="refreshing-modified-templates-when-opcache-or-apc-is-enabled">
+<h2>Refreshing modified Templates when OPcache or APC is enabled<a class="headerlink" href="#refreshing-modified-templates-when-opcache-or-apc-is-enabled" title="Permalink to this heading">#</a></h2>
 <p>When using OPcache with <code class="docutils literal notranslate"><span class="pre">opcache.validate_timestamps</span></code> set to <code class="docutils literal notranslate"><span class="pre">0</span></code> or APC
 with <code class="docutils literal notranslate"><span class="pre">apc.stat</span></code> set to <code class="docutils literal notranslate"><span class="pre">0</span></code> and Twig cache enabled, clearing the template
 cache won’t update the cache.</p>
 <p>To get around this, force Twig to invalidate the bytecode cache:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$twig = new \Twig\Environment($loader, [
-    'cache' =&gt; new \Twig\Cache\FilesystemCache('/some/cache/path', \Twig\Cache\FilesystemCache::FORCE_BYTECODE_INVALIDATION),
+    &#39;cache&#39; =&gt; new \Twig\Cache\FilesystemCache(&#39;/some/cache/path&#39;, \Twig\Cache\FilesystemCache::FORCE_BYTECODE_INVALIDATION),
     // ...
 ]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="reusing-a-stateful-node-visitor">
-<h2>Reusing a stateful Node Visitor<a class="headerlink" href="#reusing-a-stateful-node-visitor" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="reusing-a-stateful-node-visitor">
+<h2>Reusing a stateful Node Visitor<a class="headerlink" href="#reusing-a-stateful-node-visitor" title="Permalink to this heading">#</a></h2>
 <p>When attaching a visitor to a <code class="docutils literal notranslate"><span class="pre">\Twig\Environment</span></code> instance, Twig uses it to
 visit <em>all</em> templates it compiles. If you need to keep some state information
 around, you probably want to reset it when visiting a new template.</p>
@@ -633,23 +646,23 @@ public function enterNode(\Twig\Node\Node $node, \Twig\Environment $env)
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-a-database-to-store-templates">
-<h2>Using a Database to store Templates<a class="headerlink" href="#using-a-database-to-store-templates" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="using-a-database-to-store-templates">
+<h2>Using a Database to store Templates<a class="headerlink" href="#using-a-database-to-store-templates" title="Permalink to this heading">#</a></h2>
 <p>If you are developing a CMS, templates are usually stored in a database. This
 recipe gives you a simple PDO template loader you can use as a starting point
 for your own.</p>
 <p>First, let’s create a temporary in-memory SQLite3 database to work with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$dbh = new PDO('sqlite::memory:');
-$dbh-&gt;exec('CREATE TABLE templates (name STRING, source STRING, last_modified INTEGER)');
-$base = '{% block content %}{% endblock %}';
-$index = '
-{% extends "base.twig" %}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$dbh = new PDO(&#39;sqlite::memory:&#39;);
+$dbh-&gt;exec(&#39;CREATE TABLE templates (name STRING, source STRING, last_modified INTEGER)&#39;);
+$base = &#39;{% block content %}{% endblock %}&#39;;
+$index = &#39;
+{% extends &quot;base.twig&quot; %}
 {% block content %}Hello {{ name }}{% endblock %}
-';
+&#39;;
 $now = time();
-$dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?, ?, ?)')-&gt;execute(['base.twig', $base, $now]);
-$dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?, ?, ?)')-&gt;execute(['index.twig', $index, $now]);
+$dbh-&gt;prepare(&#39;INSERT INTO templates (name, source, last_modified) VALUES (?, ?, ?)&#39;)-&gt;execute([&#39;base.twig&#39;, $base, $now]);
+$dbh-&gt;prepare(&#39;INSERT INTO templates (name, source, last_modified) VALUES (?, ?, ?)&#39;)-&gt;execute([&#39;index.twig&#39;, $index, $now]);
 </pre></div>
 </div>
 <p>We have created a simple <code class="docutils literal notranslate"><span class="pre">templates</span></code> table that hosts two templates:
@@ -666,8 +679,8 @@ $dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?,
 
     public function getSourceContext(string $name): Source
     {
-        if (false === $source = $this-&gt;getValue('source', $name)) {
-            throw new \Twig\Error\LoaderError(sprintf('Template "%s" does not exist.', $name));
+        if (false === $source = $this-&gt;getValue(&#39;source&#39;, $name)) {
+            throw new \Twig\Error\LoaderError(sprintf(&#39;Template &quot;%s&quot; does not exist.&#39;, $name));
         }
 
         return new \Twig\Source($source, $name);
@@ -675,7 +688,7 @@ $dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?,
 
     public function exists(string $name)
     {
-        return $name === $this-&gt;getValue('name', $name);
+        return $name === $this-&gt;getValue(&#39;name&#39;, $name);
     }
 
     public function getCacheKey(string $name): string
@@ -685,7 +698,7 @@ $dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?,
 
     public function isFresh(string $name, int $time): bool
     {
-        if (false === $lastModified = $this-&gt;getValue('last_modified', $name)) {
+        if (false === $lastModified = $this-&gt;getValue(&#39;last_modified&#39;, $name)) {
             return false;
         }
 
@@ -694,8 +707,8 @@ $dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?,
 
     protected function getValue($column, $name)
     {
-        $sth = $this-&gt;dbh-&gt;prepare('SELECT '.$column.' FROM templates WHERE name = :name');
-        $sth-&gt;execute([':name' =&gt; (string) $name]);
+        $sth = $this-&gt;dbh-&gt;prepare(&#39;SELECT &#39;.$column.&#39; FROM templates WHERE name = :name&#39;);
+        $sth-&gt;execute([&#39;:name&#39; =&gt; (string) $name]);
 
         return $sth-&gt;fetchColumn();
     }
@@ -706,12 +719,12 @@ $dbh-&gt;prepare('INSERT INTO templates (name, source, last_modified) VALUES (?,
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader = new DatabaseTwigLoader($dbh);
 $twig = new \Twig\Environment($loader);
 
-echo $twig-&gt;render('index.twig', ['name' =&gt; 'Fabien']);
+echo $twig-&gt;render(&#39;index.twig&#39;, [&#39;name&#39; =&gt; &#39;Fabien&#39;]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-different-template-sources">
-<h2>Using different Template Sources<a class="headerlink" href="#using-different-template-sources" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="using-different-template-sources">
+<h2>Using different Template Sources<a class="headerlink" href="#using-different-template-sources" title="Permalink to this heading">#</a></h2>
 <p>This recipe is the continuation of the previous one. Even if you store the
 contributed templates in a database, you might want to keep the original/base
 templates on the filesystem. When templates can be loaded from different
@@ -723,35 +736,35 @@ filesystem, or any other loader for that matter: the template name should be a
 logical name, and not the path from the filesystem:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$loader1 = new DatabaseTwigLoader($dbh);
 $loader2 = new \Twig\Loader\ArrayLoader([
-    'base.twig' =&gt; '{% block content %}{% endblock %}',
+    &#39;base.twig&#39; =&gt; &#39;{% block content %}{% endblock %}&#39;,
 ]);
 $loader = new \Twig\Loader\ChainLoader([$loader1, $loader2]);
 
 $twig = new \Twig\Environment($loader);
 
-echo $twig-&gt;render('index.twig', ['name' =&gt; 'Fabien']);
+echo $twig-&gt;render(&#39;index.twig&#39;, [&#39;name&#39; =&gt; &#39;Fabien&#39;]);
 </pre></div>
 </div>
 <p>Now that the <code class="docutils literal notranslate"><span class="pre">base.twig</span></code> templates is defined in an array loader, you can
 remove it from the database, and everything else will still work as before.</p>
-</div>
-<div class="section" id="loading-a-template-from-a-string">
-<h2>Loading a Template from a String<a class="headerlink" href="#loading-a-template-from-a-string" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="loading-a-template-from-a-string">
+<h2>Loading a Template from a String<a class="headerlink" href="#loading-a-template-from-a-string" title="Permalink to this heading">#</a></h2>
 <p>From a template, you can load a template stored in a string via the
 <code class="docutils literal notranslate"><span class="pre">template_from_string</span></code> function (via the
 <code class="docutils literal notranslate"><span class="pre">\Twig\Extension\StringLoaderExtension</span></code> extension):</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="nv">template_from_string</span><span class="o">(</span><span class="s2">"Hello {{ name }}"</span><span class="o">))</span> <span class="cp">}}</span><span class="x"></span>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">include</span><span class="o">(</span><span class="nv">template_from_string</span><span class="o">(</span><span class="s2">&quot;Hello {{ name }}&quot;</span><span class="o">))</span> <span class="cp">}}</span>
 </pre></div>
 </div>
 <p>From PHP, it’s also possible to load a template stored in a string via
 <code class="docutils literal notranslate"><span class="pre">\Twig\Environment::createTemplate()</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template = $twig-&gt;createTemplate('hello {{ name }}');
-echo $template-&gt;render(['name' =&gt; 'Fabien']);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$template = $twig-&gt;createTemplate(&#39;hello {{ name }}&#39;);
+echo $template-&gt;render([&#39;name&#39; =&gt; &#39;Fabien&#39;]);
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-twig-and-angularjs-in-the-same-templates">
-<h2>Using Twig and AngularJS in the same Templates<a class="headerlink" href="#using-twig-and-angularjs-in-the-same-templates" title="Ссылка на этот заголовок">#</a></h2>
+</section>
+<section id="using-twig-and-angularjs-in-the-same-templates">
+<h2>Using Twig and AngularJS in the same Templates<a class="headerlink" href="#using-twig-and-angularjs-in-the-same-templates" title="Permalink to this heading">#</a></h2>
 <p>Mixing different template syntaxes in the same file is not a recommended
 practice as both AngularJS and Twig use the same delimiters in their syntax:
 <code class="docutils literal notranslate"><span class="pre">{{</span></code> and <code class="docutils literal notranslate"><span class="pre">}}</span></code>.</p>
@@ -768,15 +781,15 @@ engine you introduced last):</p>
 <li><p>For AngularJS, change the interpolation tags using the
 <code class="docutils literal notranslate"><span class="pre">interpolateProvider</span></code> service, for instance at the module initialization
 time:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'myApp'</span><span class="p">,</span> <span class="p">[]).</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$interpolateProvider</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$interpolateProvider</span><span class="p">.</span><span class="nx">startSymbol</span><span class="p">(</span><span class="s1">'{['</span><span class="p">).</span><span class="nx">endSymbol</span><span class="p">(</span><span class="s1">']}'</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[]).</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$interpolateProvider</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">$interpolateProvider</span><span class="p">.</span><span class="nx">startSymbol</span><span class="p">(</span><span class="s1">&#39;{[&#39;</span><span class="p">).</span><span class="nx">endSymbol</span><span class="p">(</span><span class="s1">&#39;]}&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 </li>
 <li><p>For Twig, change the delimiters via the <code class="docutils literal notranslate"><span class="pre">tag_variable</span></code> Lexer option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$env-&gt;setLexer(new \Twig\Lexer($env, [
-    'tag_variable' =&gt; ['{[', ']}'],
+    &#39;tag_variable&#39; =&gt; [&#39;{[&#39;, &#39;]}&#39;],
 ]));
 </pre></div>
 </div>
@@ -784,8 +797,8 @@ time:</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -799,10 +812,10 @@ time:</p>
                 </div>
                 <div class="title">Стандарты кодирования</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="deprecated.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -823,9 +836,7 @@ time:</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -837,7 +848,7 @@ time:</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Содержание
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -870,11 +881,10 @@ time:</p>
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/translations.js"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7e7bbc52"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
     </body>
 </html>

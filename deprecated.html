@@ -2,13 +2,14 @@
 <html class="no-js" lang="ru">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Примеры" href="recipes.html" /><link rel="prev" title="Twig изнутри" href="internals.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Алфавитный указатель" href="genindex.html" /><link rel="search" title="Поиск" href="search.html" /><link rel="next" title="Примеры" href="recipes.html" /><link rel="prev" title="Twig изнутри" href="internals.html" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Deprecated Features - документация Twig 3.0</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -19,24 +20,28 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -144,7 +149,7 @@
   <span class="sidebar-brand-text">документация Twig 3.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Поиск name="q" aria-label="Поиск">
+  <input class="sidebar-search" placeholder="Поиск" name="q" aria-label="Поиск">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -159,7 +164,7 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Deprecated Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="recipes.html">Примеры</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Стандарты кодирования</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tags/index.html">Tags</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Tags</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tags/apply.html"><code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/autoescape.html"><code class="docutils literal notranslate"><span class="pre">autoescape</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tags/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
@@ -182,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tags/with.html"><code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="filters/index.html">Filters</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Filters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="filters/abs.html"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/batch.html"><code class="docutils literal notranslate"><span class="pre">batch</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="filters/capitalize.html"><code class="docutils literal notranslate"><span class="pre">capitalize</span></code></a></li>
@@ -239,7 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="filters/url_encode.html"><code class="docutils literal notranslate"><span class="pre">url_encode</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="functions/index.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Functions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="functions/attribute.html"><code class="docutils literal notranslate"><span class="pre">attribute</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/block.html"><code class="docutils literal notranslate"><span class="pre">block</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
@@ -258,7 +263,7 @@
 <li class="toctree-l2"><a class="reference internal" href="functions/template_from_string.html"><code class="docutils literal notranslate"><span class="pre">template_from_string</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tests/index.html">Tests</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Tests</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="tests/constant.html"><code class="docutils literal notranslate"><span class="pre">constant</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/defined.html"><code class="docutils literal notranslate"><span class="pre">defined</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests/divisibleby.html"><code class="docutils literal notranslate"><span class="pre">divisible</span> <span class="pre">by</span></code></a></li>
@@ -282,7 +287,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -296,12 +309,12 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="deprecated-features">
-<h1>Deprecated Features<a class="headerlink" href="#deprecated-features" title="Ссылка на этот заголовок">#</a></h1>
+          <section id="deprecated-features">
+<h1>Deprecated Features<a class="headerlink" href="#deprecated-features" title="Permalink to this heading">#</a></h1>
 <p>This document lists deprecated features in Twig 3.x. Deprecated features are
 kept for backward compatibility and removed in the next major release (a
 feature that was deprecated in Twig 3.x is removed in Twig 4.0).</p>
-</div>
+</section>
 
         </article>
       </div>
@@ -315,10 +328,10 @@ feature that was deprecated in Twig 3.x is removed in Twig 4.0).</p>
                 </div>
                 <div class="title">Примеры</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="internals.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -339,9 +352,7 @@ feature that was deprecated in Twig 3.x is removed in Twig 4.0).</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -353,11 +364,10 @@ feature that was deprecated in Twig 3.x is removed in Twig 4.0).</p>
       
     </aside>
   </div>
-</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/scripts/furo.js"></script>
-    <script src="_static/translations.js"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=7e7bbc52"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
     </body>
 </html>
